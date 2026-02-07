@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar start="SENTENCE">
+    <!-- Top-level -->
+    <rule number="1">
+        <lhs>SENTENCE</lhs>
+        <rhs>S</rhs>
+    </rule>
+
+    <!-- Copular: NP + copula + adjective (el perro es grande) -->
+    <rule number="2">
+        <lhs>S</lhs>
+        <rhs>NP</rhs>
+        <rhs>V_COP</rhs>
+        <rhs>A</rhs>
+    </rule>
+
+    <!-- Intransitive: NP + verb (el perro corre) -->
+    <rule number="3">
+        <lhs>S</lhs>
+        <rhs>NP</rhs>
+        <rhs>VP</rhs>
+    </rule>
+
+    <!-- Existential: existential verb + NP (hay un perro) -->
+    <rule number="4">
+        <lhs>S</lhs>
+        <rhs>V_EX</rhs>
+        <rhs>NP</rhs>
+    </rule>
+
+    <!-- Transitive: NP + verb + NP (el hombre come la manzana) -->
+    <rule number="5">
+        <lhs>S</lhs>
+        <rhs>NP</rhs>
+        <rhs>VP</rhs>
+        <rhs>NP</rhs>
+    </rule>
+
+    <!-- Copular with adverb: NP + copula + ADV + adjective (el perro es muy grande) -->
+    <rule number="6">
+        <lhs>S</lhs>
+        <rhs>NP</rhs>
+        <rhs>V_COP</rhs>
+        <rhs>ADV</rhs>
+        <rhs>A</rhs>
+    </rule>
+
+    <!-- Negated copular: NP + NEG + copula + adjective (el perro no es grande) -->
+    <rule number="7">
+        <lhs>S</lhs>
+        <rhs>NP</rhs>
+        <rhs>NEG</rhs>
+        <rhs>V_COP</rhs>
+        <rhs>A</rhs>
+    </rule>
+
+    <!-- NP: determiner + noun (el perro) -->
+    <rule number="10">
+        <lhs>NP</lhs>
+        <rhs>DET</rhs>
+        <rhs>N</rhs>
+    </rule>
+
+    <!-- NP: determiner + noun + adjective (el perro grande) -->
+    <rule number="11">
+        <lhs>NP</lhs>
+        <rhs>DET</rhs>
+        <rhs>N</rhs>
+        <rhs>A</rhs>
+    </rule>
+
+    <!-- NP: determiner + adjective + noun (el gran perro) -->
+    <rule number="12">
+        <lhs>NP</lhs>
+        <rhs>DET</rhs>
+        <rhs>A</rhs>
+        <rhs>N</rhs>
+    </rule>
+
+    <!-- VP: single verb (corre) -->
+    <rule number="20">
+        <lhs>VP</lhs>
+        <rhs>V</rhs>
+    </rule>
+
+    <!-- VP: negated verb (no corre) -->
+    <rule number="21">
+        <lhs>VP</lhs>
+        <rhs>NEG</rhs>
+        <rhs>V</rhs>
+    </rule>
+</grammar>

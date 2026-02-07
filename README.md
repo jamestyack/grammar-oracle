@@ -3,7 +3,7 @@
 **A Neuro-Symbolic System for Validating LLM Output Against Formal Grammars**
 
 [![License: All Rights Reserved](https://img.shields.io/badge/License-All%20Rights%20Reserved-red.svg)](LICENSE)
-[![Java](https://img.shields.io/badge/Java-17-orange.svg)](https://openjdk.org/)
+[![Java](https://img.shields.io/badge/Java-21-orange.svg)](https://openjdk.org/)
 [![Python](https://img.shields.io/badge/Python-3.11-blue.svg)](https://www.python.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
 
@@ -128,9 +128,9 @@ Acceptance criteria (enforced by CI):
 
 ## Quick Start
 
-### Prerequisites
+-### Prerequisites
 
-- **Java 17** - For CFG parser
+- **Java 21** - For CFG parser
 - **Python 3.11+** - For backend
 - **Node 20+** - For frontend
 - **Docker** (optional) - For containerized deployment

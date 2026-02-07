@@ -1,0 +1,349 @@
+# Grammar Oracle Architecture
+
+**System**: Neuro-Symbolic Grammar Validation
+**Version**: Phase 1
+
+---
+
+## System Overview
+
+Grammar Oracle validates sentences against formal Context-Free Grammars (CFGs) and returns structured parse results. The system uses a 2004-era symbolic parser (modernized) as the validation engine, wrapped by a Python API layer.
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    Grammar Oracle System                    │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  ┌──────────────┐      ┌──────────────┐     ┌───────────┐ │
+│  │   Frontend   │ ←──→ │   Backend    │ ←──→│   Parser  │ │
+│  │   Next.js    │      │   FastAPI    │     │   Java    │ │
+│  │  (Port 3000) │      │  (Port 8000) │     │    JAR    │ │
+│  └──────────────┘      └──────────────┘     └───────────┘ │
+│                                                             │
+│  User Interface     Orchestration Layer    CFG Validator   │
+│  - Token spans      - Validation API       - Parsing       │
+│  - Parse trees      - Subprocess mgmt      - Rule trace    │
+│  - Retry timeline   - Verifier loop        - Diagnostics   │
+│  (Phase 2)          (Phase 1 ✅)           (Phase 1 ✅)    │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## Component Architecture
+
+### 1. CFG Parser (Java)
+
+**Location**: `src/`
+**Entry point**: `com.grammaroracle.parser.ParserMain`
+**Artifact**: `grammar-oracle-parser.jar`
+
+The parser is a **top-down recursive descent parser with backtracking**, based on the [cornish-parser](https://github.com/jamestyack/cornish-parser) (2003–2004). It reads CFG rules and a lexicon from XML, then exhaustively searches for all valid parse trees.
+
+#### Class Diagram
+
+```
+ParserMain (CLI)
+  │
+  ├── Parser (core algorithm)
+  │     ├── ProductionRules (loads grammar.xml)
+  │     │     └── Rule (LHS → RHS₁ RHS₂ ... RHSₙ)
+  │     ├── Lexicon (loads lexicon.xml)
+  │     │     └── LexiconEntry (word, POS tags, translation)
+  │     ├── Sentence (tokenization)
+  │     └── ParseMemory (backtracking state, Cloneable)
+  │
+  ├── JsonSerializer (parse result → JSON)
+  │
+  ├── BadSentenceException (failure diagnostics)
+  │
+  └── Language (enum: SPANISH, CORNISH)
+```
+
+#### Parse Algorithm
+
+```
+Input: "el perro es grande"
+
+1. Tokenize → ["el", "perro", "es", "grande"]
+2. Check all words exist in lexicon
+3. Initialize ParseMemory with starting symbol [SENTENCE]
+4. Process queue:
+   a. Pop symbol from stack
+   b. If non-terminal → find matching rules, clone memory for each, push RHS
+   c. If terminal (POS tag) → match against next word's lexicon tags
+   d. If stack empty AND all words consumed → successful parse
+5. Collect all successful parses (max 10)
+6. If none found → throw BadSentenceException with diagnostics
+```
+
+Key characteristics:
+- **Deterministic**: No probabilistic components
+- **Exhaustive**: Finds all valid parses (detects ambiguity)
+- **Explainable**: Every rule application is recorded in ParseMemory
+
+#### Failure Diagnostics
+
+When parsing fails, the parser tracks the **furthest position reached** across all attempted parse paths and reports which POS categories were expected at that position. This provides actionable feedback for the verifier loop.
+
+```json
+{
+  "index": 0,
+  "token": "grande",
+  "expectedCategories": ["DET", "V_EX"],
+  "message": "Expected DET or V_EX at position 0, found 'grande'"
+}
+```
+
+### 2. FastAPI Backend (Python)
+
+**Location**: `backend/`
+**Entry point**: `app.main:app`
+**Port**: 8000
+
+The backend orchestrates calls to the Java parser via subprocess and exposes a REST API.
+
+#### Module Structure
+
+```
+backend/
+├── app/
+│   ├── __init__.py
+│   ├── main.py           # FastAPI app, routes, CORS
+│   ├── models.py          # Pydantic models (request/response)
+│   └── parser_client.py   # Java subprocess wrapper
+├── requirements.txt
+└── Dockerfile
+```
+
+#### API Endpoints
+
+| Method | Path        | Description                    |
+|--------|-------------|--------------------------------|
+| GET    | `/health`   | Service health check           |
+| POST   | `/validate` | Validate sentence against CFG  |
+
+#### Parser Integration
+
+The backend calls the Java JAR as a subprocess:
+
+```
+FastAPI request
+  → parse_sentence()
+    → _find_java()           # Locate Java runtime
+    → subprocess.run()       # java -jar parser.jar --json --sentence "..."
+    → json.loads(stdout)     # Parse JSON output
+    → ParseResult model      # Pydantic validation
+  → JSON response
+```
+
+Subprocess overhead is ~50ms, acceptable for research/demo use.
+
+### 3. Frontend (Next.js) — Phase 2
+
+**Location**: `frontend/`
+**Port**: 3000
+
+Planned for Phase 2. Will provide interactive visualization of parse trees, token spans, rule traces, and failure diagnostics.
+
+---
+
+## Data Contract
+
+### JSON Output Format
+
+**Valid parse**:
+```json
+{
+  "valid": true,
+  "sentence": "el perro es grande",
+  "tokens": [
+    {"word": "el", "tag": "DET", "translation": "the (m.sg)"},
+    {"word": "perro", "tag": "N", "translation": "dog"},
+    {"word": "es", "tag": "V_COP", "translation": "is"},
+    {"word": "grande", "tag": "A", "translation": "big"}
+  ],
+  "parseTree": {
+    "symbol": "SENTENCE",
+    "children": [{
+      "symbol": "S",
+      "children": [
+        {"symbol": "NP", "children": [
+          {"symbol": "DET", "word": true},
+          {"symbol": "N", "word": true}
+        ]},
+        {"symbol": "V_COP", "word": true},
+        {"symbol": "A", "word": true}
+      ]
+    }]
+  },
+  "rulesApplied": [
+    {"number": 1, "rule": "SENTENCE -> S"},
+    {"number": 2, "rule": "S -> NP V_COP A"},
+    {"number": 10, "rule": "NP -> DET N"}
+  ],
+  "parses": 1,
+  "ambiguous": false
+}
+```
+
+**Invalid parse**:
+```json
+{
+  "valid": false,
+  "sentence": "grande perro",
+  "tokens": [
+    {"word": "grande", "tag": "A", "translation": "big"},
+    {"word": "perro", "tag": "N", "translation": "dog"}
+  ],
+  "failure": {
+    "index": 0,
+    "token": "grande",
+    "expectedCategories": ["DET", "V_EX"],
+    "message": "Expected DET or V_EX at position 0, found 'grande'"
+  }
+}
+```
+
+---
+
+## Grammar Pack Format
+
+Grammars are defined using two XML files per language:
+
+### grammar.xml
+
+```xml
+<grammar start="SENTENCE">
+  <rule number="1">
+    <lhs>SENTENCE</lhs>
+    <rhs>S</rhs>
+  </rule>
+  <rule number="2">
+    <lhs>S</lhs>
+    <rhs>NP</rhs>
+    <rhs>V_COP</rhs>
+    <rhs>A</rhs>
+  </rule>
+</grammar>
+```
+
+- `start` attribute defines the root symbol
+- Each `<rule>` has a unique number, one `<lhs>`, and one or more `<rhs>` elements
+- Non-terminals are phrase types (SENTENCE, S, NP, VP)
+- Terminals are POS tags (DET, N, V, A, etc.)
+
+### lexicon.xml
+
+```xml
+<lexicon>
+  <entry>
+    <kw>perro</kw>
+    <posTag>N</posTag>
+    <en>dog</en>
+  </entry>
+</lexicon>
+```
+
+- `<kw>` — word in the target language
+- `<posTag>` — part-of-speech tag (can have multiple per word)
+- `<en>` — English translation
+
+### Current POS Tag Set
+
+| Tag    | Category            | Examples              |
+|--------|---------------------|-----------------------|
+| DET    | Determiner          | el, la, un, una       |
+| N      | Noun                | perro, casa, hombre   |
+| A      | Adjective           | grande, bueno, rojo   |
+| V      | Verb                | corre, come, tiene    |
+| V_COP  | Copular verb        | es, está, son         |
+| V_EX   | Existential verb    | hay                   |
+| ADV    | Adverb              | muy                   |
+| NEG    | Negation            | no                    |
+| PREP   | Preposition         | (planned)             |
+| CONJ   | Conjunction         | (planned)             |
+| PRON   | Pronoun             | (planned)             |
+
+---
+
+## Deployment Architecture
+
+### Docker Compose
+
+```yaml
+services:
+  parser:    # Builds JAR (maven + JDK 21)
+  backend:   # FastAPI + JRE 21 (port 8000)
+```
+
+The parser service builds the JAR artifact during `docker-compose up --build`. The backend service includes an embedded JRE for running the parser subprocess.
+
+### Local Development
+
+```
+Terminal 1: cd src && mvn clean package
+Terminal 2: cd backend && uvicorn app.main:app --reload
+```
+
+Requires Java 21+ and Python 3.9+ installed locally.
+
+---
+
+## Design Decisions
+
+### 1. Subprocess over JNI/gRPC
+
+The Java parser runs as a subprocess rather than via JNI, Py4J, or gRPC.
+
+**Rationale**:
+- Preserves historical authenticity (2004 code remains a standalone artifact)
+- Language isolation (Python orchestration, Java validation)
+- Easy to containerize and debug independently
+- ~50ms overhead is acceptable for research/demo
+- Fits the "2004 engine correcting 2026 LLM" narrative
+
+### 2. XML Grammar Format
+
+Using XML rather than BNF text files or JSON for grammar definitions.
+
+**Rationale**:
+- Matches the original cornish-parser format (historical continuity)
+- Well-supported by JDOM2 library
+- Structured format prevents parsing ambiguity in rule definitions
+- Easy to validate with XML schema if needed
+
+### 3. Exhaustive Parse Search
+
+The parser finds all valid parse trees rather than stopping at the first.
+
+**Rationale**:
+- Detects ambiguity (multiple valid parses = ambiguous sentence)
+- Research value: understanding why a sentence has multiple interpretations
+- Bounded by MAX_PARSES (10) to prevent runaway computation
+
+### 4. Failure Diagnostics via Furthest Position
+
+Parse failures report the deepest point reached across all attempted paths.
+
+**Rationale**:
+- More informative than "parse failed" — shows where and why
+- Enables the verifier loop (Phase 3) to provide structured constraints to LLMs
+- The expected categories at the failure point directly map to corrective guidance
+
+---
+
+## Technology Stack
+
+| Component | Technology     | Version | Purpose                    |
+|-----------|----------------|---------|----------------------------|
+| Parser    | Java           | 21      | CFG validation engine      |
+| XML       | JDOM2          | 2.0.6.1 | Grammar/lexicon loading    |
+| JSON      | org.json       | 20240303| Parse result serialization |
+| Build     | Maven          | 3.9+    | Java build and packaging   |
+| Backend   | FastAPI        | 0.115   | REST API                   |
+| Models    | Pydantic       | 2.10    | Request/response schemas   |
+| Server    | Uvicorn        | 0.34    | ASGI server                |
+| Container | Docker Compose | 3       | Multi-service deployment   |
+| Testing   | JUnit 5        | 5.11    | Java unit tests            |
