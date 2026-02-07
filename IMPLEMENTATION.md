@@ -159,7 +159,7 @@ parse_result = json.loads(result.stdout)
 ### 3. Deployment: Multi-Container Docker Compose
 
 **Services**:
-1. **parser**: Java 17 Alpine + JAR (no network exposure, called by backend)
+1. **parser**: Java 21 Alpine + JAR (no network exposure, called by backend)
 2. **backend**: FastAPI Python 3.11 (port 8000, orchestrates LLM + parser)
 3. **frontend**: Next.js Node 20 (port 3000, interactive UI)
 

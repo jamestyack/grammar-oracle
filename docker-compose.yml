@@ -1,0 +1,24 @@
+services:
+  parser:
+    build:
+      context: ./src
+      dockerfile: Dockerfile
+    volumes:
+      - parser-jar:/app/target
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - parser-jar:/app/parser
+    depends_on:
+      parser:
+        condition: service_completed_successfully
+    environment:
+      - PARSER_JAR_PATH=/app/parser/grammar-oracle-parser.jar
+
+volumes:
+  parser-jar:

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lexicon>
+    <!-- Determiners -->
+    <entry>
+        <kw>el</kw>
+        <posTag>DET</posTag>
+        <en>the (m.sg)</en>
+    </entry>
+    <entry>
+        <kw>la</kw>
+        <posTag>DET</posTag>
+        <en>the (f.sg)</en>
+    </entry>
+    <entry>
+        <kw>los</kw>
+        <posTag>DET</posTag>
+        <en>the (m.pl)</en>
+    </entry>
+    <entry>
+        <kw>las</kw>
+        <posTag>DET</posTag>
+        <en>the (f.pl)</en>
+    </entry>
+    <entry>
+        <kw>un</kw>
+        <posTag>DET</posTag>
+        <en>a (m.sg)</en>
+    </entry>
+    <entry>
+        <kw>una</kw>
+        <posTag>DET</posTag>
+        <en>a (f.sg)</en>
+    </entry>
+
+    <!-- Nouns -->
+    <entry>
+        <kw>perro</kw>
+        <posTag>N</posTag>
+        <en>dog</en>
+    </entry>
+    <entry>
+        <kw>gato</kw>
+        <posTag>N</posTag>
+        <en>cat</en>
+    </entry>
+    <entry>
+        <kw>casa</kw>
+        <posTag>N</posTag>
+        <en>house</en>
+    </entry>
+    <entry>
+        <kw>libro</kw>
+        <posTag>N</posTag>
+        <en>book</en>
+    </entry>
+    <entry>
+        <kw>hombre</kw>
+        <posTag>N</posTag>
+        <en>man</en>
+    </entry>
+    <entry>
+        <kw>mujer</kw>
+        <posTag>N</posTag>
+        <en>woman</en>
+    </entry>
+    <entry>
+        <kw>niño</kw>
+        <posTag>N</posTag>
+        <en>boy/child</en>
+    </entry>
+    <entry>
+        <kw>niña</kw>
+        <posTag>N</posTag>
+        <en>girl</en>
+    </entry>
+    <entry>
+        <kw>manzana</kw>
+        <posTag>N</posTag>
+        <en>apple</en>
+    </entry>
+    <entry>
+        <kw>agua</kw>
+        <posTag>N</posTag>
+        <en>water</en>
+    </entry>
+
+    <!-- Adjectives -->
+    <entry>
+        <kw>grande</kw>
+        <posTag>A</posTag>
+        <en>big</en>
+    </entry>
+    <entry>
+        <kw>pequeño</kw>
+        <posTag>A</posTag>
+        <en>small (m)</en>
+    </entry>
+    <entry>
+        <kw>pequeña</kw>
+        <posTag>A</posTag>
+        <en>small (f)</en>
+    </entry>
+    <entry>
+        <kw>bueno</kw>
+        <posTag>A</posTag>
+        <en>good (m)</en>
+    </entry>
+    <entry>
+        <kw>buena</kw>
+        <posTag>A</posTag>
+        <en>good (f)</en>
+    </entry>
+    <entry>
+        <kw>malo</kw>
+        <posTag>A</posTag>
+        <en>bad (m)</en>
+    </entry>
+    <entry>
+        <kw>mala</kw>
+        <posTag>A</posTag>
+        <en>bad (f)</en>
+    </entry>
+    <entry>
+        <kw>rojo</kw>
+        <posTag>A</posTag>
+        <en>red (m)</en>
+    </entry>
+    <entry>
+        <kw>roja</kw>
+        <posTag>A</posTag>
+        <en>red (f)</en>
+    </entry>
+    <entry>
+        <kw>blanco</kw>
+        <posTag>A</posTag>
+        <en>white (m)</en>
+    </entry>
+    <entry>
+        <kw>blanca</kw>
+        <posTag>A</posTag>
+        <en>white (f)</en>
+    </entry>
+    <entry>
+        <kw>bonito</kw>
+        <posTag>A</posTag>
+        <en>pretty (m)</en>
+    </entry>
+    <entry>
+        <kw>bonita</kw>
+        <posTag>A</posTag>
+        <en>pretty (f)</en>
+    </entry>
+    <entry>
+        <kw>gran</kw>
+        <posTag>A</posTag>
+        <en>great</en>
+    </entry>
+
+    <!-- Copular verbs -->
+    <entry>
+        <kw>es</kw>
+        <posTag>V_COP</posTag>
+        <en>is</en>
+    </entry>
+    <entry>
+        <kw>está</kw>
+        <posTag>V_COP</posTag>
+        <en>is (state)</en>
+    </entry>
+    <entry>
+        <kw>son</kw>
+        <posTag>V_COP</posTag>
+        <en>are</en>
+    </entry>
+    <entry>
+        <kw>están</kw>
+        <posTag>V_COP</posTag>
+        <en>are (state)</en>
+    </entry>
+
+    <!-- Existential verbs -->
+    <entry>
+        <kw>hay</kw>
+        <posTag>V_EX</posTag>
+        <en>there is/are</en>
+    </entry>
+
+    <!-- Regular verbs -->
+    <entry>
+        <kw>corre</kw>
+        <posTag>V</posTag>
+        <en>runs</en>
+    </entry>
+    <entry>
+        <kw>come</kw>
+        <posTag>V</posTag>
+        <en>eats</en>
+    </entry>
+    <entry>
+        <kw>tiene</kw>
+        <posTag>V</posTag>
+        <en>has</en>
+    </entry>
+    <entry>
+        <kw>lee</kw>
+        <posTag>V</posTag>
+        <en>reads</en>
+    </entry>
+    <entry>
+        <kw>bebe</kw>
+        <posTag>V</posTag>
+        <en>drinks</en>
+    </entry>
+    <entry>
+        <kw>ve</kw>
+        <posTag>V</posTag>
+        <en>sees</en>
+    </entry>
+
+    <!-- Adverbs -->
+    <entry>
+        <kw>muy</kw>
+        <posTag>ADV</posTag>
+        <en>very</en>
+    </entry>
+
+    <!-- Negation -->
+    <entry>
+        <kw>no</kw>
+        <posTag>NEG</posTag>
+        <en>not</en>
+    </entry>
+</lexicon>
