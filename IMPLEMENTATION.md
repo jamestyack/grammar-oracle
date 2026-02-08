@@ -1,6 +1,6 @@
 # Grammar Oracle Implementation Plan
 
-**Status**: Phase 1 in progress
+**Status**: Phase 2 in progress
 **Timeline**: 8 weeks to research-ready system
 
 ---
@@ -13,7 +13,7 @@ This document provides the detailed implementation plan for Grammar Oracle. For 
 
 ## Implementation Phases
 
-### Phase 1: JSON Output + Basic API (Weeks 1-2) 🔄 IN PROGRESS
+### Phase 1: JSON Output + Basic API (Weeks 1-2) ✅ COMPLETE
 
 **Goal**: Parser outputs JSON, FastAPI validates sentences
 
@@ -38,7 +38,7 @@ Returns structured JSON with parse tree or failure diagnostics.
 
 ---
 
-### Phase 2: Frontend Visualization (Weeks 3-4) 📋 PLANNED
+### Phase 2: Frontend Visualization (Weeks 3-4) 🔄 IN PROGRESS
 
 **Goal**: Interactive X-ray view (token spans, parse trees, rule traces, failures)
 

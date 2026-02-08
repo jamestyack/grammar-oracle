@@ -20,5 +20,16 @@ services:
     environment:
       - PARSER_JAR_PATH=/app/parser/grammar-oracle-parser.jar
 
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://backend:8000
+    depends_on:
+      - backend
+
 volumes:
   parser-jar:
