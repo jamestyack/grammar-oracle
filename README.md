@@ -212,12 +212,11 @@ curl -X POST http://localhost:8000/verify-loop \
 
 ## Project Status
 
-**Current Phase**: Phase 1 - JSON Output + Basic API
+**Current Phase**: Phase 3 - LLM Integration + Verifier Loop
 
-- ✅ Repository structure created
-- ✅ Documentation in place
-- 🔄 **In Progress**: JSON serialization in Java parser
-- 📋 **Next**: FastAPI validation endpoint
+- ✅ **Phase 1**: Java CFG parser with JSON output + FastAPI backend (19 rules, 144 lexicon entries)
+- ✅ **Phase 2**: Next.js frontend with interactive visualization (token spans, parse trees, rule traces, failure diagnostics)
+- 📋 **Next**: LLM verifier loop — generate → validate → constraint feedback → retry
 
 See [IMPLEMENTATION.md](IMPLEMENTATION.md) for detailed roadmap.
 

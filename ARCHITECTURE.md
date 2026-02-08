@@ -24,7 +24,7 @@ Grammar Oracle validates sentences against formal Context-Free Grammars (CFGs) a
 │  - Token spans      - Validation API       - Parsing       │
 │  - Parse trees      - Subprocess mgmt      - Rule trace    │
 │  - Retry timeline   - Verifier loop        - Diagnostics   │
-│  (Phase 2)          (Phase 1 ✅)           (Phase 1 ✅)    │
+│  (Phase 2 ✅)       (Phase 1 ✅)           (Phase 1 ✅)    │
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
 ```
@@ -140,12 +140,40 @@ FastAPI request
 
 Subprocess overhead is ~50ms, acceptable for research/demo use.
 
-### 3. Frontend (Next.js) — Phase 2
+### 3. Frontend (Next.js) — ✅ Complete
 
 **Location**: `frontend/`
 **Port**: 3000
 
-Planned for Phase 2. Will provide interactive visualization of parse trees, token spans, rule traces, and failure diagnostics.
+Next.js 16 App Router with TypeScript and Tailwind CSS providing interactive visualization:
+
+#### Component Structure
+
+```
+frontend/src/
+├── app/
+│   ├── layout.tsx         # Root layout
+│   └── page.tsx           # Main page: input form, sample sentences, results
+├── components/
+│   ├── TokenSpan.tsx      # Color-coded POS tokens with translations
+│   ├── ParseTreeView.tsx  # Collapsible tree with word annotations
+│   ├── RuleTrace.tsx      # Numbered derivation rule list
+│   └── FailureView.tsx    # Human-readable failure diagnostics
+└── lib/
+    └── api.ts             # API client + TypeScript interfaces
+```
+
+#### Token Color Coding
+
+| POS Tag | Color   |
+|---------|---------|
+| DET     | Blue    |
+| N       | Green   |
+| V/V_COP/V_EX | Red |
+| A       | Purple  |
+| ADV     | Orange  |
+| PREP    | Teal    |
+| NEG     | Gray    |
 
 ---
 
@@ -260,9 +288,9 @@ Grammars are defined using two XML files per language:
 | V      | Verb                | corre, come, tiene    |
 | V_COP  | Copular verb        | es, está, son         |
 | V_EX   | Existential verb    | hay                   |
-| ADV    | Adverb              | muy                   |
+| ADV    | Adverb              | muy, bien, siempre    |
 | NEG    | Negation            | no                    |
-| PREP   | Preposition         | (planned)             |
+| PREP   | Preposition         | en, de, con, para     |
 | CONJ   | Conjunction         | (planned)             |
 | PRON   | Pronoun             | (planned)             |
 
@@ -276,9 +304,10 @@ Grammars are defined using two XML files per language:
 services:
   parser:    # Builds JAR (maven + JDK 21)
   backend:   # FastAPI + JRE 21 (port 8000)
+  frontend:  # Next.js Node 20 (port 3000)
 ```
 
-The parser service builds the JAR artifact during `docker-compose up --build`. The backend service includes an embedded JRE for running the parser subprocess.
+The parser service builds the JAR artifact during `docker-compose up --build`. The backend service includes an embedded JRE for running the parser subprocess. The frontend service serves the Next.js app.
 
 ### Local Development
 
