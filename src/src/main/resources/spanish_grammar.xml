@@ -6,6 +6,8 @@
         <rhs>S</rhs>
     </rule>
 
+    <!-- === Sentence patterns === -->
+
     <!-- Copular: NP + copula + adjective (el perro es grande) -->
     <rule number="2">
         <lhs>S</lhs>
@@ -54,6 +56,24 @@
         <rhs>A</rhs>
     </rule>
 
+    <!-- Prepositional: NP + copula + PP (el gato está en la casa) -->
+    <rule number="8">
+        <lhs>S</lhs>
+        <rhs>NP</rhs>
+        <rhs>V_COP</rhs>
+        <rhs>PP</rhs>
+    </rule>
+
+    <!-- Intransitive + PP: NP + verb + PP (el niño corre en el parque) -->
+    <rule number="9">
+        <lhs>S</lhs>
+        <rhs>NP</rhs>
+        <rhs>VP</rhs>
+        <rhs>PP</rhs>
+    </rule>
+
+    <!-- === Noun phrase patterns === -->
+
     <!-- NP: determiner + noun (el perro) -->
     <rule number="10">
         <lhs>NP</lhs>
@@ -77,6 +97,25 @@
         <rhs>N</rhs>
     </rule>
 
+    <!-- NP: determiner + noun + PP (el libro de la mujer) -->
+    <rule number="13">
+        <lhs>NP</lhs>
+        <rhs>DET</rhs>
+        <rhs>N</rhs>
+        <rhs>PP</rhs>
+    </rule>
+
+    <!-- NP: determiner + noun + adjective + PP (el perro grande de la casa) -->
+    <rule number="14">
+        <lhs>NP</lhs>
+        <rhs>DET</rhs>
+        <rhs>N</rhs>
+        <rhs>A</rhs>
+        <rhs>PP</rhs>
+    </rule>
+
+    <!-- === Verb phrase patterns === -->
+
     <!-- VP: single verb (corre) -->
     <rule number="20">
         <lhs>VP</lhs>
@@ -88,5 +127,28 @@
         <lhs>VP</lhs>
         <rhs>NEG</rhs>
         <rhs>V</rhs>
+    </rule>
+
+    <!-- VP: verb + adverb (come bien) -->
+    <rule number="22">
+        <lhs>VP</lhs>
+        <rhs>V</rhs>
+        <rhs>ADV</rhs>
+    </rule>
+
+    <!-- VP: adverb + verb (siempre corre) -->
+    <rule number="23">
+        <lhs>VP</lhs>
+        <rhs>ADV</rhs>
+        <rhs>V</rhs>
+    </rule>
+
+    <!-- === Prepositional phrase === -->
+
+    <!-- PP: preposition + NP (en la casa) -->
+    <rule number="30">
+        <lhs>PP</lhs>
+        <rhs>PREP</rhs>
+        <rhs>NP</rhs>
     </rule>
 </grammar>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <lexicon>
-    <!-- Determiners -->
+    <!-- === Determiners === -->
     <entry>
         <kw>el</kw>
         <posTag>DET</posTag>
@@ -32,27 +32,7 @@
         <en>a (f.sg)</en>
     </entry>
 
-    <!-- Nouns -->
-    <entry>
-        <kw>perro</kw>
-        <posTag>N</posTag>
-        <en>dog</en>
-    </entry>
-    <entry>
-        <kw>gato</kw>
-        <posTag>N</posTag>
-        <en>cat</en>
-    </entry>
-    <entry>
-        <kw>casa</kw>
-        <posTag>N</posTag>
-        <en>house</en>
-    </entry>
-    <entry>
-        <kw>libro</kw>
-        <posTag>N</posTag>
-        <en>book</en>
-    </entry>
+    <!-- === Nouns: People === -->
     <entry>
         <kw>hombre</kw>
         <posTag>N</posTag>
@@ -74,6 +54,132 @@
         <en>girl</en>
     </entry>
     <entry>
+        <kw>profesor</kw>
+        <posTag>N</posTag>
+        <en>teacher (m)</en>
+    </entry>
+    <entry>
+        <kw>profesora</kw>
+        <posTag>N</posTag>
+        <en>teacher (f)</en>
+    </entry>
+    <entry>
+        <kw>estudiante</kw>
+        <posTag>N</posTag>
+        <en>student</en>
+    </entry>
+    <entry>
+        <kw>amigo</kw>
+        <posTag>N</posTag>
+        <en>friend (m)</en>
+    </entry>
+    <entry>
+        <kw>amiga</kw>
+        <posTag>N</posTag>
+        <en>friend (f)</en>
+    </entry>
+    <entry>
+        <kw>doctor</kw>
+        <posTag>N</posTag>
+        <en>doctor</en>
+    </entry>
+    <entry>
+        <kw>madre</kw>
+        <posTag>N</posTag>
+        <en>mother</en>
+    </entry>
+    <entry>
+        <kw>padre</kw>
+        <posTag>N</posTag>
+        <en>father</en>
+    </entry>
+
+    <!-- === Nouns: Animals === -->
+    <entry>
+        <kw>perro</kw>
+        <posTag>N</posTag>
+        <en>dog</en>
+    </entry>
+    <entry>
+        <kw>gato</kw>
+        <posTag>N</posTag>
+        <en>cat</en>
+    </entry>
+    <entry>
+        <kw>pájaro</kw>
+        <posTag>N</posTag>
+        <en>bird</en>
+    </entry>
+    <entry>
+        <kw>caballo</kw>
+        <posTag>N</posTag>
+        <en>horse</en>
+    </entry>
+    <entry>
+        <kw>pez</kw>
+        <posTag>N</posTag>
+        <en>fish</en>
+    </entry>
+
+    <!-- === Nouns: Places === -->
+    <entry>
+        <kw>casa</kw>
+        <posTag>N</posTag>
+        <en>house</en>
+    </entry>
+    <entry>
+        <kw>escuela</kw>
+        <posTag>N</posTag>
+        <en>school</en>
+    </entry>
+    <entry>
+        <kw>parque</kw>
+        <posTag>N</posTag>
+        <en>park</en>
+    </entry>
+    <entry>
+        <kw>ciudad</kw>
+        <posTag>N</posTag>
+        <en>city</en>
+    </entry>
+    <entry>
+        <kw>jardín</kw>
+        <posTag>N</posTag>
+        <en>garden</en>
+    </entry>
+    <entry>
+        <kw>mercado</kw>
+        <posTag>N</posTag>
+        <en>market</en>
+    </entry>
+    <entry>
+        <kw>restaurante</kw>
+        <posTag>N</posTag>
+        <en>restaurant</en>
+    </entry>
+    <entry>
+        <kw>tienda</kw>
+        <posTag>N</posTag>
+        <en>shop</en>
+    </entry>
+    <entry>
+        <kw>iglesia</kw>
+        <posTag>N</posTag>
+        <en>church</en>
+    </entry>
+    <entry>
+        <kw>hospital</kw>
+        <posTag>N</posTag>
+        <en>hospital</en>
+    </entry>
+
+    <!-- === Nouns: Things === -->
+    <entry>
+        <kw>libro</kw>
+        <posTag>N</posTag>
+        <en>book</en>
+    </entry>
+    <entry>
         <kw>manzana</kw>
         <posTag>N</posTag>
         <en>apple</en>
@@ -83,12 +189,141 @@
         <posTag>N</posTag>
         <en>water</en>
     </entry>
+    <entry>
+        <kw>pan</kw>
+        <posTag>N</posTag>
+        <en>bread</en>
+    </entry>
+    <entry>
+        <kw>mesa</kw>
+        <posTag>N</posTag>
+        <en>table</en>
+    </entry>
+    <entry>
+        <kw>silla</kw>
+        <posTag>N</posTag>
+        <en>chair</en>
+    </entry>
+    <entry>
+        <kw>coche</kw>
+        <posTag>N</posTag>
+        <en>car</en>
+    </entry>
+    <entry>
+        <kw>flor</kw>
+        <posTag>N</posTag>
+        <en>flower</en>
+    </entry>
+    <entry>
+        <kw>música</kw>
+        <posTag>N</posTag>
+        <en>music</en>
+    </entry>
+    <entry>
+        <kw>comida</kw>
+        <posTag>N</posTag>
+        <en>food</en>
+    </entry>
+    <entry>
+        <kw>café</kw>
+        <posTag>N</posTag>
+        <en>coffee</en>
+    </entry>
+    <entry>
+        <kw>carta</kw>
+        <posTag>N</posTag>
+        <en>letter</en>
+    </entry>
+    <entry>
+        <kw>pelota</kw>
+        <posTag>N</posTag>
+        <en>ball</en>
+    </entry>
+    <entry>
+        <kw>puerta</kw>
+        <posTag>N</posTag>
+        <en>door</en>
+    </entry>
+    <entry>
+        <kw>ventana</kw>
+        <posTag>N</posTag>
+        <en>window</en>
+    </entry>
+    <entry>
+        <kw>teléfono</kw>
+        <posTag>N</posTag>
+        <en>phone</en>
+    </entry>
+    <entry>
+        <kw>periódico</kw>
+        <posTag>N</posTag>
+        <en>newspaper</en>
+    </entry>
+    <entry>
+        <kw>regalo</kw>
+        <posTag>N</posTag>
+        <en>gift</en>
+    </entry>
+    <entry>
+        <kw>leche</kw>
+        <posTag>N</posTag>
+        <en>milk</en>
+    </entry>
 
-    <!-- Adjectives -->
+    <!-- === Nouns: Abstract === -->
+    <entry>
+        <kw>problema</kw>
+        <posTag>N</posTag>
+        <en>problem</en>
+    </entry>
+    <entry>
+        <kw>idea</kw>
+        <posTag>N</posTag>
+        <en>idea</en>
+    </entry>
+    <entry>
+        <kw>trabajo</kw>
+        <posTag>N</posTag>
+        <en>work</en>
+    </entry>
+    <entry>
+        <kw>tiempo</kw>
+        <posTag>N</posTag>
+        <en>time</en>
+    </entry>
+
+    <!-- === Nouns: Food === -->
+    <entry>
+        <kw>arroz</kw>
+        <posTag>N</posTag>
+        <en>rice</en>
+    </entry>
+    <entry>
+        <kw>pescado</kw>
+        <posTag>N</posTag>
+        <en>fish (food)</en>
+    </entry>
+    <entry>
+        <kw>carne</kw>
+        <posTag>N</posTag>
+        <en>meat</en>
+    </entry>
+    <entry>
+        <kw>fruta</kw>
+        <posTag>N</posTag>
+        <en>fruit</en>
+    </entry>
+
+    <!-- === Adjectives === -->
     <entry>
         <kw>grande</kw>
         <posTag>A</posTag>
         <en>big</en>
+    </entry>
+    <entry>
+        <kw>gran</kw>
+        <posTag>A</posTag>
+        <en>great</en>
     </entry>
     <entry>
         <kw>pequeño</kw>
@@ -151,12 +386,132 @@
         <en>pretty (f)</en>
     </entry>
     <entry>
-        <kw>gran</kw>
+        <kw>negro</kw>
         <posTag>A</posTag>
-        <en>great</en>
+        <en>black (m)</en>
+    </entry>
+    <entry>
+        <kw>negra</kw>
+        <posTag>A</posTag>
+        <en>black (f)</en>
+    </entry>
+    <entry>
+        <kw>azul</kw>
+        <posTag>A</posTag>
+        <en>blue</en>
+    </entry>
+    <entry>
+        <kw>verde</kw>
+        <posTag>A</posTag>
+        <en>green</en>
+    </entry>
+    <entry>
+        <kw>nuevo</kw>
+        <posTag>A</posTag>
+        <en>new (m)</en>
+    </entry>
+    <entry>
+        <kw>nueva</kw>
+        <posTag>A</posTag>
+        <en>new (f)</en>
+    </entry>
+    <entry>
+        <kw>viejo</kw>
+        <posTag>A</posTag>
+        <en>old (m)</en>
+    </entry>
+    <entry>
+        <kw>vieja</kw>
+        <posTag>A</posTag>
+        <en>old (f)</en>
+    </entry>
+    <entry>
+        <kw>feliz</kw>
+        <posTag>A</posTag>
+        <en>happy</en>
+    </entry>
+    <entry>
+        <kw>triste</kw>
+        <posTag>A</posTag>
+        <en>sad</en>
+    </entry>
+    <entry>
+        <kw>importante</kw>
+        <posTag>A</posTag>
+        <en>important</en>
+    </entry>
+    <entry>
+        <kw>interesante</kw>
+        <posTag>A</posTag>
+        <en>interesting</en>
+    </entry>
+    <entry>
+        <kw>difícil</kw>
+        <posTag>A</posTag>
+        <en>difficult</en>
+    </entry>
+    <entry>
+        <kw>fácil</kw>
+        <posTag>A</posTag>
+        <en>easy</en>
+    </entry>
+    <entry>
+        <kw>rico</kw>
+        <posTag>A</posTag>
+        <en>rich/delicious (m)</en>
+    </entry>
+    <entry>
+        <kw>rica</kw>
+        <posTag>A</posTag>
+        <en>rich/delicious (f)</en>
+    </entry>
+    <entry>
+        <kw>frío</kw>
+        <posTag>A</posTag>
+        <en>cold (m)</en>
+    </entry>
+    <entry>
+        <kw>fría</kw>
+        <posTag>A</posTag>
+        <en>cold (f)</en>
+    </entry>
+    <entry>
+        <kw>caliente</kw>
+        <posTag>A</posTag>
+        <en>hot</en>
+    </entry>
+    <entry>
+        <kw>limpio</kw>
+        <posTag>A</posTag>
+        <en>clean (m)</en>
+    </entry>
+    <entry>
+        <kw>limpia</kw>
+        <posTag>A</posTag>
+        <en>clean (f)</en>
+    </entry>
+    <entry>
+        <kw>favorito</kw>
+        <posTag>A</posTag>
+        <en>favorite (m)</en>
+    </entry>
+    <entry>
+        <kw>favorita</kw>
+        <posTag>A</posTag>
+        <en>favorite (f)</en>
+    </entry>
+    <entry>
+        <kw>largo</kw>
+        <posTag>A</posTag>
+        <en>long (m)</en>
+    </entry>
+    <entry>
+        <kw>larga</kw>
+        <posTag>A</posTag>
+        <en>long (f)</en>
     </entry>
 
-    <!-- Copular verbs -->
+    <!-- === Copular verbs === -->
     <entry>
         <kw>es</kw>
         <posTag>V_COP</posTag>
@@ -178,14 +533,14 @@
         <en>are (state)</en>
     </entry>
 
-    <!-- Existential verbs -->
+    <!-- === Existential verbs === -->
     <entry>
         <kw>hay</kw>
         <posTag>V_EX</posTag>
         <en>there is/are</en>
     </entry>
 
-    <!-- Regular verbs -->
+    <!-- === Regular verbs === -->
     <entry>
         <kw>corre</kw>
         <posTag>V</posTag>
@@ -216,15 +571,179 @@
         <posTag>V</posTag>
         <en>sees</en>
     </entry>
+    <entry>
+        <kw>quiere</kw>
+        <posTag>V</posTag>
+        <en>wants</en>
+    </entry>
+    <entry>
+        <kw>escucha</kw>
+        <posTag>V</posTag>
+        <en>listens to</en>
+    </entry>
+    <entry>
+        <kw>abre</kw>
+        <posTag>V</posTag>
+        <en>opens</en>
+    </entry>
+    <entry>
+        <kw>busca</kw>
+        <posTag>V</posTag>
+        <en>looks for</en>
+    </entry>
+    <entry>
+        <kw>compra</kw>
+        <posTag>V</posTag>
+        <en>buys</en>
+    </entry>
+    <entry>
+        <kw>escribe</kw>
+        <posTag>V</posTag>
+        <en>writes</en>
+    </entry>
+    <entry>
+        <kw>estudia</kw>
+        <posTag>V</posTag>
+        <en>studies</en>
+    </entry>
+    <entry>
+        <kw>trabaja</kw>
+        <posTag>V</posTag>
+        <en>works</en>
+    </entry>
+    <entry>
+        <kw>camina</kw>
+        <posTag>V</posTag>
+        <en>walks</en>
+    </entry>
+    <entry>
+        <kw>juega</kw>
+        <posTag>V</posTag>
+        <en>plays</en>
+    </entry>
+    <entry>
+        <kw>canta</kw>
+        <posTag>V</posTag>
+        <en>sings</en>
+    </entry>
+    <entry>
+        <kw>duerme</kw>
+        <posTag>V</posTag>
+        <en>sleeps</en>
+    </entry>
+    <entry>
+        <kw>vive</kw>
+        <posTag>V</posTag>
+        <en>lives</en>
+    </entry>
+    <entry>
+        <kw>necesita</kw>
+        <posTag>V</posTag>
+        <en>needs</en>
+    </entry>
+    <entry>
+        <kw>prepara</kw>
+        <posTag>V</posTag>
+        <en>prepares</en>
+    </entry>
+    <!-- cocina is both a noun (kitchen) and a verb (cooks) -->
+    <entry>
+        <kw>cocina</kw>
+        <posTag>N</posTag>
+        <posTag>V</posTag>
+        <en>kitchen / cooks</en>
+    </entry>
+    <entry>
+        <kw>lleva</kw>
+        <posTag>V</posTag>
+        <en>carries/wears</en>
+    </entry>
+    <entry>
+        <kw>toma</kw>
+        <posTag>V</posTag>
+        <en>takes/drinks</en>
+    </entry>
+    <entry>
+        <kw>mira</kw>
+        <posTag>V</posTag>
+        <en>watches</en>
+    </entry>
 
-    <!-- Adverbs -->
+    <!-- === Adverbs === -->
     <entry>
         <kw>muy</kw>
         <posTag>ADV</posTag>
         <en>very</en>
     </entry>
+    <entry>
+        <kw>bien</kw>
+        <posTag>ADV</posTag>
+        <en>well</en>
+    </entry>
+    <entry>
+        <kw>mal</kw>
+        <posTag>ADV</posTag>
+        <en>badly</en>
+    </entry>
+    <entry>
+        <kw>siempre</kw>
+        <posTag>ADV</posTag>
+        <en>always</en>
+    </entry>
+    <entry>
+        <kw>nunca</kw>
+        <posTag>ADV</posTag>
+        <en>never</en>
+    </entry>
+    <entry>
+        <kw>rápido</kw>
+        <posTag>ADV</posTag>
+        <en>quickly</en>
+    </entry>
+    <entry>
+        <kw>lento</kw>
+        <posTag>ADV</posTag>
+        <en>slowly</en>
+    </entry>
 
-    <!-- Negation -->
+    <!-- === Prepositions === -->
+    <entry>
+        <kw>en</kw>
+        <posTag>PREP</posTag>
+        <en>in/on</en>
+    </entry>
+    <entry>
+        <kw>de</kw>
+        <posTag>PREP</posTag>
+        <en>of/from</en>
+    </entry>
+    <entry>
+        <kw>con</kw>
+        <posTag>PREP</posTag>
+        <en>with</en>
+    </entry>
+    <entry>
+        <kw>para</kw>
+        <posTag>PREP</posTag>
+        <en>for</en>
+    </entry>
+    <entry>
+        <kw>por</kw>
+        <posTag>PREP</posTag>
+        <en>by/through</en>
+    </entry>
+    <entry>
+        <kw>sin</kw>
+        <posTag>PREP</posTag>
+        <en>without</en>
+    </entry>
+    <entry>
+        <kw>sobre</kw>
+        <posTag>PREP</posTag>
+        <en>on/about</en>
+    </entry>
+
+    <!-- === Negation === -->
     <entry>
         <kw>no</kw>
         <posTag>NEG</posTag>
