@@ -1,6 +1,6 @@
 # Grammar Oracle Implementation Plan
 
-**Status**: Phase 2 in progress
+**Status**: Phases 1–2 complete, Phase 3 next
 **Timeline**: 8 weeks to research-ready system
 
 ---
@@ -38,17 +38,24 @@ Returns structured JSON with parse tree or failure diagnostics.
 
 ---
 
-### Phase 2: Frontend Visualization (Weeks 3-4) 🔄 IN PROGRESS
+### Phase 2: Frontend Visualization (Weeks 3-4) ✅ COMPLETE
 
 **Goal**: Interactive X-ray view (token spans, parse trees, rule traces, failures)
 
-**Next.js Components** (NEW `frontend/` directory):
-- `ParseTreeView.tsx` - hierarchical tree (pattern from cornish-parser TreePanel.java)
-- `TokenSpan.tsx` - hoverable overlays
-- `RuleTrace.tsx` - numbered rule list
-- `FailureView.tsx` - broken branch visualization
+**Next.js 16 App** (`frontend/` directory):
+- `ParseTreeView.tsx` - collapsible hierarchical tree with word annotations and English translations
+- `TokenSpan.tsx` - color-coded POS tag spans with inline translations and hover tooltips
+- `RuleTrace.tsx` - numbered derivation rule list
+- `FailureView.tsx` - human-readable failure diagnostics with fix suggestions and POS tag descriptions
 
-**Deliverable**: User inputs "el perro es grande" → sees token spans, expandable tree, rule trace
+**Additional deliverables**:
+- Sample sentences organized by category (Simple, Transitive, Prepositional, Adverbs & Negation, Invalid)
+- "I'm feeling lucky" random sentence button
+- Spanish grammar expanded to 19 rules (added PP, VP+adverb, NP+PP patterns)
+- Spanish lexicon expanded to 144 entries (people, animals, places, food, colors, adjectives, verbs, adverbs, prepositions)
+- Docker frontend service (Node 20 Alpine, port 3000)
+
+**Deliverable**: User inputs "el perro es grande" → sees colored tokens with translations, expandable parse tree, rule trace. Invalid inputs show actionable diagnostics.
 
 ---
 
