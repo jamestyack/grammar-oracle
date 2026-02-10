@@ -128,11 +128,12 @@ Acceptance criteria (enforced by CI):
 
 ## Quick Start
 
--### Prerequisites
+### Prerequisites
 
 - **Java 21** - For CFG parser
 - **Python 3.11+** - For backend
 - **Node 20+** - For frontend
+- **Anthropic API key** - For Claude LLM integration (Phase 3+)
 - **Docker** (optional) - For containerized deployment
 
 ### Installation
@@ -157,8 +158,7 @@ cd ../frontend
 npm install
 
 # Set environment variables
-cp .env.example .env
-# Edit .env with your API keys (Claude/OpenAI)
+# Create backend/.env with your Anthropic API key for the verifier loop
 ```
 
 ### Running Locally
@@ -212,11 +212,12 @@ curl -X POST http://localhost:8000/verify-loop \
 
 ## Project Status
 
-**Current Phase**: Phase 3 - LLM Integration + Verifier Loop
+**Current Phase**: Phase 4 - Grammar Pack CI/CD
 
 - ✅ **Phase 1**: Java CFG parser with JSON output + FastAPI backend (19 rules, 144 lexicon entries)
 - ✅ **Phase 2**: Next.js frontend with interactive visualization (token spans, parse trees, rule traces, failure diagnostics)
-- 📋 **Next**: LLM verifier loop — generate → validate → constraint feedback → retry
+- ✅ **Phase 3**: LLM verifier loop — Claude generates → CFG validates → constraint feedback → retry, with full request transparency
+- 📋 **Next**: Grammar Pack CI/CD — versioned grammar packs with automated test suites and CI pipeline
 
 See [IMPLEMENTATION.md](IMPLEMENTATION.md) for detailed roadmap.
 

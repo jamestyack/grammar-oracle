@@ -1,7 +1,7 @@
 # Grammar Oracle Architecture
 
 **System**: Neuro-Symbolic Grammar Validation
-**Version**: Phase 1
+**Version**: Phase 3
 
 ---
 
@@ -22,9 +22,10 @@ Grammar Oracle validates sentences against formal Context-Free Grammars (CFGs) a
 │                                                             │
 │  User Interface     Orchestration Layer    CFG Validator   │
 │  - Token spans      - Validation API       - Parsing       │
-│  - Parse trees      - Subprocess mgmt      - Rule trace    │
+│  - Parse trees      - LLM client (Claude)  - Rule trace    │
 │  - Retry timeline   - Verifier loop        - Diagnostics   │
-│  (Phase 2 ✅)       (Phase 1 ✅)           (Phase 1 ✅)    │
+│  - LLM transparency - Constraint feedback                  │
+│  (Phase 2–3 ✅)     (Phase 1–3 ✅)         (Phase 1 ✅)    │
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
 ```
@@ -102,7 +103,7 @@ When parsing fails, the parser tracks the **furthest position reached** across a
 **Entry point**: `app.main:app`
 **Port**: 8000
 
-The backend orchestrates calls to the Java parser via subprocess and exposes a REST API.
+The backend orchestrates calls to the Java parser via subprocess, manages LLM interactions, and exposes a REST API.
 
 #### Module Structure
 
@@ -110,19 +111,23 @@ The backend orchestrates calls to the Java parser via subprocess and exposes a R
 backend/
 ├── app/
 │   ├── __init__.py
-│   ├── main.py           # FastAPI app, routes, CORS
-│   ├── models.py          # Pydantic models (request/response)
-│   └── parser_client.py   # Java subprocess wrapper
+│   ├── main.py                # FastAPI app, routes, CORS
+│   ├── models.py              # Pydantic models (request/response)
+│   ├── parser_client.py       # Java subprocess wrapper
+│   ├── llm_client.py          # Anthropic Claude SDK wrapper
+│   ├── constraint_formatter.py # Parse failures → natural language feedback
+│   └── verifier_loop.py       # Generate → validate → feedback orchestrator
 ├── requirements.txt
 └── Dockerfile
 ```
 
 #### API Endpoints
 
-| Method | Path        | Description                    |
-|--------|-------------|--------------------------------|
-| GET    | `/health`   | Service health check           |
-| POST   | `/validate` | Validate sentence against CFG  |
+| Method | Path           | Description                              |
+|--------|----------------|------------------------------------------|
+| GET    | `/health`      | Service health check                     |
+| POST   | `/validate`    | Validate sentence against CFG            |
+| POST   | `/verify-loop` | LLM generate → CFG validate → retry loop |
 
 #### Parser Integration
 
@@ -140,7 +145,27 @@ FastAPI request
 
 Subprocess overhead is ~50ms, acceptable for research/demo use.
 
-### 3. Frontend (Next.js) — ✅ Complete
+#### Verifier Loop (Phase 3)
+
+The verifier loop orchestrates LLM generation with CFG validation:
+
+```
+POST /verify-loop { prompt, language, max_retries }
+  → run_verify_loop()
+    → generate_sentence()        # Claude API call with CFG system prompt
+    → parse_sentence()           # Java subprocess validation
+    → if invalid:
+        format_constraint_feedback()  # Failure → natural language
+        append to conversation        # Multi-turn retry context
+        retry...
+  → VerifyLoopResponse { attempts[], final_result, success }
+```
+
+The LLM client uses conversation-style messages: on retry, previous attempts and constraint feedback are added as alternating assistant/user messages, giving Claude full context about what went wrong.
+
+Each attempt captures the system prompt and full message history for UI transparency.
+
+### 3. Frontend (Next.js) — ✅ Complete (Phase 2–3)
 
 **Location**: `frontend/`
 **Port**: 3000
@@ -152,16 +177,22 @@ Next.js 16 App Router with TypeScript and Tailwind CSS providing interactive vis
 ```
 frontend/src/
 ├── app/
-│   ├── layout.tsx         # Root layout
-│   └── page.tsx           # Main page: input form, sample sentences, results
+│   ├── layout.tsx            # Root layout
+│   └── page.tsx              # Main page: Validate/Generate modes, sample sentences
 ├── components/
-│   ├── TokenSpan.tsx      # Color-coded POS tokens with translations
-│   ├── ParseTreeView.tsx  # Collapsible tree with word annotations
-│   ├── RuleTrace.tsx      # Numbered derivation rule list
-│   └── FailureView.tsx    # Human-readable failure diagnostics
+│   ├── TokenSpan.tsx         # Color-coded POS tokens with translations
+│   ├── ParseTreeView.tsx     # Collapsible tree with word annotations
+│   ├── RuleTrace.tsx         # Numbered derivation rule list
+│   ├── FailureView.tsx       # Human-readable failure diagnostics
+│   └── VerifierLoopView.tsx  # Attempt timeline with LLM request transparency
 └── lib/
-    └── api.ts             # API client + TypeScript interfaces
+    └── api.ts                # API client + TypeScript interfaces
 ```
+
+#### Modes
+
+- **Validate mode**: Direct sentence input → CFG parse result visualization
+- **Generate mode**: Natural language prompt → Claude generates → CFG validates → attempt timeline with expandable cards showing full Claude request context (system prompt + messages)
 
 #### Token Color Coding
 
@@ -374,5 +405,6 @@ Parse failures report the deepest point reached across all attempted paths.
 | Backend   | FastAPI        | 0.115   | REST API                   |
 | Models    | Pydantic       | 2.10    | Request/response schemas   |
 | Server    | Uvicorn        | 0.34    | ASGI server                |
+| LLM       | Anthropic SDK  | 0.39+   | Claude API client          |
 | Container | Docker Compose | 3       | Multi-service deployment   |
 | Testing   | JUnit 5        | 5.11    | Java unit tests            |

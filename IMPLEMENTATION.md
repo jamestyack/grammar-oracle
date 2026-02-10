@@ -1,6 +1,6 @@
 # Grammar Oracle Implementation Plan
 
-**Status**: Phases 1–2 complete, Phase 3 next
+**Status**: Phases 1–3 complete, Phase 4 next
 **Timeline**: 8 weeks to research-ready system
 
 ---
@@ -59,28 +59,37 @@ Returns structured JSON with parse tree or failure diagnostics.
 
 ---
 
-### Phase 3: LLM Integration + Verifier Loop (Weeks 5-6) 📋 PLANNED
+### Phase 3: LLM Integration + Verifier Loop (Weeks 5-6) ✅ COMPLETE
 
 **Goal**: LLM generates → CFG validates → retry on failure
 
 **Backend Enhancements**:
-- LLM client abstraction (Claude + OpenAI)
-- `/verify-loop` endpoint with retry logic
-- Constraint formatting from failure diagnostics
+- `llm_client.py` — Anthropic Claude SDK wrapper with detailed CFG system prompt; returns `GenerateResult` with full message history for UI transparency
+- `constraint_formatter.py` — Converts `ParseResult` failures into natural language feedback for Claude (maps POS tags to human descriptions, position-specific guidance)
+- `verifier_loop.py` — Orchestrates generate → validate → feedback loop; captures all attempts with full Claude context
+- `POST /verify-loop` endpoint with configurable `max_retries` (1–10), returns `VerifyLoopResponse` with complete attempt timeline
+- `python-dotenv` for environment variable management
+
+**New Pydantic Models**:
+- `VerifyLoopRequest` — prompt, language, max_retries
+- `VerifyAttempt` — attempt_number, sentence, result, constraint_feedback, system_prompt, claude_messages
+- `VerifyLoopResponse` — prompt, language, attempts[], final_result, success, total_attempts
+- `ClaudeMessage` — role, content (for full request transparency)
 
 **Frontend Enhancements**:
-- `GenerateMode.tsx` - prompt input
-- `VerifierLoopView.tsx` - attempt timeline
-- `BeforeAfterView.tsx` - comparison view
+- Validate/Generate mode toggle with tab-style UI
+- `VerifierLoopView.tsx` — attempt timeline with collapsible cards showing flow: Claude → sentence → CFG Parser → result
+- "Show full request" toggle revealing system prompt (dark code block) and message history (chat-style bubbles)
+- Sample prompts for quick testing
+- Reuses existing components: TokenSpan, ParseTreeView, RuleTrace, FailureView
 
-**"Wow Moment" Workflow**:
-1. Prompt: "Generate Spanish sentence about big dog"
-2. LLM Attempt 1: "Grande perro" (invalid)
-3. CFG rejects: Expected DET at start
-4. LLM Attempt 2: "El perro es grande" (valid)
-5. UI shows before/after with parse trees
+**"Wow Moment" Workflow** (verified working):
+1. User enters: "a sentence about a big dog"
+2. Claude generates: "el perro es grande" → ✅ CFG validates on first try
+3. UI shows full journey: Claude's system prompt, messages, parser tokenization, parse tree, rule trace
+4. On failure: constraint feedback drives retry with full conversation context visible
 
-**Deliverable**: Working verifier loop demo visible to user
+**Deliverable**: Working verifier loop demo with full LLM request transparency
 
 ---
 
