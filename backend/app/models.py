@@ -42,3 +42,32 @@ class ParseResult(BaseModel):
     ambiguous: bool = False
     failure: Optional[FailureInfo] = None
     error: Optional[str] = None
+
+
+class VerifyLoopRequest(BaseModel):
+    prompt: str = Field(..., min_length=1, description="Natural language description of desired sentence")
+    language: str = Field(default="spanish", description="Grammar language")
+    max_retries: int = Field(default=3, ge=1, le=10, description="Maximum generation attempts")
+
+
+class ClaudeMessage(BaseModel):
+    role: str
+    content: str
+
+
+class VerifyAttempt(BaseModel):
+    attempt_number: int
+    sentence: str
+    result: ParseResult
+    constraint_feedback: Optional[str] = None
+    system_prompt: str = ""
+    claude_messages: List[ClaudeMessage] = []
+
+
+class VerifyLoopResponse(BaseModel):
+    prompt: str
+    language: str
+    attempts: List[VerifyAttempt]
+    final_result: ParseResult
+    success: bool
+    total_attempts: int

@@ -1,8 +1,12 @@
-from fastapi import FastAPI
+from dotenv import load_dotenv
+load_dotenv()
+
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
-from .models import ValidateRequest, ParseResult
+from .models import ValidateRequest, ParseResult, VerifyLoopRequest, VerifyLoopResponse
 from .parser_client import parse_sentence
+from .verifier_loop import run_verify_loop
 
 app = FastAPI(
     title="Grammar Oracle API",
@@ -30,3 +34,18 @@ def validate(request: ValidateRequest):
         sentence=request.sentence,
         language=request.language,
     )
+
+
+@app.post("/verify-loop", response_model=VerifyLoopResponse)
+def verify_loop(request: VerifyLoopRequest):
+    try:
+        return run_verify_loop(
+            prompt=request.prompt,
+            language=request.language,
+            max_retries=request.max_retries,
+        )
+    except Exception as e:
+        msg = str(e).lower()
+        if "api key" in msg or "authentication" in msg or "api_key" in msg:
+            raise HTTPException(status_code=503, detail="LLM service not configured. Set ANTHROPIC_API_KEY.")
+        raise HTTPException(status_code=500, detail=str(e))
