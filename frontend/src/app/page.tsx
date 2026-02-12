@@ -252,7 +252,7 @@ export default function Home() {
                 Sentences outside the grammar&apos;s scope will be rejected — this is expected behavior, not a bug. The parser validates structure, not meaning.
               </p>
               <p className="text-blue-500 text-xs">
-                Questions or feedback? <a href="https://medium.com/@truehumania" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-700">Join the discussion</a>
+                Questions or feedback? <a href="https://medium.com/@jamestyack/i-found-my-2004-ai-thesis-in-a-drawer-it-explains-todays-ai-problem-68f370a23427" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-700">Join the discussion</a>
               </p>
             </div>
             <form onSubmit={handleValidateSubmit} className="space-y-4">
@@ -413,7 +413,7 @@ export default function Home() {
                 The LLM is guided by grammar rules but may still produce sentences outside scope. Up to 3 retry attempts are made automatically.
               </p>
               <p className="text-purple-500 text-xs">
-                Questions or feedback? <a href="https://medium.com/@truehumania" target="_blank" rel="noopener noreferrer" className="underline hover:text-purple-700">Join the discussion</a>
+                Questions or feedback? <a href="https://medium.com/@jamestyack/i-found-my-2004-ai-thesis-in-a-drawer-it-explains-todays-ai-problem-68f370a23427" target="_blank" rel="noopener noreferrer" className="underline hover:text-purple-700">Join the discussion</a>
               </p>
             </div>
             <form onSubmit={handleGenerateSubmit} className="space-y-4">
@@ -480,7 +480,7 @@ export default function Home() {
                 Sentences outside scope get a &quot;not in grammar scope&quot; label — this shows the boundaries of the formal grammar, which is part of the insight. Click any sentence to expand its parse tree and parser metrics.
               </p>
               <p className="text-emerald-500 text-xs">
-                Questions or feedback? <a href="https://medium.com/@truehumania" target="_blank" rel="noopener noreferrer" className="underline hover:text-emerald-700">Join the discussion</a>
+                Questions or feedback? <a href="https://medium.com/@jamestyack/i-found-my-2004-ai-thesis-in-a-drawer-it-explains-todays-ai-problem-68f370a23427" target="_blank" rel="noopener noreferrer" className="underline hover:text-emerald-700">Join the discussion</a>
               </p>
             </div>
             <form onSubmit={handleXRaySubmit} className="space-y-4">

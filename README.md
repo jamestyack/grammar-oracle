@@ -275,6 +275,10 @@ See [IMPLEMENTATION.md](IMPLEMENTATION.md) for detailed roadmap.
 
 **Important**: Grammar Oracle validates against **declared grammar scope**. Rejection of a natural sentence outside scope is expected behavior, not a bug.
 
+### Known Issues
+
+- **Bare noun objects accepted**: The grammar rule `BASE_NP -> N` allows noun phrases without determiners (needed for existential constructions like "hay perro"), but this also means sentences like "el niño lee libro" are incorrectly accepted — in standard Spanish, direct objects typically require a determiner ("el niño lee **un** libro"). A future fix would split NP rules by syntactic position (subject vs object) to enforce determiner requirements where appropriate.
+
 ## Documentation
 
 - [ARCHITECTURE.md](ARCHITECTURE.md) - System architecture and design decisions
