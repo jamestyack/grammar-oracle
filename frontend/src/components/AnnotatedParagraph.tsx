@@ -128,7 +128,6 @@ function ParserMetricsView({
   ruleCount: number;
   parseCount: number;
 }) {
-  const [showRaw, setShowRaw] = useState(false);
   const statesPerWord = wordCount > 0 ? (metrics.statesExplored / wordCount).toFixed(1) : "—";
   const terminalSuccessRate =
     metrics.terminalAttempts > 0
@@ -169,24 +168,15 @@ function ParserMetricsView({
         ))}
       </div>
 
-      {/* Raw metrics toggle */}
-      <button
-        onClick={() => setShowRaw(!showRaw)}
-        className="text-[10px] text-slate-400 hover:text-slate-600 uppercase tracking-wide transition-colors"
-      >
-        {showRaw ? "\u25B2 Hide raw metrics" : "\u25BC Show raw metrics"}
-      </button>
-
-      {showRaw && (
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-4 gap-y-1.5 pt-1 border-t border-slate-200">
-          {stats.map((s) => (
-            <div key={s.label} title={s.hint}>
-              <p className="text-[10px] text-slate-400 uppercase">{s.label}</p>
-              <p className="text-sm font-mono text-slate-700">{s.value}</p>
-            </div>
-          ))}
-        </div>
-      )}
+      {/* Raw metrics */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-4 gap-y-1.5 pt-2 border-t border-slate-200">
+        {stats.map((s) => (
+          <div key={s.label} title={s.hint}>
+            <p className="text-[10px] text-slate-400 uppercase">{s.label}</p>
+            <p className="text-sm font-mono text-slate-700">{s.value}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
