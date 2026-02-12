@@ -1,13 +1,13 @@
 # Grammar Oracle Architecture
 
 **System**: Neuro-Symbolic Grammar Validation
-**Version**: Phase 1
+**Version**: Phase 4 (Grammar X-Ray + Parser Metrics)
 
 ---
 
 ## System Overview
 
-Grammar Oracle validates sentences against formal Context-Free Grammars (CFGs) and returns structured parse results. The system uses a 2004-era symbolic parser (modernized) as the validation engine, wrapped by a Python API layer.
+Grammar Oracle validates sentences against formal Context-Free Grammars (CFGs) and returns structured parse results. The system uses a 2004-era symbolic parser (modernized) as the validation engine, wrapped by a Python API layer, with LLM integration for generation and a Grammar X-Ray mode for unconstrained paragraph analysis.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -22,9 +22,9 @@ Grammar Oracle validates sentences against formal Context-Free Grammars (CFGs) a
 │                                                             │
 │  User Interface     Orchestration Layer    CFG Validator   │
 │  - Token spans      - Validation API       - Parsing       │
-│  - Parse trees      - Subprocess mgmt      - Rule trace    │
-│  - Retry timeline   - Verifier loop        - Diagnostics   │
-│  (Phase 2 ✅)       (Phase 1 ✅)           (Phase 1 ✅)    │
+│  - Parse trees      - LLM clients          - Rule trace    │
+│  - Grammar X-Ray    - Verifier loop        - Diagnostics   │
+│  - Retry timeline   - X-Ray orchestrator   - Metrics       │
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
 ```
@@ -46,15 +46,16 @@ The parser is a **top-down recursive descent parser with backtracking**, based o
 ```
 ParserMain (CLI)
   │
-  ├── Parser (core algorithm)
+  ├── Parser (core BFS algorithm)
   │     ├── ProductionRules (loads grammar.xml)
   │     │     └── Rule (LHS → RHS₁ RHS₂ ... RHSₙ)
   │     ├── Lexicon (loads lexicon.xml)
   │     │     └── LexiconEntry (word, POS tags, translation)
   │     ├── Sentence (tokenization)
-  │     └── ParseMemory (backtracking state, Cloneable)
+  │     ├── ParseMemory (backtracking state, Cloneable)
+  │     └── ParseMetrics (BFS performance counters)
   │
-  ├── JsonSerializer (parse result → JSON)
+  ├── JsonSerializer (parse result + metrics → JSON)
   │
   ├── BadSentenceException (failure diagnostics)
   │
@@ -112,17 +113,21 @@ backend/
 │   ├── __init__.py
 │   ├── main.py           # FastAPI app, routes, CORS
 │   ├── models.py          # Pydantic models (request/response)
-│   └── parser_client.py   # Java subprocess wrapper
+│   ├── parser_client.py   # Java subprocess wrapper
+│   ├── llm_client.py      # Anthropic Claude SDK client
+│   └── xray.py            # X-Ray orchestrator (sentence splitting, batch parsing)
 ├── requirements.txt
 └── Dockerfile
 ```
 
 #### API Endpoints
 
-| Method | Path        | Description                    |
-|--------|-------------|--------------------------------|
-| GET    | `/health`   | Service health check           |
-| POST   | `/validate` | Validate sentence against CFG  |
+| Method | Path           | Description                                    |
+|--------|----------------|------------------------------------------------|
+| GET    | `/health`      | Service health check                           |
+| POST   | `/validate`    | Validate sentence against CFG                  |
+| POST   | `/verify-loop` | LLM generate → CFG validate → retry loop       |
+| POST   | `/xray`        | LLM paragraph generation + per-sentence parsing |
 
 #### Parser Integration
 
@@ -145,22 +150,27 @@ Subprocess overhead is ~50ms, acceptable for research/demo use.
 **Location**: `frontend/`
 **Port**: 3000
 
-Next.js 16 App Router with TypeScript and Tailwind CSS providing interactive visualization:
+Next.js 16 App Router with TypeScript and Tailwind CSS providing interactive visualization across three modes: Parse Sentence, LLM + Verify, and Grammar X-Ray.
 
 #### Component Structure
 
 ```
 frontend/src/
 ├── app/
-│   ├── layout.tsx         # Root layout
-│   └── page.tsx           # Main page: input form, sample sentences, results
+│   ├── layout.tsx                # Root layout
+│   └── page.tsx                  # Main page: three-tab interface
 ├── components/
-│   ├── TokenSpan.tsx      # Color-coded POS tokens with translations
-│   ├── ParseTreeView.tsx  # Collapsible tree with word annotations
-│   ├── RuleTrace.tsx      # Numbered derivation rule list
-│   └── FailureView.tsx    # Human-readable failure diagnostics
+│   ├── TokenSpan.tsx             # Color-coded POS tokens with translations
+│   ├── ParseTreeView.tsx         # Collapsible tree with word annotations
+│   ├── RuleTrace.tsx             # Numbered derivation rule list
+│   ├── FailureView.tsx           # Human-readable failure diagnostics
+│   ├── AnnotatedParagraph.tsx    # X-Ray: flowing colored text + parser metrics
+│   ├── XRayView.tsx              # X-Ray: result container + LLM inspector
+│   ├── XRayStatsBar.tsx          # X-Ray: coverage stats display
+│   └── XRaySummary.tsx           # X-Ray: analysis summary
 └── lib/
-    └── api.ts             # API client + TypeScript interfaces
+    ├── api.ts                    # API client + TypeScript interfaces
+    └── tagColors.ts              # Shared POS tag color constants
 ```
 
 #### Token Color Coding
@@ -212,7 +222,16 @@ frontend/src/
     {"number": 10, "rule": "NP -> DET N"}
   ],
   "parses": 1,
-  "ambiguous": false
+  "ambiguous": false,
+  "metrics": {
+    "statesExplored": 42,
+    "statesGenerated": 58,
+    "maxQueueSize": 12,
+    "ruleExpansions": 28,
+    "terminalAttempts": 14,
+    "terminalSuccesses": 4,
+    "parseTimeMs": 1.23
+  }
 }
 ```
 
@@ -230,8 +249,56 @@ frontend/src/
     "token": "grande",
     "expectedCategories": ["DET", "V_EX"],
     "message": "Expected DET or V_EX at position 0, found 'grande'"
+  },
+  "metrics": {
+    "statesExplored": 8,
+    "statesGenerated": 12,
+    "maxQueueSize": 4,
+    "ruleExpansions": 6,
+    "terminalAttempts": 2,
+    "terminalSuccesses": 0,
+    "parseTimeMs": 0.45
   }
 }
+```
+
+---
+
+## Parser Performance Metrics
+
+The parser tracks BFS search performance via `ParseMetrics`, providing visibility into the work done per parse:
+
+| Metric             | Description                                      |
+|--------------------|--------------------------------------------------|
+| statesExplored     | Parse states dequeued and processed               |
+| statesGenerated    | Total parse states created (including branches)   |
+| maxQueueSize       | Peak BFS queue depth                              |
+| ruleExpansions     | Non-terminal → production rule expansions         |
+| terminalAttempts   | Times a POS tag was checked against a word        |
+| terminalSuccesses  | Successful POS tag matches                        |
+| parseTimeMs        | Wall-clock parse time in milliseconds             |
+
+The frontend renders these as a plain-English interpretation (e.g., "The parser explored 42 states, trying 14 word matches and succeeding on 4") with collapsible raw metrics.
+
+---
+
+## LLM Integration
+
+### Claude SDK
+
+The backend uses the Anthropic Python SDK (`anthropic` package) to call Claude for:
+- **Verifier Loop**: Constrained generation with grammar rules in the system prompt
+- **X-Ray Paragraph Generation**: Unconstrained natural Spanish writing
+
+### X-Ray Flow
+
+```
+User prompt ("a story about a boy and his dog")
+  → generate_paragraph()     # Claude writes natural Spanish
+  → split_sentences()        # Regex split on .!?
+  → parse_sentence() × N     # CFG parser validates each sentence
+  → aggregate stats          # Coverage percentages, POS tags, rules used
+  → XRayResponse             # Full analysis with per-sentence results + metrics
 ```
 
 ---
@@ -375,4 +442,7 @@ Parse failures report the deepest point reached across all attempted paths.
 | Models    | Pydantic       | 2.10    | Request/response schemas   |
 | Server    | Uvicorn        | 0.34    | ASGI server                |
 | Container | Docker Compose | 3       | Multi-service deployment   |
+| LLM       | Anthropic SDK  | 0.52    | Claude API client          |
+| Frontend  | Next.js        | 16      | React app framework        |
+| Styling   | Tailwind CSS   | 4       | Utility-first CSS          |
 | Testing   | JUnit 5        | 5.11    | Java unit tests            |

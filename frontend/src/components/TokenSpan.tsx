@@ -1,22 +1,8 @@
 "use client";
 
 import { Token, FailureInfo } from "@/lib/api";
+import { TAG_COLORS } from "@/lib/tagColors";
 import { useState } from "react";
-
-const TAG_COLORS: Record<string, string> = {
-  DET: "bg-blue-100 text-blue-800 border-blue-300",
-  N: "bg-green-100 text-green-800 border-green-300",
-  V: "bg-red-100 text-red-800 border-red-300",
-  V_COP: "bg-red-100 text-red-800 border-red-300",
-  V_EX: "bg-red-100 text-red-800 border-red-300",
-  A: "bg-purple-100 text-purple-800 border-purple-300",
-  ADV: "bg-orange-100 text-orange-800 border-orange-300",
-  NEG: "bg-gray-100 text-gray-600 border-gray-300",
-  PREP: "bg-yellow-100 text-yellow-800 border-yellow-300",
-  CONJ: "bg-teal-100 text-teal-800 border-teal-300",
-  PRON: "bg-indigo-100 text-indigo-800 border-indigo-300",
-  UNKNOWN: "bg-gray-200 text-gray-500 border-gray-400",
-};
 
 interface TokenSpanProps {
   tokens: Token[];

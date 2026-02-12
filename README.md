@@ -104,7 +104,19 @@ The "wow moment" workflow:
 4. **LLM Attempt 2**: "El perro es grande" → ✅ Passes validation
 5. **Visualization**: Before/after comparison with parse trees
 
-### 4. Grammar Packs with CI/CD
+### 4. Grammar X-Ray
+
+Claude generates a natural Spanish paragraph from a creative prompt. The CFG parser then acts as an **X-ray lens** — parsing each sentence, color-coding every word by POS tag, and revealing the structure:
+
+- **Annotated paragraph** — words colored by part of speech (DET=blue, N=green, V=red, A=purple, etc.) with hover tooltips showing translations
+- **Click-to-expand** — each sentence reveals its parse tree, grammar rules applied, and parser performance metrics
+- **Natural translations** — Claude-powered English translations under each sentence
+- **Coverage stats** — sentence and word recognition percentages
+- **LLM prompt inspector** — view the exact system prompt, user message, and raw Claude response
+- **Analysis summary** — vocabulary gaps, structural issues, and LLM compliance problems
+- **Parser performance metrics** — states explored, rule expansions, terminal match rates, parse time, with plain-English interpretation of what the parser did
+
+### 5. Grammar Packs with CI/CD
 
 Grammars are versioned, testable artifacts:
 
@@ -128,7 +140,7 @@ Acceptance criteria (enforced by CI):
 
 ## Quick Start
 
--### Prerequisites
+### Prerequisites
 
 - **Java 21** - For CFG parser
 - **Python 3.11+** - For backend
@@ -210,13 +222,26 @@ curl -X POST http://localhost:8000/verify-loop \
   }'
 ```
 
+### Grammar X-Ray
+
+```bash
+curl -X POST http://localhost:8000/xray \
+  -H "Content-Type: application/json" \
+  -d '{
+    "prompt": "a short story about a boy and his dog",
+    "language": "spanish"
+  }'
+```
+
 ## Project Status
 
-**Current Phase**: Phase 3 - LLM Integration + Verifier Loop
+**Current Phase**: Phase 4 - Grammar X-Ray + Parser Metrics
 
-- ✅ **Phase 1**: Java CFG parser with JSON output + FastAPI backend (19 rules, 144 lexicon entries)
+- ✅ **Phase 1**: Java CFG parser with JSON output + FastAPI backend (19 rules, ~990 lexicon entries)
 - ✅ **Phase 2**: Next.js frontend with interactive visualization (token spans, parse trees, rule traces, failure diagnostics)
-- 📋 **Next**: LLM verifier loop — generate → validate → constraint feedback → retry
+- ✅ **Phase 3**: LLM verifier loop — generate → validate → constraint feedback → retry
+- ✅ **Phase 4**: Grammar X-Ray — unconstrained LLM generation + per-sentence CFG analysis, parser performance metrics with plain-English interpretation, LLM prompt inspector
+- 📋 **Next**: Grammar Packs with CI/CD, additional languages
 
 See [IMPLEMENTATION.md](IMPLEMENTATION.md) for detailed roadmap.
 

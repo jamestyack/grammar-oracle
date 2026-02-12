@@ -4,14 +4,17 @@ import { useState } from "react";
 import {
   ParseResult,
   VerifyLoopResponse,
+  XRayResponse,
   validateSentence,
   generateSentence,
+  xrayText,
 } from "@/lib/api";
 import TokenSpan from "@/components/TokenSpan";
 import ParseTreeView from "@/components/ParseTreeView";
 import RuleTrace from "@/components/RuleTrace";
 import FailureView from "@/components/FailureView";
 import VerifierLoopView from "@/components/VerifierLoopView";
+import XRayView from "@/components/XRayView";
 
 const SAMPLE_CATEGORIES = [
   {
@@ -69,8 +72,17 @@ const SAMPLE_PROMPTS = [
   "a sentence with an adverb",
 ];
 
+const XRAY_PROMPTS = [
+  "a short story about a boy and his dog",
+  "describe a day at the beach",
+  "a family going to the park",
+  "describe the weather in a small town",
+  "a cat who lives in a big house",
+  "a recipe for a simple meal",
+];
+
 export default function Home() {
-  const [mode, setMode] = useState<"validate" | "generate">("validate");
+  const [mode, setMode] = useState<"validate" | "generate" | "xray">("validate");
   const [sentence, setSentence] = useState("");
   const [language, setLanguage] = useState("spanish");
   const [result, setResult] = useState<ParseResult | null>(null);
@@ -81,6 +93,10 @@ export default function Home() {
   const [prompt, setPrompt] = useState("");
   const [generateResult, setGenerateResult] =
     useState<VerifyLoopResponse | null>(null);
+
+  // X-Ray mode state
+  const [xrayPrompt, setXrayPrompt] = useState("");
+  const [xrayResult, setXrayResult] = useState<XRayResponse | null>(null);
 
   async function handleValidateSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -134,6 +150,28 @@ export default function Home() {
     setPrompt(p);
   }
 
+  async function handleXRaySubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!xrayPrompt.trim()) return;
+
+    setLoading(true);
+    setError(null);
+    setXrayResult(null);
+
+    try {
+      const data = await xrayText(xrayPrompt, language);
+      setXrayResult(data);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Request failed");
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  function handleXRayPrompt(p: string) {
+    setXrayPrompt(p);
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
       <header className="bg-white border-b border-gray-200">
@@ -147,26 +185,45 @@ export default function Home() {
 
       <main className="max-w-4xl mx-auto px-6 py-8 space-y-8">
         {/* Mode Toggle */}
-        <div className="flex gap-1 bg-gray-100 rounded-lg p-1 w-fit">
+        <div className="flex gap-2 bg-gray-100 rounded-xl p-1.5">
           <button
             onClick={() => setMode("validate")}
-            className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+            className={`flex-1 px-4 py-2.5 rounded-lg text-left transition-colors ${
               mode === "validate"
                 ? "bg-white text-gray-900 shadow-sm"
                 : "text-gray-500 hover:text-gray-700"
             }`}
           >
-            Validate
+            <span className="block text-sm font-semibold">Parse Sentence</span>
+            <span className="block text-[11px] mt-0.5 opacity-60">
+              Test a sentence against the CFG
+            </span>
           </button>
           <button
             onClick={() => setMode("generate")}
-            className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+            className={`flex-1 px-4 py-2.5 rounded-lg text-left transition-colors ${
               mode === "generate"
                 ? "bg-white text-gray-900 shadow-sm"
                 : "text-gray-500 hover:text-gray-700"
             }`}
           >
-            Generate
+            <span className="block text-sm font-semibold">LLM + Verify</span>
+            <span className="block text-[11px] mt-0.5 opacity-60">
+              AI generates, grammar verifies
+            </span>
+          </button>
+          <button
+            onClick={() => setMode("xray")}
+            className={`flex-1 px-4 py-2.5 rounded-lg text-left transition-colors ${
+              mode === "xray"
+                ? "bg-white text-gray-900 shadow-sm"
+                : "text-gray-500 hover:text-gray-700"
+            }`}
+          >
+            <span className="block text-sm font-semibold">Grammar X-Ray</span>
+            <span className="block text-[11px] mt-0.5 opacity-60">
+              AI writes, CFG analyzes every word
+            </span>
           </button>
         </div>
 
@@ -368,6 +425,60 @@ export default function Home() {
             {generateResult && (
               <VerifierLoopView response={generateResult} />
             )}
+          </>
+        )}
+
+        {/* === X-RAY MODE === */}
+        {mode === "xray" && (
+          <>
+            <form onSubmit={handleXRaySubmit} className="space-y-4">
+              <div className="flex gap-3">
+                <input
+                  type="text"
+                  value={xrayPrompt}
+                  onChange={(e) => setXrayPrompt(e.target.value)}
+                  placeholder='Describe a topic, e.g. "a short story about a boy and his dog"'
+                  className="flex-1 px-4 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                />
+                <select
+                  value={language}
+                  onChange={(e) => setLanguage(e.target.value)}
+                  className="px-3 py-2.5 border border-gray-300 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                >
+                  <option value="spanish">Spanish</option>
+                </select>
+                <button
+                  type="submit"
+                  disabled={loading || !xrayPrompt.trim()}
+                  className="px-6 py-2.5 bg-emerald-600 text-white rounded-lg text-sm font-medium hover:bg-emerald-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                >
+                  {loading ? "Analyzing..." : "X-Ray"}
+                </button>
+              </div>
+
+              <div className="flex flex-wrap gap-2">
+                <span className="text-xs text-gray-400 py-1">Try:</span>
+                {XRAY_PROMPTS.map((p) => (
+                  <button
+                    key={p}
+                    type="button"
+                    onClick={() => handleXRayPrompt(p)}
+                    className="px-2.5 py-1 text-xs bg-emerald-50 text-emerald-600 rounded hover:bg-emerald-100 transition-colors"
+                  >
+                    {p}
+                  </button>
+                ))}
+              </div>
+
+              {loading && (
+                <div className="text-sm text-gray-500 animate-pulse">
+                  Generating paragraph and analyzing grammar... this may take a
+                  few seconds
+                </div>
+              )}
+            </form>
+
+            {xrayResult && <XRayView response={xrayResult} />}
           </>
         )}
 
