@@ -13,7 +13,7 @@ public class JsonSerializer {
         this.lexicon = lexicon;
     }
 
-    public JSONObject serializeValidParse(Sentence sentence, List<ParseMemory> parses) {
+    public JSONObject serializeValidParse(Sentence sentence, List<ParseMemory> parses, ParseMetrics metrics) {
         JSONObject result = new JSONObject();
         result.put("valid", true);
         result.put("sentence", sentence.toString());
@@ -32,10 +32,15 @@ public class JsonSerializer {
         result.put("parses", parses.size());
         result.put("ambiguous", parses.size() > 1);
 
+        // Performance metrics
+        if (metrics != null) {
+            result.put("metrics", serializeMetrics(metrics));
+        }
+
         return result;
     }
 
-    public JSONObject serializeInvalidParse(Sentence sentence, BadSentenceException ex) {
+    public JSONObject serializeInvalidParse(Sentence sentence, BadSentenceException ex, ParseMetrics metrics) {
         JSONObject result = new JSONObject();
         result.put("valid", false);
         result.put("sentence", sentence.toString());
@@ -51,7 +56,24 @@ public class JsonSerializer {
         failure.put("message", ex.getMessage());
         result.put("failure", failure);
 
+        // Performance metrics
+        if (metrics != null) {
+            result.put("metrics", serializeMetrics(metrics));
+        }
+
         return result;
+    }
+
+    private JSONObject serializeMetrics(ParseMetrics metrics) {
+        JSONObject m = new JSONObject();
+        m.put("statesExplored", metrics.getStatesExplored());
+        m.put("statesGenerated", metrics.getStatesGenerated());
+        m.put("maxQueueSize", metrics.getMaxQueueSize());
+        m.put("ruleExpansions", metrics.getRuleExpansions());
+        m.put("terminalAttempts", metrics.getTerminalAttempts());
+        m.put("terminalSuccesses", metrics.getTerminalSuccesses());
+        m.put("parseTimeMs", Math.round(metrics.getParseTimeMs() * 100.0) / 100.0);
+        return m;
     }
 
     private JSONArray serializeTokens(Sentence sentence, ParseMemory parse) {

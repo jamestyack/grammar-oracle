@@ -106,6 +106,26 @@
         <en>cat</en>
     </entry>
     <entry>
+        <kw>gata</kw>
+        <posTag>N</posTag>
+        <en>cat (f)</en>
+    </entry>
+    <entry>
+        <kw>gatas</kw>
+        <posTag>N</posTag>
+        <en>cats (f)</en>
+    </entry>
+    <entry>
+        <kw>perra</kw>
+        <posTag>N</posTag>
+        <en>dog (f)</en>
+    </entry>
+    <entry>
+        <kw>perras</kw>
+        <posTag>N</posTag>
+        <en>dogs (f)</en>
+    </entry>
+    <entry>
         <kw>pájaro</kw>
         <posTag>N</posTag>
         <en>bird</en>
@@ -743,10 +763,6134 @@
         <en>on/about</en>
     </entry>
 
+    <!-- === Prepositions (additional) === -->
+    <entry>
+        <kw>entre</kw>
+        <posTag>PREP</posTag>
+        <en>between/among</en>
+    </entry>
+    <entry>
+        <kw>hacia</kw>
+        <posTag>PREP</posTag>
+        <en>toward</en>
+    </entry>
+    <entry>
+        <kw>hasta</kw>
+        <posTag>PREP</posTag>
+        <en>until/up to</en>
+    </entry>
+    <entry>
+        <kw>desde</kw>
+        <posTag>PREP</posTag>
+        <en>from/since</en>
+    </entry>
+    <entry>
+        <kw>bajo</kw>
+        <posTag>PREP</posTag>
+        <en>under</en>
+    </entry>
+
     <!-- === Negation === -->
     <entry>
         <kw>no</kw>
         <posTag>NEG</posTag>
         <en>not</en>
+    </entry>
+
+    <!-- === Conjunctions === -->
+    <entry>
+        <kw>y</kw>
+        <posTag>CONJ</posTag>
+        <en>and</en>
+    </entry>
+    <entry>
+        <kw>o</kw>
+        <posTag>CONJ</posTag>
+        <en>or</en>
+    </entry>
+    <entry>
+        <kw>pero</kw>
+        <posTag>CONJ</posTag>
+        <en>but</en>
+    </entry>
+    <entry>
+        <kw>porque</kw>
+        <posTag>CONJ</posTag>
+        <en>because</en>
+    </entry>
+    <entry>
+        <kw>cuando</kw>
+        <posTag>CONJ</posTag>
+        <en>when</en>
+    </entry>
+    <entry>
+        <kw>mientras</kw>
+        <posTag>CONJ</posTag>
+        <en>while</en>
+    </entry>
+    <entry>
+        <kw>aunque</kw>
+        <posTag>CONJ</posTag>
+        <en>although</en>
+    </entry>
+    <entry>
+        <kw>que</kw>
+        <posTag>CONJ</posTag>
+        <en>that/which</en>
+    </entry>
+    <entry>
+        <kw>si</kw>
+        <posTag>CONJ</posTag>
+        <en>if</en>
+    </entry>
+
+    <!-- === Possessive determiners === -->
+    <entry>
+        <kw>su</kw>
+        <posTag>DET</posTag>
+        <en>his/her/their</en>
+    </entry>
+    <entry>
+        <kw>sus</kw>
+        <posTag>DET</posTag>
+        <en>his/her/their (pl)</en>
+    </entry>
+    <entry>
+        <kw>mi</kw>
+        <posTag>DET</posTag>
+        <en>my</en>
+    </entry>
+    <entry>
+        <kw>mis</kw>
+        <posTag>DET</posTag>
+        <en>my (pl)</en>
+    </entry>
+    <entry>
+        <kw>tu</kw>
+        <posTag>DET</posTag>
+        <en>your</en>
+    </entry>
+    <entry>
+        <kw>tus</kw>
+        <posTag>DET</posTag>
+        <en>your (pl)</en>
+    </entry>
+    <entry>
+        <kw>nuestro</kw>
+        <posTag>DET</posTag>
+        <en>our (m)</en>
+    </entry>
+    <entry>
+        <kw>nuestra</kw>
+        <posTag>DET</posTag>
+        <en>our (f)</en>
+    </entry>
+
+    <!-- === Nouns (additional common) === -->
+    <entry>
+        <kw>día</kw>
+        <posTag>N</posTag>
+        <en>day</en>
+    </entry>
+    <entry>
+        <kw>noche</kw>
+        <posTag>N</posTag>
+        <en>night</en>
+    </entry>
+    <entry>
+        <kw>vez</kw>
+        <posTag>N</posTag>
+        <en>time/occasion</en>
+    </entry>
+    <entry>
+        <kw>pueblo</kw>
+        <posTag>N</posTag>
+        <en>town/village</en>
+    </entry>
+    <entry>
+        <kw>familia</kw>
+        <posTag>N</posTag>
+        <en>family</en>
+    </entry>
+    <entry>
+        <kw>hijo</kw>
+        <posTag>N</posTag>
+        <en>son</en>
+    </entry>
+    <entry>
+        <kw>hija</kw>
+        <posTag>N</posTag>
+        <en>daughter</en>
+    </entry>
+    <entry>
+        <kw>hermano</kw>
+        <posTag>N</posTag>
+        <en>brother</en>
+    </entry>
+    <entry>
+        <kw>hermana</kw>
+        <posTag>N</posTag>
+        <en>sister</en>
+    </entry>
+    <entry>
+        <kw>abuelo</kw>
+        <posTag>N</posTag>
+        <en>grandfather</en>
+    </entry>
+    <entry>
+        <kw>abuela</kw>
+        <posTag>N</posTag>
+        <en>grandmother</en>
+    </entry>
+    <entry>
+        <kw>playa</kw>
+        <posTag>N</posTag>
+        <en>beach</en>
+    </entry>
+    <entry>
+        <kw>río</kw>
+        <posTag>N</posTag>
+        <en>river</en>
+    </entry>
+    <entry>
+        <kw>montaña</kw>
+        <posTag>N</posTag>
+        <en>mountain</en>
+    </entry>
+    <entry>
+        <kw>campo</kw>
+        <posTag>N</posTag>
+        <en>field/countryside</en>
+    </entry>
+    <entry>
+        <kw>bosque</kw>
+        <posTag>N</posTag>
+        <en>forest</en>
+    </entry>
+    <entry>
+        <kw>calle</kw>
+        <posTag>N</posTag>
+        <en>street</en>
+    </entry>
+    <entry>
+        <kw>camino</kw>
+        <posTag>N</posTag>
+        <en>path/road</en>
+    </entry>
+    <entry>
+        <kw>sol</kw>
+        <posTag>N</posTag>
+        <en>sun</en>
+    </entry>
+    <entry>
+        <kw>luna</kw>
+        <posTag>N</posTag>
+        <en>moon</en>
+    </entry>
+    <entry>
+        <kw>lluvia</kw>
+        <posTag>N</posTag>
+        <en>rain</en>
+    </entry>
+    <entry>
+        <kw>viento</kw>
+        <posTag>N</posTag>
+        <en>wind</en>
+    </entry>
+    <entry>
+        <kw>cielo</kw>
+        <posTag>N</posTag>
+        <en>sky</en>
+    </entry>
+    <entry>
+        <kw>mar</kw>
+        <posTag>N</posTag>
+        <en>sea</en>
+    </entry>
+    <entry>
+        <kw>árbol</kw>
+        <posTag>N</posTag>
+        <en>tree</en>
+    </entry>
+    <entry>
+        <kw>mano</kw>
+        <posTag>N</posTag>
+        <en>hand</en>
+    </entry>
+    <entry>
+        <kw>ojo</kw>
+        <posTag>N</posTag>
+        <en>eye</en>
+    </entry>
+    <entry>
+        <kw>ojos</kw>
+        <posTag>N</posTag>
+        <en>eyes</en>
+    </entry>
+    <entry>
+        <kw>vida</kw>
+        <posTag>N</posTag>
+        <en>life</en>
+    </entry>
+    <entry>
+        <kw>mundo</kw>
+        <posTag>N</posTag>
+        <en>world</en>
+    </entry>
+    <entry>
+        <kw>historia</kw>
+        <posTag>N</posTag>
+        <en>story/history</en>
+    </entry>
+    <entry>
+        <kw>cosa</kw>
+        <posTag>N</posTag>
+        <en>thing</en>
+    </entry>
+    <entry>
+        <kw>lugar</kw>
+        <posTag>N</posTag>
+        <en>place</en>
+    </entry>
+    <entry>
+        <kw>momento</kw>
+        <posTag>N</posTag>
+        <en>moment</en>
+    </entry>
+    <entry>
+        <kw>tarde</kw>
+        <posTag>N</posTag>
+        <en>afternoon</en>
+    </entry>
+    <entry>
+        <kw>mañana</kw>
+        <posTag>N</posTag>
+        <en>morning/tomorrow</en>
+    </entry>
+    <entry>
+        <kw>gente</kw>
+        <posTag>N</posTag>
+        <en>people</en>
+    </entry>
+    <entry>
+        <kw>perros</kw>
+        <posTag>N</posTag>
+        <en>dogs</en>
+    </entry>
+    <entry>
+        <kw>gatos</kw>
+        <posTag>N</posTag>
+        <en>cats</en>
+    </entry>
+    <entry>
+        <kw>niños</kw>
+        <posTag>N</posTag>
+        <en>children</en>
+    </entry>
+    <entry>
+        <kw>padres</kw>
+        <posTag>N</posTag>
+        <en>parents</en>
+    </entry>
+    <entry>
+        <kw>amigos</kw>
+        <posTag>N</posTag>
+        <en>friends</en>
+    </entry>
+    <entry>
+        <kw>hombres</kw>
+        <posTag>N</posTag>
+        <en>men</en>
+    </entry>
+    <entry>
+        <kw>mujeres</kw>
+        <posTag>N</posTag>
+        <en>women</en>
+    </entry>
+
+    <!-- === Adjectives (additional) === -->
+    <entry>
+        <kw>alto</kw>
+        <posTag>A</posTag>
+        <en>tall (m)</en>
+    </entry>
+    <entry>
+        <kw>alta</kw>
+        <posTag>A</posTag>
+        <en>tall (f)</en>
+    </entry>
+    <entry>
+        <kw>bajo</kw>
+        <posTag>A</posTag>
+        <en>short (m)</en>
+    </entry>
+    <entry>
+        <kw>baja</kw>
+        <posTag>A</posTag>
+        <en>short (f)</en>
+    </entry>
+    <entry>
+        <kw>hermoso</kw>
+        <posTag>A</posTag>
+        <en>beautiful (m)</en>
+    </entry>
+    <entry>
+        <kw>hermosa</kw>
+        <posTag>A</posTag>
+        <en>beautiful (f)</en>
+    </entry>
+    <entry>
+        <kw>tranquilo</kw>
+        <posTag>A</posTag>
+        <en>calm (m)</en>
+    </entry>
+    <entry>
+        <kw>tranquila</kw>
+        <posTag>A</posTag>
+        <en>calm (f)</en>
+    </entry>
+    <entry>
+        <kw>contento</kw>
+        <posTag>A</posTag>
+        <en>content (m)</en>
+    </entry>
+    <entry>
+        <kw>contenta</kw>
+        <posTag>A</posTag>
+        <en>content (f)</en>
+    </entry>
+    <entry>
+        <kw>cansado</kw>
+        <posTag>A</posTag>
+        <en>tired (m)</en>
+    </entry>
+    <entry>
+        <kw>cansada</kw>
+        <posTag>A</posTag>
+        <en>tired (f)</en>
+    </entry>
+    <entry>
+        <kw>fuerte</kw>
+        <posTag>A</posTag>
+        <en>strong</en>
+    </entry>
+    <entry>
+        <kw>dulce</kw>
+        <posTag>A</posTag>
+        <en>sweet</en>
+    </entry>
+    <entry>
+        <kw>fresco</kw>
+        <posTag>A</posTag>
+        <en>fresh (m)</en>
+    </entry>
+    <entry>
+        <kw>fresca</kw>
+        <posTag>A</posTag>
+        <en>fresh (f)</en>
+    </entry>
+    <entry>
+        <kw>solo</kw>
+        <posTag>A</posTag>
+        <en>alone (m)</en>
+    </entry>
+    <entry>
+        <kw>sola</kw>
+        <posTag>A</posTag>
+        <en>alone (f)</en>
+    </entry>
+    <entry>
+        <kw>primero</kw>
+        <posTag>A</posTag>
+        <en>first (m)</en>
+    </entry>
+    <entry>
+        <kw>primera</kw>
+        <posTag>A</posTag>
+        <en>first (f)</en>
+    </entry>
+    <entry>
+        <kw>último</kw>
+        <posTag>A</posTag>
+        <en>last (m)</en>
+    </entry>
+    <entry>
+        <kw>última</kw>
+        <posTag>A</posTag>
+        <en>last (f)</en>
+    </entry>
+    <entry>
+        <kw>mejor</kw>
+        <posTag>A</posTag>
+        <en>better/best</en>
+    </entry>
+    <entry>
+        <kw>peor</kw>
+        <posTag>A</posTag>
+        <en>worse/worst</en>
+    </entry>
+
+    <!-- === Adverbs (additional) === -->
+    <entry>
+        <kw>también</kw>
+        <posTag>ADV</posTag>
+        <en>also</en>
+    </entry>
+    <entry>
+        <kw>después</kw>
+        <posTag>ADV</posTag>
+        <en>after/later</en>
+    </entry>
+    <entry>
+        <kw>antes</kw>
+        <posTag>ADV</posTag>
+        <en>before</en>
+    </entry>
+    <entry>
+        <kw>ahora</kw>
+        <posTag>ADV</posTag>
+        <en>now</en>
+    </entry>
+    <entry>
+        <kw>aquí</kw>
+        <posTag>ADV</posTag>
+        <en>here</en>
+    </entry>
+    <entry>
+        <kw>allí</kw>
+        <posTag>ADV</posTag>
+        <en>there</en>
+    </entry>
+    <entry>
+        <kw>cerca</kw>
+        <posTag>ADV</posTag>
+        <en>near</en>
+    </entry>
+    <entry>
+        <kw>lejos</kw>
+        <posTag>ADV</posTag>
+        <en>far</en>
+    </entry>
+    <entry>
+        <kw>juntos</kw>
+        <posTag>ADV</posTag>
+        <en>together</en>
+    </entry>
+    <entry>
+        <kw>mucho</kw>
+        <posTag>ADV</posTag>
+        <en>much/a lot</en>
+    </entry>
+    <entry>
+        <kw>poco</kw>
+        <posTag>ADV</posTag>
+        <en>little/few</en>
+    </entry>
+    <entry>
+        <kw>todo</kw>
+        <posTag>ADV</posTag>
+        <en>all/everything</en>
+    </entry>
+    <entry>
+        <kw>todos</kw>
+        <posTag>ADV</posTag>
+        <en>all/everyone</en>
+    </entry>
+    <entry>
+        <kw>todavía</kw>
+        <posTag>ADV</posTag>
+        <en>still/yet</en>
+    </entry>
+    <entry>
+        <kw>ya</kw>
+        <posTag>ADV</posTag>
+        <en>already</en>
+    </entry>
+
+    <!-- === Copular verbs (past tense) === -->
+    <entry>
+        <kw>era</kw>
+        <posTag>V_COP</posTag>
+        <en>was (imperfect)</en>
+    </entry>
+    <entry>
+        <kw>fue</kw>
+        <posTag>V_COP</posTag>
+        <en>was (preterite)</en>
+    </entry>
+    <entry>
+        <kw>eran</kw>
+        <posTag>V_COP</posTag>
+        <en>were (imperfect)</en>
+    </entry>
+    <entry>
+        <kw>fueron</kw>
+        <posTag>V_COP</posTag>
+        <en>were (preterite)</en>
+    </entry>
+    <entry>
+        <kw>estaba</kw>
+        <posTag>V_COP</posTag>
+        <en>was (state, imperfect)</en>
+    </entry>
+    <entry>
+        <kw>estaban</kw>
+        <posTag>V_COP</posTag>
+        <en>were (state, imperfect)</en>
+    </entry>
+
+    <!-- === Existential verbs (past tense) === -->
+    <entry>
+        <kw>había</kw>
+        <posTag>V_EX</posTag>
+        <en>there was/were</en>
+    </entry>
+
+    <!-- === Verbs (preterite 3rd person singular) === -->
+    <entry>
+        <kw>corrió</kw>
+        <posTag>V</posTag>
+        <en>ran</en>
+    </entry>
+    <entry>
+        <kw>comió</kw>
+        <posTag>V</posTag>
+        <en>ate</en>
+    </entry>
+    <entry>
+        <kw>tuvo</kw>
+        <posTag>V</posTag>
+        <en>had</en>
+    </entry>
+    <entry>
+        <kw>leyó</kw>
+        <posTag>V</posTag>
+        <en>read (past)</en>
+    </entry>
+    <entry>
+        <kw>bebió</kw>
+        <posTag>V</posTag>
+        <en>drank</en>
+    </entry>
+    <entry>
+        <kw>vio</kw>
+        <posTag>V</posTag>
+        <en>saw</en>
+    </entry>
+    <entry>
+        <kw>compró</kw>
+        <posTag>V</posTag>
+        <en>bought</en>
+    </entry>
+    <entry>
+        <kw>escribió</kw>
+        <posTag>V</posTag>
+        <en>wrote</en>
+    </entry>
+    <entry>
+        <kw>caminó</kw>
+        <posTag>V</posTag>
+        <en>walked</en>
+    </entry>
+    <entry>
+        <kw>jugó</kw>
+        <posTag>V</posTag>
+        <en>played</en>
+    </entry>
+    <entry>
+        <kw>cantó</kw>
+        <posTag>V</posTag>
+        <en>sang</en>
+    </entry>
+    <entry>
+        <kw>vivió</kw>
+        <posTag>V</posTag>
+        <en>lived (past)</en>
+    </entry>
+    <entry>
+        <kw>tomó</kw>
+        <posTag>V</posTag>
+        <en>took</en>
+    </entry>
+    <entry>
+        <kw>encontró</kw>
+        <posTag>V</posTag>
+        <en>found</en>
+    </entry>
+    <entry>
+        <kw>llegó</kw>
+        <posTag>V</posTag>
+        <en>arrived</en>
+    </entry>
+    <entry>
+        <kw>decidió</kw>
+        <posTag>V</posTag>
+        <en>decided</en>
+    </entry>
+    <entry>
+        <kw>pasó</kw>
+        <posTag>V</posTag>
+        <en>passed/happened</en>
+    </entry>
+
+    <!-- === Verbs (preterite 3rd person plural) === -->
+    <entry>
+        <kw>corrieron</kw>
+        <posTag>V</posTag>
+        <en>they ran</en>
+    </entry>
+    <entry>
+        <kw>comieron</kw>
+        <posTag>V</posTag>
+        <en>they ate</en>
+    </entry>
+    <entry>
+        <kw>jugaron</kw>
+        <posTag>V</posTag>
+        <en>they played</en>
+    </entry>
+    <entry>
+        <kw>caminaron</kw>
+        <posTag>V</posTag>
+        <en>they walked</en>
+    </entry>
+    <entry>
+        <kw>llegaron</kw>
+        <posTag>V</posTag>
+        <en>they arrived</en>
+    </entry>
+    <entry>
+        <kw>regresaron</kw>
+        <posTag>V</posTag>
+        <en>they returned</en>
+    </entry>
+
+    <!-- === Verbs (imperfect 3rd person singular) === -->
+    <entry>
+        <kw>corría</kw>
+        <posTag>V</posTag>
+        <en>was running</en>
+    </entry>
+    <entry>
+        <kw>comía</kw>
+        <posTag>V</posTag>
+        <en>was eating</en>
+    </entry>
+    <entry>
+        <kw>tenía</kw>
+        <posTag>V</posTag>
+        <en>had (imperfect)</en>
+    </entry>
+    <entry>
+        <kw>vivía</kw>
+        <posTag>V</posTag>
+        <en>was living</en>
+    </entry>
+    <entry>
+        <kw>jugaba</kw>
+        <posTag>V</posTag>
+        <en>was playing</en>
+    </entry>
+    <entry>
+        <kw>caminaba</kw>
+        <posTag>V</posTag>
+        <en>was walking</en>
+    </entry>
+    <entry>
+        <kw>quería</kw>
+        <posTag>V</posTag>
+        <en>wanted</en>
+    </entry>
+    <entry>
+        <kw>hacía</kw>
+        <posTag>V</posTag>
+        <en>was doing/making</en>
+    </entry>
+    <entry>
+        <kw>sabía</kw>
+        <posTag>V</posTag>
+        <en>knew</en>
+    </entry>
+    <entry>
+        <kw>podía</kw>
+        <posTag>V</posTag>
+        <en>could</en>
+    </entry>
+
+    <!-- === Verbs (additional present tense) === -->
+    <entry>
+        <kw>hace</kw>
+        <posTag>V</posTag>
+        <en>does/makes</en>
+    </entry>
+    <entry>
+        <kw>sabe</kw>
+        <posTag>V</posTag>
+        <en>knows</en>
+    </entry>
+    <entry>
+        <kw>puede</kw>
+        <posTag>V</posTag>
+        <en>can</en>
+    </entry>
+    <entry>
+        <kw>sale</kw>
+        <posTag>V</posTag>
+        <en>goes out</en>
+    </entry>
+    <entry>
+        <kw>llega</kw>
+        <posTag>V</posTag>
+        <en>arrives</en>
+    </entry>
+    <entry>
+        <kw>pasa</kw>
+        <posTag>V</posTag>
+        <en>passes/happens</en>
+    </entry>
+    <entry>
+        <kw>encuentra</kw>
+        <posTag>V</posTag>
+        <en>finds</en>
+    </entry>
+    <entry>
+        <kw>da</kw>
+        <posTag>V</posTag>
+        <en>gives</en>
+    </entry>
+    <entry>
+        <kw>habla</kw>
+        <posTag>V</posTag>
+        <en>speaks</en>
+    </entry>
+    <entry>
+        <kw>gusta</kw>
+        <posTag>V</posTag>
+        <en>pleases/likes</en>
+    </entry>
+
+    <!-- === Additional common adjectives === -->
+    <entry>
+        <kw>gris</kw>
+        <posTag>A</posTag>
+        <en>gray</en>
+    </entry>
+    <entry>
+        <kw>verde</kw>
+        <posTag>A</posTag>
+        <en>green</en>
+    </entry>
+    <entry>
+        <kw>azul</kw>
+        <posTag>A</posTag>
+        <en>blue</en>
+    </entry>
+    <entry>
+        <kw>rojo</kw>
+        <posTag>A</posTag>
+        <en>red (m)</en>
+    </entry>
+    <entry>
+        <kw>roja</kw>
+        <posTag>A</posTag>
+        <en>red (f)</en>
+    </entry>
+    <entry>
+        <kw>blanco</kw>
+        <posTag>A</posTag>
+        <en>white (m)</en>
+    </entry>
+    <entry>
+        <kw>blanca</kw>
+        <posTag>A</posTag>
+        <en>white (f)</en>
+    </entry>
+    <entry>
+        <kw>negro</kw>
+        <posTag>A</posTag>
+        <en>black (m)</en>
+    </entry>
+    <entry>
+        <kw>negra</kw>
+        <posTag>A</posTag>
+        <en>black (f)</en>
+    </entry>
+    <entry>
+        <kw>largo</kw>
+        <posTag>A</posTag>
+        <en>long (m)</en>
+    </entry>
+    <entry>
+        <kw>larga</kw>
+        <posTag>A</posTag>
+        <en>long (f)</en>
+    </entry>
+    <entry>
+        <kw>corto</kw>
+        <posTag>A</posTag>
+        <en>short (m)</en>
+    </entry>
+    <entry>
+        <kw>corta</kw>
+        <posTag>A</posTag>
+        <en>short (f)</en>
+    </entry>
+    <entry>
+        <kw>suave</kw>
+        <posTag>A</posTag>
+        <en>soft/gentle</en>
+    </entry>
+    <entry>
+        <kw>fuerte</kw>
+        <posTag>A</posTag>
+        <en>strong</en>
+    </entry>
+    <entry>
+        <kw>fuertes</kw>
+        <posTag>A</posTag>
+        <en>strong (pl)</en>
+    </entry>
+    <entry>
+        <kw>dulce</kw>
+        <posTag>A</posTag>
+        <en>sweet</en>
+    </entry>
+    <entry>
+        <kw>caliente</kw>
+        <posTag>A</posTag>
+        <en>hot</en>
+    </entry>
+    <entry>
+        <kw>fresco</kw>
+        <posTag>A</posTag>
+        <en>fresh/cool (m)</en>
+    </entry>
+    <entry>
+        <kw>fresca</kw>
+        <posTag>A</posTag>
+        <en>fresh/cool (f)</en>
+    </entry>
+    <entry>
+        <kw>oscuro</kw>
+        <posTag>A</posTag>
+        <en>dark (m)</en>
+    </entry>
+    <entry>
+        <kw>oscura</kw>
+        <posTag>A</posTag>
+        <en>dark (f)</en>
+    </entry>
+    <entry>
+        <kw>claro</kw>
+        <posTag>A</posTag>
+        <en>clear/light (m)</en>
+    </entry>
+    <entry>
+        <kw>clara</kw>
+        <posTag>A</posTag>
+        <en>clear/light (f)</en>
+    </entry>
+    <entry>
+        <kw>nuevo</kw>
+        <posTag>A</posTag>
+        <en>new (m)</en>
+    </entry>
+    <entry>
+        <kw>nueva</kw>
+        <posTag>A</posTag>
+        <en>new (f)</en>
+    </entry>
+    <entry>
+        <kw>viejo</kw>
+        <posTag>A</posTag>
+        <en>old (m)</en>
+    </entry>
+    <entry>
+        <kw>vieja</kw>
+        <posTag>A</posTag>
+        <en>old (f)</en>
+    </entry>
+    <entry>
+        <kw>bonitos</kw>
+        <posTag>A</posTag>
+        <en>pretty (m.pl)</en>
+    </entry>
+    <entry>
+        <kw>bonitas</kw>
+        <posTag>A</posTag>
+        <en>pretty (f.pl)</en>
+    </entry>
+    <entry>
+        <kw>grandes</kw>
+        <posTag>A</posTag>
+        <en>big (pl)</en>
+    </entry>
+    <entry>
+        <kw>pequeños</kw>
+        <posTag>A</posTag>
+        <en>small (m.pl)</en>
+    </entry>
+    <entry>
+        <kw>pequeñas</kw>
+        <posTag>A</posTag>
+        <en>small (f.pl)</en>
+    </entry>
+    <entry>
+        <kw>buenos</kw>
+        <posTag>A</posTag>
+        <en>good (m.pl)</en>
+    </entry>
+    <entry>
+        <kw>buenas</kw>
+        <posTag>A</posTag>
+        <en>good (f.pl)</en>
+    </entry>
+    <entry>
+        <kw>malos</kw>
+        <posTag>A</posTag>
+        <en>bad (m.pl)</en>
+    </entry>
+    <entry>
+        <kw>malas</kw>
+        <posTag>A</posTag>
+        <en>bad (f.pl)</en>
+    </entry>
+    <entry>
+        <kw>perfecta</kw>
+        <posTag>A</posTag>
+        <en>perfect (f)</en>
+    </entry>
+    <entry>
+        <kw>perfecto</kw>
+        <posTag>A</posTag>
+        <en>perfect (m)</en>
+    </entry>
+    <entry>
+        <kw>favorito</kw>
+        <posTag>A</posTag>
+        <en>favorite (m)</en>
+    </entry>
+    <entry>
+        <kw>favorita</kw>
+        <posTag>A</posTag>
+        <en>favorite (f)</en>
+    </entry>
+    <entry>
+        <kw>importante</kw>
+        <posTag>A</posTag>
+        <en>important</en>
+    </entry>
+    <entry>
+        <kw>especial</kw>
+        <posTag>A</posTag>
+        <en>special</en>
+    </entry>
+    <entry>
+        <kw>diferente</kw>
+        <posTag>A</posTag>
+        <en>different</en>
+    </entry>
+    <entry>
+        <kw>diferentes</kw>
+        <posTag>A</posTag>
+        <en>different (pl)</en>
+    </entry>
+    <entry>
+        <kw>libre</kw>
+        <posTag>A</posTag>
+        <en>free</en>
+    </entry>
+    <entry>
+        <kw>lleno</kw>
+        <posTag>A</posTag>
+        <en>full (m)</en>
+    </entry>
+    <entry>
+        <kw>llena</kw>
+        <posTag>A</posTag>
+        <en>full (f)</en>
+    </entry>
+
+    <!-- === Additional common nouns === -->
+    <entry>
+        <kw>lugar</kw>
+        <posTag>N</posTag>
+        <en>place</en>
+    </entry>
+    <entry>
+        <kw>lugares</kw>
+        <posTag>N</posTag>
+        <en>places</en>
+    </entry>
+    <entry>
+        <kw>pueblo</kw>
+        <posTag>N</posTag>
+        <en>town/village</en>
+    </entry>
+    <entry>
+        <kw>ciudad</kw>
+        <posTag>N</posTag>
+        <en>city</en>
+    </entry>
+    <entry>
+        <kw>calle</kw>
+        <posTag>N</posTag>
+        <en>street</en>
+    </entry>
+    <entry>
+        <kw>calles</kw>
+        <posTag>N</posTag>
+        <en>streets</en>
+    </entry>
+    <entry>
+        <kw>plaza</kw>
+        <posTag>N</posTag>
+        <en>plaza/square</en>
+    </entry>
+    <entry>
+        <kw>río</kw>
+        <posTag>N</posTag>
+        <en>river</en>
+    </entry>
+    <entry>
+        <kw>playa</kw>
+        <posTag>N</posTag>
+        <en>beach</en>
+    </entry>
+    <entry>
+        <kw>bosque</kw>
+        <posTag>N</posTag>
+        <en>forest</en>
+    </entry>
+    <entry>
+        <kw>campo</kw>
+        <posTag>N</posTag>
+        <en>field/countryside</en>
+    </entry>
+    <entry>
+        <kw>camino</kw>
+        <posTag>N</posTag>
+        <en>path/road</en>
+    </entry>
+    <entry>
+        <kw>historia</kw>
+        <posTag>N</posTag>
+        <en>story/history</en>
+    </entry>
+    <entry>
+        <kw>momento</kw>
+        <posTag>N</posTag>
+        <en>moment</en>
+    </entry>
+    <entry>
+        <kw>mundo</kw>
+        <posTag>N</posTag>
+        <en>world</en>
+    </entry>
+    <entry>
+        <kw>vida</kw>
+        <posTag>N</posTag>
+        <en>life</en>
+    </entry>
+    <entry>
+        <kw>nombre</kw>
+        <posTag>N</posTag>
+        <en>name</en>
+    </entry>
+    <entry>
+        <kw>mesa</kw>
+        <posTag>N</posTag>
+        <en>table</en>
+    </entry>
+    <entry>
+        <kw>silla</kw>
+        <posTag>N</posTag>
+        <en>chair</en>
+    </entry>
+    <entry>
+        <kw>puerta</kw>
+        <posTag>N</posTag>
+        <en>door</en>
+    </entry>
+    <entry>
+        <kw>ventana</kw>
+        <posTag>N</posTag>
+        <en>window</en>
+    </entry>
+    <entry>
+        <kw>cocina</kw>
+        <posTag>N</posTag>
+        <en>kitchen</en>
+    </entry>
+    <entry>
+        <kw>color</kw>
+        <posTag>N</posTag>
+        <en>color</en>
+    </entry>
+    <entry>
+        <kw>colores</kw>
+        <posTag>N</posTag>
+        <en>colors</en>
+    </entry>
+    <entry>
+        <kw>flor</kw>
+        <posTag>N</posTag>
+        <en>flower</en>
+    </entry>
+    <entry>
+        <kw>flores</kw>
+        <posTag>N</posTag>
+        <en>flowers</en>
+    </entry>
+    <entry>
+        <kw>fruta</kw>
+        <posTag>N</posTag>
+        <en>fruit</en>
+    </entry>
+    <entry>
+        <kw>frutas</kw>
+        <posTag>N</posTag>
+        <en>fruits</en>
+    </entry>
+    <entry>
+        <kw>comida</kw>
+        <posTag>N</posTag>
+        <en>food/meal</en>
+    </entry>
+    <entry>
+        <kw>cena</kw>
+        <posTag>N</posTag>
+        <en>dinner</en>
+    </entry>
+    <entry>
+        <kw>problema</kw>
+        <posTag>N</posTag>
+        <en>problem</en>
+    </entry>
+    <entry>
+        <kw>cosa</kw>
+        <posTag>N</posTag>
+        <en>thing</en>
+    </entry>
+    <entry>
+        <kw>cosas</kw>
+        <posTag>N</posTag>
+        <en>things</en>
+    </entry>
+    <entry>
+        <kw>parte</kw>
+        <posTag>N</posTag>
+        <en>part</en>
+    </entry>
+    <entry>
+        <kw>personas</kw>
+        <posTag>N</posTag>
+        <en>people</en>
+    </entry>
+    <entry>
+        <kw>persona</kw>
+        <posTag>N</posTag>
+        <en>person</en>
+    </entry>
+    <entry>
+        <kw>grupo</kw>
+        <posTag>N</posTag>
+        <en>group</en>
+    </entry>
+    <entry>
+        <kw>idea</kw>
+        <posTag>N</posTag>
+        <en>idea</en>
+    </entry>
+    <entry>
+        <kw>paseo</kw>
+        <posTag>N</posTag>
+        <en>walk/stroll</en>
+    </entry>
+    <entry>
+        <kw>lado</kw>
+        <posTag>N</posTag>
+        <en>side</en>
+    </entry>
+
+    <!-- === Additional common verbs (present tense, 3rd person) === -->
+    <entry>
+        <kw>da</kw>
+        <posTag>V</posTag>
+        <en>gives</en>
+    </entry>
+    <entry>
+        <kw>dan</kw>
+        <posTag>V</posTag>
+        <en>give (pl)</en>
+    </entry>
+    <entry>
+        <kw>pone</kw>
+        <posTag>V</posTag>
+        <en>puts</en>
+    </entry>
+    <entry>
+        <kw>ponen</kw>
+        <posTag>V</posTag>
+        <en>put (pl)</en>
+    </entry>
+    <entry>
+        <kw>lleva</kw>
+        <posTag>V</posTag>
+        <en>carries/wears</en>
+    </entry>
+    <entry>
+        <kw>llevan</kw>
+        <posTag>V</posTag>
+        <en>carry/wear (pl)</en>
+    </entry>
+    <entry>
+        <kw>busca</kw>
+        <posTag>V</posTag>
+        <en>searches</en>
+    </entry>
+    <entry>
+        <kw>buscan</kw>
+        <posTag>V</posTag>
+        <en>search (pl)</en>
+    </entry>
+    <entry>
+        <kw>mira</kw>
+        <posTag>V</posTag>
+        <en>looks at</en>
+    </entry>
+    <entry>
+        <kw>miran</kw>
+        <posTag>V</posTag>
+        <en>look at (pl)</en>
+    </entry>
+    <entry>
+        <kw>camina</kw>
+        <posTag>V</posTag>
+        <en>walks</en>
+    </entry>
+    <entry>
+        <kw>caminan</kw>
+        <posTag>V</posTag>
+        <en>walk (pl)</en>
+    </entry>
+    <entry>
+        <kw>trabaja</kw>
+        <posTag>V</posTag>
+        <en>works</en>
+    </entry>
+    <entry>
+        <kw>trabajan</kw>
+        <posTag>V</posTag>
+        <en>work (pl)</en>
+    </entry>
+    <entry>
+        <kw>canta</kw>
+        <posTag>V</posTag>
+        <en>sings</en>
+    </entry>
+    <entry>
+        <kw>cantan</kw>
+        <posTag>V</posTag>
+        <en>sing (pl)</en>
+    </entry>
+    <entry>
+        <kw>cocina</kw>
+        <posTag>V</posTag>
+        <en>cooks</en>
+    </entry>
+    <entry>
+        <kw>cocinan</kw>
+        <posTag>V</posTag>
+        <en>cook (pl)</en>
+    </entry>
+    <entry>
+        <kw>toma</kw>
+        <posTag>V</posTag>
+        <en>takes/drinks</en>
+    </entry>
+    <entry>
+        <kw>toman</kw>
+        <posTag>V</posTag>
+        <en>take/drink (pl)</en>
+    </entry>
+    <entry>
+        <kw>abre</kw>
+        <posTag>V</posTag>
+        <en>opens</en>
+    </entry>
+    <entry>
+        <kw>abren</kw>
+        <posTag>V</posTag>
+        <en>open (pl)</en>
+    </entry>
+    <entry>
+        <kw>sale</kw>
+        <posTag>V</posTag>
+        <en>leaves/goes out</en>
+    </entry>
+    <entry>
+        <kw>salen</kw>
+        <posTag>V</posTag>
+        <en>leave/go out (pl)</en>
+    </entry>
+    <entry>
+        <kw>entra</kw>
+        <posTag>V</posTag>
+        <en>enters</en>
+    </entry>
+    <entry>
+        <kw>entran</kw>
+        <posTag>V</posTag>
+        <en>enter (pl)</en>
+    </entry>
+    <entry>
+        <kw>llega</kw>
+        <posTag>V</posTag>
+        <en>arrives</en>
+    </entry>
+    <entry>
+        <kw>llegan</kw>
+        <posTag>V</posTag>
+        <en>arrive (pl)</en>
+    </entry>
+    <entry>
+        <kw>pasa</kw>
+        <posTag>V</posTag>
+        <en>passes/happens</en>
+    </entry>
+    <entry>
+        <kw>pasan</kw>
+        <posTag>V</posTag>
+        <en>pass/happen (pl)</en>
+    </entry>
+    <entry>
+        <kw>escucha</kw>
+        <posTag>V</posTag>
+        <en>listens</en>
+    </entry>
+    <entry>
+        <kw>escuchan</kw>
+        <posTag>V</posTag>
+        <en>listen (pl)</en>
+    </entry>
+    <entry>
+        <kw>prepara</kw>
+        <posTag>V</posTag>
+        <en>prepares</en>
+    </entry>
+    <entry>
+        <kw>preparan</kw>
+        <posTag>V</posTag>
+        <en>prepare (pl)</en>
+    </entry>
+    <entry>
+        <kw>necesita</kw>
+        <posTag>V</posTag>
+        <en>needs</en>
+    </entry>
+    <entry>
+        <kw>necesitan</kw>
+        <posTag>V</posTag>
+        <en>need (pl)</en>
+    </entry>
+    <entry>
+        <kw>quiere</kw>
+        <posTag>V</posTag>
+        <en>wants</en>
+    </entry>
+    <entry>
+        <kw>quieren</kw>
+        <posTag>V</posTag>
+        <en>want (pl)</en>
+    </entry>
+    <entry>
+        <kw>ama</kw>
+        <posTag>V</posTag>
+        <en>loves</en>
+    </entry>
+    <entry>
+        <kw>aman</kw>
+        <posTag>V</posTag>
+        <en>love (pl)</en>
+    </entry>
+    <entry>
+        <kw>cubre</kw>
+        <posTag>V</posTag>
+        <en>covers</en>
+    </entry>
+    <entry>
+        <kw>cubren</kw>
+        <posTag>V</posTag>
+        <en>cover (pl)</en>
+    </entry>
+    <entry>
+        <kw>mueve</kw>
+        <posTag>V</posTag>
+        <en>moves</en>
+    </entry>
+    <entry>
+        <kw>mueven</kw>
+        <posTag>V</posTag>
+        <en>move (pl)</en>
+    </entry>
+    <entry>
+        <kw>cae</kw>
+        <posTag>V</posTag>
+        <en>falls</en>
+    </entry>
+    <entry>
+        <kw>caen</kw>
+        <posTag>V</posTag>
+        <en>fall (pl)</en>
+    </entry>
+    <entry>
+        <kw>brilla</kw>
+        <posTag>V</posTag>
+        <en>shines</en>
+    </entry>
+    <entry>
+        <kw>disfruta</kw>
+        <posTag>V</posTag>
+        <en>enjoys</en>
+    </entry>
+    <entry>
+        <kw>disfrutan</kw>
+        <posTag>V</posTag>
+        <en>enjoy (pl)</en>
+    </entry>
+
+    <!-- === Additional common nouns: weather/nature === -->
+    <entry>
+        <kw>nube</kw>
+        <posTag>N</posTag>
+        <en>cloud</en>
+    </entry>
+    <entry>
+        <kw>nubes</kw>
+        <posTag>N</posTag>
+        <en>clouds</en>
+    </entry>
+    <entry>
+        <kw>brisa</kw>
+        <posTag>N</posTag>
+        <en>breeze</en>
+    </entry>
+    <entry>
+        <kw>temperatura</kw>
+        <posTag>N</posTag>
+        <en>temperature</en>
+    </entry>
+    <entry>
+        <kw>aire</kw>
+        <posTag>N</posTag>
+        <en>air</en>
+    </entry>
+    <entry>
+        <kw>luz</kw>
+        <posTag>N</posTag>
+        <en>light</en>
+    </entry>
+    <entry>
+        <kw>sombra</kw>
+        <posTag>N</posTag>
+        <en>shadow/shade</en>
+    </entry>
+    <entry>
+        <kw>olas</kw>
+        <posTag>N</posTag>
+        <en>waves</en>
+    </entry>
+    <entry>
+        <kw>arena</kw>
+        <posTag>N</posTag>
+        <en>sand</en>
+    </entry>
+    <entry>
+        <kw>hojas</kw>
+        <posTag>N</posTag>
+        <en>leaves</en>
+    </entry>
+    <entry>
+        <kw>estrellas</kw>
+        <posTag>N</posTag>
+        <en>stars</en>
+    </entry>
+    <entry>
+        <kw>luna</kw>
+        <posTag>N</posTag>
+        <en>moon</en>
+    </entry>
+    <entry>
+        <kw>tarde</kw>
+        <posTag>N</posTag>
+        <en>afternoon</en>
+    </entry>
+    <entry>
+        <kw>noche</kw>
+        <posTag>N</posTag>
+        <en>night</en>
+    </entry>
+    <entry>
+        <kw>mañana</kw>
+        <posTag>N</posTag>
+        <en>morning</en>
+    </entry>
+
+    <!-- === Additional determiners === -->
+    <entry>
+        <kw>este</kw>
+        <posTag>DET</posTag>
+        <en>this (m)</en>
+    </entry>
+    <entry>
+        <kw>esta</kw>
+        <posTag>DET</posTag>
+        <en>this (f)</en>
+    </entry>
+    <entry>
+        <kw>estos</kw>
+        <posTag>DET</posTag>
+        <en>these (m)</en>
+    </entry>
+    <entry>
+        <kw>estas</kw>
+        <posTag>DET</posTag>
+        <en>these (f)</en>
+    </entry>
+    <entry>
+        <kw>ese</kw>
+        <posTag>DET</posTag>
+        <en>that (m)</en>
+    </entry>
+    <entry>
+        <kw>esa</kw>
+        <posTag>DET</posTag>
+        <en>that (f)</en>
+    </entry>
+    <entry>
+        <kw>cada</kw>
+        <posTag>DET</posTag>
+        <en>each/every</en>
+    </entry>
+    <entry>
+        <kw>todo</kw>
+        <posTag>DET</posTag>
+        <en>all/every (m)</en>
+    </entry>
+    <entry>
+        <kw>toda</kw>
+        <posTag>DET</posTag>
+        <en>all/every (f)</en>
+    </entry>
+    <entry>
+        <kw>todos</kw>
+        <posTag>DET</posTag>
+        <en>all (m.pl)</en>
+    </entry>
+    <entry>
+        <kw>todas</kw>
+        <posTag>DET</posTag>
+        <en>all (f.pl)</en>
+    </entry>
+    <entry>
+        <kw>unos</kw>
+        <posTag>DET</posTag>
+        <en>some (m.pl)</en>
+    </entry>
+    <entry>
+        <kw>unas</kw>
+        <posTag>DET</posTag>
+        <en>some (f.pl)</en>
+    </entry>
+    <entry>
+        <kw>mucho</kw>
+        <posTag>DET</posTag>
+        <en>much (m)</en>
+    </entry>
+    <entry>
+        <kw>mucha</kw>
+        <posTag>DET</posTag>
+        <en>much (f)</en>
+    </entry>
+    <entry>
+        <kw>muchos</kw>
+        <posTag>DET</posTag>
+        <en>many (m)</en>
+    </entry>
+    <entry>
+        <kw>muchas</kw>
+        <posTag>DET</posTag>
+        <en>many (f)</en>
+    </entry>
+
+    <!-- === More missing common words === -->
+    <entry>
+        <kw>feliz</kw>
+        <posTag>A</posTag>
+        <en>happy</en>
+    </entry>
+    <entry>
+        <kw>felices</kw>
+        <posTag>A</posTag>
+        <en>happy (pl)</en>
+    </entry>
+    <entry>
+        <kw>triste</kw>
+        <posTag>A</posTag>
+        <en>sad</en>
+    </entry>
+    <entry>
+        <kw>tristes</kw>
+        <posTag>A</posTag>
+        <en>sad (pl)</en>
+    </entry>
+    <entry>
+        <kw>amarillo</kw>
+        <posTag>A</posTag>
+        <en>yellow (m)</en>
+    </entry>
+    <entry>
+        <kw>amarilla</kw>
+        <posTag>A</posTag>
+        <en>yellow (f)</en>
+    </entry>
+    <entry>
+        <kw>amarillas</kw>
+        <posTag>A</posTag>
+        <en>yellow (f.pl)</en>
+    </entry>
+    <entry>
+        <kw>verdes</kw>
+        <posTag>A</posTag>
+        <en>green (pl)</en>
+    </entry>
+    <entry>
+        <kw>azules</kw>
+        <posTag>A</posTag>
+        <en>blue (pl)</en>
+    </entry>
+    <entry>
+        <kw>rojos</kw>
+        <posTag>A</posTag>
+        <en>red (m.pl)</en>
+    </entry>
+    <entry>
+        <kw>rojas</kw>
+        <posTag>A</posTag>
+        <en>red (f.pl)</en>
+    </entry>
+    <entry>
+        <kw>blancos</kw>
+        <posTag>A</posTag>
+        <en>white (m.pl)</en>
+    </entry>
+    <entry>
+        <kw>blancas</kw>
+        <posTag>A</posTag>
+        <en>white (f.pl)</en>
+    </entry>
+    <entry>
+        <kw>negros</kw>
+        <posTag>A</posTag>
+        <en>black (m.pl)</en>
+    </entry>
+    <entry>
+        <kw>negras</kw>
+        <posTag>A</posTag>
+        <en>black (f.pl)</en>
+    </entry>
+    <entry>
+        <kw>detrás</kw>
+        <posTag>PREP</posTag>
+        <en>behind</en>
+    </entry>
+    <entry>
+        <kw>delante</kw>
+        <posTag>PREP</posTag>
+        <en>in front of</en>
+    </entry>
+    <entry>
+        <kw>dentro</kw>
+        <posTag>PREP</posTag>
+        <en>inside</en>
+    </entry>
+    <entry>
+        <kw>fuera</kw>
+        <posTag>PREP</posTag>
+        <en>outside</en>
+    </entry>
+    <entry>
+        <kw>ventanas</kw>
+        <posTag>N</posTag>
+        <en>windows</en>
+    </entry>
+    <entry>
+        <kw>puertas</kw>
+        <posTag>N</posTag>
+        <en>doors</en>
+    </entry>
+    <entry>
+        <kw>árboles</kw>
+        <posTag>N</posTag>
+        <en>trees</en>
+    </entry>
+    <entry>
+        <kw>pájaros</kw>
+        <posTag>N</posTag>
+        <en>birds</en>
+    </entry>
+    <entry>
+        <kw>pájaro</kw>
+        <posTag>N</posTag>
+        <en>bird</en>
+    </entry>
+    <entry>
+        <kw>jardín</kw>
+        <posTag>N</posTag>
+        <en>garden</en>
+    </entry>
+    <entry>
+        <kw>animales</kw>
+        <posTag>N</posTag>
+        <en>animals</en>
+    </entry>
+    <entry>
+        <kw>animal</kw>
+        <posTag>N</posTag>
+        <en>animal</en>
+    </entry>
+    <entry>
+        <kw>sillas</kw>
+        <posTag>N</posTag>
+        <en>chairs</en>
+    </entry>
+    <entry>
+        <kw>mesas</kw>
+        <posTag>N</posTag>
+        <en>tables</en>
+    </entry>
+    <entry>
+        <kw>pelota</kw>
+        <posTag>N</posTag>
+        <en>ball</en>
+    </entry>
+    <entry>
+        <kw>juego</kw>
+        <posTag>N</posTag>
+        <en>game</en>
+    </entry>
+    <entry>
+        <kw>tiempo</kw>
+        <posTag>N</posTag>
+        <en>time/weather</en>
+    </entry>
+    <entry>
+        <kw>madera</kw>
+        <posTag>N</posTag>
+        <en>wood</en>
+    </entry>
+    <entry>
+        <kw>tierra</kw>
+        <posTag>N</posTag>
+        <en>earth/land</en>
+    </entry>
+    <entry>
+        <kw>piedra</kw>
+        <posTag>N</posTag>
+        <en>stone</en>
+    </entry>
+    <entry>
+        <kw>tiene</kw>
+        <posTag>V</posTag>
+        <en>has</en>
+    </entry>
+    <entry>
+        <kw>tienen</kw>
+        <posTag>V</posTag>
+        <en>have (pl)</en>
+    </entry>
+    <entry>
+        <kw>cola</kw>
+        <posTag>N</posTag>
+        <en>tail</en>
+    </entry>
+    <entry>
+        <kw>banco</kw>
+        <posTag>N</posTag>
+        <en>bench/bank</en>
+    </entry>
+    <entry>
+        <kw>descansa</kw>
+        <posTag>V</posTag>
+        <en>rests</en>
+    </entry>
+    <entry>
+        <kw>descansan</kw>
+        <posTag>V</posTag>
+        <en>rest (pl)</en>
+    </entry>
+    <entry>
+        <kw>observa</kw>
+        <posTag>V</posTag>
+        <en>observes</en>
+    </entry>
+    <entry>
+        <kw>observan</kw>
+        <posTag>V</posTag>
+        <en>observe (pl)</en>
+    </entry>
+    <!-- === Proper names (common Spanish names) === -->
+    <entry>
+        <kw>carlos</kw>
+        <posTag>N</posTag>
+        <en>Carlos (name)</en>
+    </entry>
+    <entry>
+        <kw>maría</kw>
+        <posTag>N</posTag>
+        <en>María (name)</en>
+    </entry>
+    <entry>
+        <kw>juan</kw>
+        <posTag>N</posTag>
+        <en>Juan (name)</en>
+    </entry>
+    <entry>
+        <kw>ana</kw>
+        <posTag>N</posTag>
+        <en>Ana (name)</en>
+    </entry>
+    <entry>
+        <kw>pedro</kw>
+        <posTag>N</posTag>
+        <en>Pedro (name)</en>
+    </entry>
+    <entry>
+        <kw>miguel</kw>
+        <posTag>N</posTag>
+        <en>Miguel (name)</en>
+    </entry>
+    <entry>
+        <kw>rosa</kw>
+        <posTag>N</posTag>
+        <en>Rosa (name)</en>
+    </entry>
+    <entry>
+        <kw>luis</kw>
+        <posTag>N</posTag>
+        <en>Luis (name)</en>
+    </entry>
+    <entry>
+        <kw>elena</kw>
+        <posTag>N</posTag>
+        <en>Elena (name)</en>
+    </entry>
+    <entry>
+        <kw>pablo</kw>
+        <posTag>N</posTag>
+        <en>Pablo (name)</en>
+    </entry>
+    <entry>
+        <kw>sofía</kw>
+        <posTag>N</posTag>
+        <en>Sofía (name)</en>
+    </entry>
+    <entry>
+        <kw>diego</kw>
+        <posTag>N</posTag>
+        <en>Diego (name)</en>
+    </entry>
+    <entry>
+        <kw>laura</kw>
+        <posTag>N</posTag>
+        <en>Laura (name)</en>
+    </entry>
+    <entry>
+        <kw>josé</kw>
+        <posTag>N</posTag>
+        <en>José (name)</en>
+    </entry>
+    <entry>
+        <kw>carmen</kw>
+        <posTag>N</posTag>
+        <en>Carmen (name)</en>
+    </entry>
+    <entry>
+        <kw>antonio</kw>
+        <posTag>N</posTag>
+        <en>Antonio (name)</en>
+    </entry>
+    <entry>
+        <kw>isabel</kw>
+        <posTag>N</posTag>
+        <en>Isabel (name)</en>
+    </entry>
+    <entry>
+        <kw>daniel</kw>
+        <posTag>N</posTag>
+        <en>Daniel (name)</en>
+    </entry>
+    <entry>
+        <kw>lucía</kw>
+        <posTag>N</posTag>
+        <en>Lucía (name)</en>
+    </entry>
+    <entry>
+        <kw>tomás</kw>
+        <posTag>N</posTag>
+        <en>Tomás (name)</en>
+    </entry>
+    <entry>
+        <kw>marco</kw>
+        <posTag>N</posTag>
+        <en>Marco (name)</en>
+    </entry>
+    <entry>
+        <kw>marta</kw>
+        <posTag>N</posTag>
+        <en>Marta (name)</en>
+    </entry>
+    <entry>
+        <kw>andrés</kw>
+        <posTag>N</posTag>
+        <en>Andrés (name)</en>
+    </entry>
+    <entry>
+        <kw>raúl</kw>
+        <posTag>N</posTag>
+        <en>Raúl (name)</en>
+    </entry>
+    <entry>
+        <kw>clara</kw>
+        <posTag>N</posTag>
+        <en>Clara (name)</en>
+    </entry>
+    <entry>
+        <kw>roberto</kw>
+        <posTag>N</posTag>
+        <en>Roberto (name)</en>
+    </entry>
+    <entry>
+        <kw>teresa</kw>
+        <posTag>N</posTag>
+        <en>Teresa (name)</en>
+    </entry>
+    <entry>
+        <kw>francisco</kw>
+        <posTag>N</posTag>
+        <en>Francisco (name)</en>
+    </entry>
+    <entry>
+        <kw>alejandro</kw>
+        <posTag>N</posTag>
+        <en>Alejandro (name)</en>
+    </entry>
+    <entry>
+        <kw>valentina</kw>
+        <posTag>N</posTag>
+        <en>Valentina (name)</en>
+    </entry>
+
+    <entry>
+        <kw>bruno</kw>
+        <posTag>N</posTag>
+        <en>Bruno (name)</en>
+    </entry>
+    <entry>
+        <kw>mateo</kw>
+        <posTag>N</posTag>
+        <en>Mateo (name)</en>
+    </entry>
+    <entry>
+        <kw>santiago</kw>
+        <posTag>N</posTag>
+        <en>Santiago (name)</en>
+    </entry>
+    <entry>
+        <kw>adrián</kw>
+        <posTag>N</posTag>
+        <en>Adrián (name)</en>
+    </entry>
+    <entry>
+        <kw>leo</kw>
+        <posTag>N</posTag>
+        <en>Leo (name)</en>
+    </entry>
+    <entry>
+        <kw>david</kw>
+        <posTag>N</posTag>
+        <en>David (name)</en>
+    </entry>
+    <entry>
+        <kw>manuel</kw>
+        <posTag>N</posTag>
+        <en>Manuel (name)</en>
+    </entry>
+    <entry>
+        <kw>mario</kw>
+        <posTag>N</posTag>
+        <en>Mario (name)</en>
+    </entry>
+    <entry>
+        <kw>javier</kw>
+        <posTag>N</posTag>
+        <en>Javier (name)</en>
+    </entry>
+    <entry>
+        <kw>alma</kw>
+        <posTag>N</posTag>
+        <en>Alma (name)</en>
+    </entry>
+    <entry>
+        <kw>paula</kw>
+        <posTag>N</posTag>
+        <en>Paula (name)</en>
+    </entry>
+    <entry>
+        <kw>luna</kw>
+        <posTag>N</posTag>
+        <en>Luna (name)</en>
+    </entry>
+    <entry>
+        <kw>camila</kw>
+        <posTag>N</posTag>
+        <en>Camila (name)</en>
+    </entry>
+    <entry>
+        <kw>julia</kw>
+        <posTag>N</posTag>
+        <en>Julia (name)</en>
+    </entry>
+    <entry>
+        <kw>sara</kw>
+        <posTag>N</posTag>
+        <en>Sara (name)</en>
+    </entry>
+    <entry>
+        <kw>max</kw>
+        <posTag>N</posTag>
+        <en>Max (name)</en>
+    </entry>
+    <entry>
+        <kw>toby</kw>
+        <posTag>N</posTag>
+        <en>Toby (name)</en>
+    </entry>
+    <entry>
+        <kw>firulais</kw>
+        <posTag>N</posTag>
+        <en>Firulais (dog name)</en>
+    </entry>
+
+    <!-- === Numbers as determiners === -->
+    <entry>
+        <kw>dos</kw>
+        <posTag>DET</posTag>
+        <en>two</en>
+    </entry>
+    <entry>
+        <kw>tres</kw>
+        <posTag>DET</posTag>
+        <en>three</en>
+    </entry>
+    <entry>
+        <kw>cuatro</kw>
+        <posTag>DET</posTag>
+        <en>four</en>
+    </entry>
+    <entry>
+        <kw>cinco</kw>
+        <posTag>DET</posTag>
+        <en>five</en>
+    </entry>
+
+    <!-- === Contractions and preposition "a" === -->
+    <entry>
+        <kw>a</kw>
+        <posTag>PREP</posTag>
+        <en>to/at</en>
+    </entry>
+    <entry>
+        <kw>al</kw>
+        <posTag>PREP</posTag>
+        <en>to the (a+el)</en>
+    </entry>
+    <entry>
+        <kw>del</kw>
+        <posTag>PREP</posTag>
+        <en>of the (de+el)</en>
+    </entry>
+
+    <!-- === Missing vocabulary from X-Ray analysis === -->
+
+    <!-- Nouns -->
+    <entry>
+        <kw>días</kw>
+        <posTag>N</posTag>
+        <en>days</en>
+    </entry>
+    <entry>
+        <kw>hueso</kw>
+        <posTag>N</posTag>
+        <en>bone</en>
+    </entry>
+    <entry>
+        <kw>arbusto</kw>
+        <posTag>N</posTag>
+        <en>bush/shrub</en>
+    </entry>
+    <entry>
+        <kw>alegría</kw>
+        <posTag>N</posTag>
+        <en>joy/happiness</en>
+    </entry>
+    <entry>
+        <kw>amor</kw>
+        <posTag>N</posTag>
+        <en>love</en>
+    </entry>
+    <entry>
+        <kw>corazón</kw>
+        <posTag>N</posTag>
+        <en>heart</en>
+    </entry>
+    <entry>
+        <kw>casa</kw>
+        <posTag>N</posTag>
+        <en>house</en>
+    </entry>
+    <entry>
+        <kw>casas</kw>
+        <posTag>N</posTag>
+        <en>houses</en>
+    </entry>
+    <entry>
+        <kw>libros</kw>
+        <posTag>N</posTag>
+        <en>books</en>
+    </entry>
+    <entry>
+        <kw>pelotas</kw>
+        <posTag>N</posTag>
+        <en>balls</en>
+    </entry>
+    <entry>
+        <kw>huesos</kw>
+        <posTag>N</posTag>
+        <en>bones</en>
+    </entry>
+    <entry>
+        <kw>arbustos</kw>
+        <posTag>N</posTag>
+        <en>bushes</en>
+    </entry>
+    <entry>
+        <kw>juguete</kw>
+        <posTag>N</posTag>
+        <en>toy</en>
+    </entry>
+    <entry>
+        <kw>juguetes</kw>
+        <posTag>N</posTag>
+        <en>toys</en>
+    </entry>
+    <entry>
+        <kw>aventura</kw>
+        <posTag>N</posTag>
+        <en>adventure</en>
+    </entry>
+    <entry>
+        <kw>aventuras</kw>
+        <posTag>N</posTag>
+        <en>adventures</en>
+    </entry>
+    <entry>
+        <kw>cabeza</kw>
+        <posTag>N</posTag>
+        <en>head</en>
+    </entry>
+    <entry>
+        <kw>pata</kw>
+        <posTag>N</posTag>
+        <en>paw/leg (animal)</en>
+    </entry>
+    <entry>
+        <kw>patas</kw>
+        <posTag>N</posTag>
+        <en>paws/legs (animal)</en>
+    </entry>
+    <entry>
+        <kw>cola</kw>
+        <posTag>N</posTag>
+        <en>tail</en>
+    </entry>
+    <entry>
+        <kw>nariz</kw>
+        <posTag>N</posTag>
+        <en>nose</en>
+    </entry>
+    <entry>
+        <kw>boca</kw>
+        <posTag>N</posTag>
+        <en>mouth</en>
+    </entry>
+    <entry>
+        <kw>pelo</kw>
+        <posTag>N</posTag>
+        <en>hair/fur</en>
+    </entry>
+    <entry>
+        <kw>suelo</kw>
+        <posTag>N</posTag>
+        <en>floor/ground</en>
+    </entry>
+    <entry>
+        <kw>techo</kw>
+        <posTag>N</posTag>
+        <en>ceiling/roof</en>
+    </entry>
+    <entry>
+        <kw>pared</kw>
+        <posTag>N</posTag>
+        <en>wall</en>
+    </entry>
+    <entry>
+        <kw>esquina</kw>
+        <posTag>N</posTag>
+        <en>corner</en>
+    </entry>
+    <entry>
+        <kw>final</kw>
+        <posTag>N</posTag>
+        <en>end</en>
+    </entry>
+    <entry>
+        <kw>principio</kw>
+        <posTag>N</posTag>
+        <en>beginning</en>
+    </entry>
+    <entry>
+        <kw>caminos</kw>
+        <posTag>N</posTag>
+        <en>paths/roads</en>
+    </entry>
+    <entry>
+        <kw>parques</kw>
+        <posTag>N</posTag>
+        <en>parks</en>
+    </entry>
+    <entry>
+        <kw>manos</kw>
+        <posTag>N</posTag>
+        <en>hands</en>
+    </entry>
+    <entry>
+        <kw>hijos</kw>
+        <posTag>N</posTag>
+        <en>sons/children</en>
+    </entry>
+    <entry>
+        <kw>hijas</kw>
+        <posTag>N</posTag>
+        <en>daughters</en>
+    </entry>
+    <entry>
+        <kw>hermanos</kw>
+        <posTag>N</posTag>
+        <en>brothers/siblings</en>
+    </entry>
+    <entry>
+        <kw>abuelos</kw>
+        <posTag>N</posTag>
+        <en>grandparents</en>
+    </entry>
+    <entry>
+        <kw>vecino</kw>
+        <posTag>N</posTag>
+        <en>neighbor (m)</en>
+    </entry>
+    <entry>
+        <kw>vecina</kw>
+        <posTag>N</posTag>
+        <en>neighbor (f)</en>
+    </entry>
+    <entry>
+        <kw>vecinos</kw>
+        <posTag>N</posTag>
+        <en>neighbors</en>
+    </entry>
+    <entry>
+        <kw>comedor</kw>
+        <posTag>N</posTag>
+        <en>dining room</en>
+    </entry>
+    <entry>
+        <kw>baño</kw>
+        <posTag>N</posTag>
+        <en>bathroom</en>
+    </entry>
+    <entry>
+        <kw>sala</kw>
+        <posTag>N</posTag>
+        <en>living room</en>
+    </entry>
+    <entry>
+        <kw>cuarto</kw>
+        <posTag>N</posTag>
+        <en>room</en>
+    </entry>
+    <entry>
+        <kw>habitación</kw>
+        <posTag>N</posTag>
+        <en>room/bedroom</en>
+    </entry>
+    <entry>
+        <kw>cama</kw>
+        <posTag>N</posTag>
+        <en>bed</en>
+    </entry>
+    <entry>
+        <kw>sofá</kw>
+        <posTag>N</posTag>
+        <en>sofa</en>
+    </entry>
+    <entry>
+        <kw>ropa</kw>
+        <posTag>N</posTag>
+        <en>clothes</en>
+    </entry>
+    <entry>
+        <kw>zapatos</kw>
+        <posTag>N</posTag>
+        <en>shoes</en>
+    </entry>
+    <entry>
+        <kw>sombrero</kw>
+        <posTag>N</posTag>
+        <en>hat</en>
+    </entry>
+    <entry>
+        <kw>bolsa</kw>
+        <posTag>N</posTag>
+        <en>bag</en>
+    </entry>
+    <entry>
+        <kw>dinero</kw>
+        <posTag>N</posTag>
+        <en>money</en>
+    </entry>
+    <entry>
+        <kw>palabra</kw>
+        <posTag>N</posTag>
+        <en>word</en>
+    </entry>
+    <entry>
+        <kw>palabras</kw>
+        <posTag>N</posTag>
+        <en>words</en>
+    </entry>
+    <entry>
+        <kw>canción</kw>
+        <posTag>N</posTag>
+        <en>song</en>
+    </entry>
+    <entry>
+        <kw>canciones</kw>
+        <posTag>N</posTag>
+        <en>songs</en>
+    </entry>
+
+    <!-- More missing nouns -->
+    <entry>
+        <kw>caja</kw>
+        <posTag>N</posTag>
+        <en>box</en>
+    </entry>
+    <entry>
+        <kw>tesoro</kw>
+        <posTag>N</posTag>
+        <en>treasure</en>
+    </entry>
+    <entry>
+        <kw>regalo</kw>
+        <posTag>N</posTag>
+        <en>gift</en>
+    </entry>
+    <entry>
+        <kw>piedras</kw>
+        <posTag>N</posTag>
+        <en>stones</en>
+    </entry>
+    <entry>
+        <kw>hierba</kw>
+        <posTag>N</posTag>
+        <en>grass</en>
+    </entry>
+    <entry>
+        <kw>cielo</kw>
+        <posTag>N</posTag>
+        <en>sky</en>
+    </entry>
+    <entry>
+        <kw>estrella</kw>
+        <posTag>N</posTag>
+        <en>star</en>
+    </entry>
+    <entry>
+        <kw>patio</kw>
+        <posTag>N</posTag>
+        <en>patio/yard</en>
+    </entry>
+    <entry>
+        <kw>banco</kw>
+        <posTag>N</posTag>
+        <en>bench</en>
+    </entry>
+    <entry>
+        <kw>sendero</kw>
+        <posTag>N</posTag>
+        <en>trail/path</en>
+    </entry>
+    <entry>
+        <kw>orilla</kw>
+        <posTag>N</posTag>
+        <en>shore/edge</en>
+    </entry>
+    <entry>
+        <kw>rama</kw>
+        <posTag>N</posTag>
+        <en>branch</en>
+    </entry>
+    <entry>
+        <kw>ramas</kw>
+        <posTag>N</posTag>
+        <en>branches</en>
+    </entry>
+    <entry>
+        <kw>hoja</kw>
+        <posTag>N</posTag>
+        <en>leaf</en>
+    </entry>
+    <entry>
+        <kw>nido</kw>
+        <posTag>N</posTag>
+        <en>nest</en>
+    </entry>
+    <entry>
+        <kw>ala</kw>
+        <posTag>N</posTag>
+        <en>wing</en>
+    </entry>
+    <entry>
+        <kw>alas</kw>
+        <posTag>N</posTag>
+        <en>wings</en>
+    </entry>
+
+    <!-- More prepositions -->
+    <entry>
+        <kw>debajo</kw>
+        <posTag>PREP</posTag>
+        <en>under/below</en>
+    </entry>
+    <entry>
+        <kw>encima</kw>
+        <posTag>PREP</posTag>
+        <en>on top of</en>
+    </entry>
+    <entry>
+        <kw>alrededor</kw>
+        <posTag>PREP</posTag>
+        <en>around</en>
+    </entry>
+    <entry>
+        <kw>junto</kw>
+        <posTag>PREP</posTag>
+        <en>next to</en>
+    </entry>
+
+    <!-- Adjectives (as past participles used adjectivally) -->
+    <entry>
+        <kw>llamado</kw>
+        <posTag>A</posTag>
+        <en>called/named (m)</en>
+    </entry>
+    <entry>
+        <kw>llamada</kw>
+        <posTag>A</posTag>
+        <en>called/named (f)</en>
+    </entry>
+    <entry>
+        <kw>enterrado</kw>
+        <posTag>A</posTag>
+        <en>buried (m)</en>
+    </entry>
+    <entry>
+        <kw>enterrada</kw>
+        <posTag>A</posTag>
+        <en>buried (f)</en>
+    </entry>
+    <entry>
+        <kw>perdido</kw>
+        <posTag>A</posTag>
+        <en>lost (m)</en>
+    </entry>
+    <entry>
+        <kw>perdida</kw>
+        <posTag>A</posTag>
+        <en>lost (f)</en>
+    </entry>
+    <entry>
+        <kw>cansado</kw>
+        <posTag>A</posTag>
+        <en>tired (m)</en>
+    </entry>
+    <entry>
+        <kw>cansada</kw>
+        <posTag>A</posTag>
+        <en>tired (f)</en>
+    </entry>
+    <entry>
+        <kw>mojado</kw>
+        <posTag>A</posTag>
+        <en>wet (m)</en>
+    </entry>
+    <entry>
+        <kw>mojada</kw>
+        <posTag>A</posTag>
+        <en>wet (f)</en>
+    </entry>
+    <entry>
+        <kw>rápido</kw>
+        <posTag>A</posTag>
+        <en>fast/quick (m)</en>
+    </entry>
+    <entry>
+        <kw>rápida</kw>
+        <posTag>A</posTag>
+        <en>fast/quick (f)</en>
+    </entry>
+    <entry>
+        <kw>lento</kw>
+        <posTag>A</posTag>
+        <en>slow (m)</en>
+    </entry>
+    <entry>
+        <kw>lenta</kw>
+        <posTag>A</posTag>
+        <en>slow (f)</en>
+    </entry>
+    <entry>
+        <kw>querido</kw>
+        <posTag>A</posTag>
+        <en>dear/beloved (m)</en>
+    </entry>
+    <entry>
+        <kw>querida</kw>
+        <posTag>A</posTag>
+        <en>dear/beloved (f)</en>
+    </entry>
+    <entry>
+        <kw>café</kw>
+        <posTag>A</posTag>
+        <en>brown (color)</en>
+    </entry>
+    <entry>
+        <kw>marrón</kw>
+        <posTag>A</posTag>
+        <en>brown</en>
+    </entry>
+    <entry>
+        <kw>dorado</kw>
+        <posTag>A</posTag>
+        <en>golden (m)</en>
+    </entry>
+    <entry>
+        <kw>dorada</kw>
+        <posTag>A</posTag>
+        <en>golden (f)</en>
+    </entry>
+    <entry>
+        <kw>gris</kw>
+        <posTag>A</posTag>
+        <en>gray</en>
+    </entry>
+    <entry>
+        <kw>rosado</kw>
+        <posTag>A</posTag>
+        <en>pink (m)</en>
+    </entry>
+    <entry>
+        <kw>rosada</kw>
+        <posTag>A</posTag>
+        <en>pink (f)</en>
+    </entry>
+    <entry>
+        <kw>profundo</kw>
+        <posTag>A</posTag>
+        <en>deep (m)</en>
+    </entry>
+    <entry>
+        <kw>profunda</kw>
+        <posTag>A</posTag>
+        <en>deep (f)</en>
+    </entry>
+    <entry>
+        <kw>ancho</kw>
+        <posTag>A</posTag>
+        <en>wide (m)</en>
+    </entry>
+    <entry>
+        <kw>ancha</kw>
+        <posTag>A</posTag>
+        <en>wide (f)</en>
+    </entry>
+    <entry>
+        <kw>estrecho</kw>
+        <posTag>A</posTag>
+        <en>narrow (m)</en>
+    </entry>
+    <entry>
+        <kw>estrecha</kw>
+        <posTag>A</posTag>
+        <en>narrow (f)</en>
+    </entry>
+    <entry>
+        <kw>suave</kw>
+        <posTag>A</posTag>
+        <en>soft/gentle</en>
+    </entry>
+    <entry>
+        <kw>brillante</kw>
+        <posTag>A</posTag>
+        <en>bright/shiny</en>
+    </entry>
+    <entry>
+        <kw>delicioso</kw>
+        <posTag>A</posTag>
+        <en>delicious (m)</en>
+    </entry>
+    <entry>
+        <kw>deliciosa</kw>
+        <posTag>A</posTag>
+        <en>delicious (f)</en>
+    </entry>
+
+    <!-- Additional verbs: preterite 3rd person singular -->
+    <entry>
+        <kw>sonrió</kw>
+        <posTag>V</posTag>
+        <en>smiled</en>
+    </entry>
+    <entry>
+        <kw>abrazó</kw>
+        <posTag>V</posTag>
+        <en>hugged</en>
+    </entry>
+    <entry>
+        <kw>llamó</kw>
+        <posTag>V</posTag>
+        <en>called</en>
+    </entry>
+    <entry>
+        <kw>miró</kw>
+        <posTag>V</posTag>
+        <en>looked at</en>
+    </entry>
+    <entry>
+        <kw>escuchó</kw>
+        <posTag>V</posTag>
+        <en>listened</en>
+    </entry>
+    <entry>
+        <kw>preparó</kw>
+        <posTag>V</posTag>
+        <en>prepared</en>
+    </entry>
+    <entry>
+        <kw>abrió</kw>
+        <posTag>V</posTag>
+        <en>opened</en>
+    </entry>
+    <entry>
+        <kw>cerró</kw>
+        <posTag>V</posTag>
+        <en>closed</en>
+    </entry>
+    <entry>
+        <kw>saltó</kw>
+        <posTag>V</posTag>
+        <en>jumped</en>
+    </entry>
+    <entry>
+        <kw>nadó</kw>
+        <posTag>V</posTag>
+        <en>swam</en>
+    </entry>
+    <entry>
+        <kw>descansó</kw>
+        <posTag>V</posTag>
+        <en>rested</en>
+    </entry>
+    <entry>
+        <kw>observó</kw>
+        <posTag>V</posTag>
+        <en>observed</en>
+    </entry>
+    <entry>
+        <kw>disfrutó</kw>
+        <posTag>V</posTag>
+        <en>enjoyed</en>
+    </entry>
+    <entry>
+        <kw>habló</kw>
+        <posTag>V</posTag>
+        <en>spoke</en>
+    </entry>
+    <entry>
+        <kw>gritó</kw>
+        <posTag>V</posTag>
+        <en>shouted</en>
+    </entry>
+    <entry>
+        <kw>trabajó</kw>
+        <posTag>V</posTag>
+        <en>worked</en>
+    </entry>
+    <entry>
+        <kw>ayudó</kw>
+        <posTag>V</posTag>
+        <en>helped</en>
+    </entry>
+    <entry>
+        <kw>esperó</kw>
+        <posTag>V</posTag>
+        <en>waited</en>
+    </entry>
+    <entry>
+        <kw>estudió</kw>
+        <posTag>V</posTag>
+        <en>studied</en>
+    </entry>
+    <entry>
+        <kw>empezó</kw>
+        <posTag>V</posTag>
+        <en>started</en>
+    </entry>
+    <entry>
+        <kw>terminó</kw>
+        <posTag>V</posTag>
+        <en>finished</en>
+    </entry>
+    <entry>
+        <kw>regresó</kw>
+        <posTag>V</posTag>
+        <en>returned</en>
+    </entry>
+    <entry>
+        <kw>durmió</kw>
+        <posTag>V</posTag>
+        <en>slept</en>
+    </entry>
+    <entry>
+        <kw>pensó</kw>
+        <posTag>V</posTag>
+        <en>thought</en>
+    </entry>
+    <entry>
+        <kw>sintió</kw>
+        <posTag>V</posTag>
+        <en>felt</en>
+    </entry>
+
+    <!-- Additional verbs: imperfect 3rd person singular -->
+    <entry>
+        <kw>miraba</kw>
+        <posTag>V</posTag>
+        <en>was looking at</en>
+    </entry>
+    <entry>
+        <kw>esperaba</kw>
+        <posTag>V</posTag>
+        <en>was waiting</en>
+    </entry>
+    <entry>
+        <kw>hablaba</kw>
+        <posTag>V</posTag>
+        <en>was speaking</en>
+    </entry>
+    <entry>
+        <kw>buscaba</kw>
+        <posTag>V</posTag>
+        <en>was looking for</en>
+    </entry>
+    <entry>
+        <kw>trabajaba</kw>
+        <posTag>V</posTag>
+        <en>was working</en>
+    </entry>
+    <entry>
+        <kw>cantaba</kw>
+        <posTag>V</posTag>
+        <en>was singing</en>
+    </entry>
+    <entry>
+        <kw>dormía</kw>
+        <posTag>V</posTag>
+        <en>was sleeping</en>
+    </entry>
+    <entry>
+        <kw>leía</kw>
+        <posTag>V</posTag>
+        <en>was reading</en>
+    </entry>
+    <entry>
+        <kw>llevaba</kw>
+        <posTag>V</posTag>
+        <en>was carrying</en>
+    </entry>
+    <entry>
+        <kw>tomaba</kw>
+        <posTag>V</posTag>
+        <en>was taking</en>
+    </entry>
+    <entry>
+        <kw>nadaba</kw>
+        <posTag>V</posTag>
+        <en>was swimming</en>
+    </entry>
+    <entry>
+        <kw>saltaba</kw>
+        <posTag>V</posTag>
+        <en>was jumping</en>
+    </entry>
+    <entry>
+        <kw>descansaba</kw>
+        <posTag>V</posTag>
+        <en>was resting</en>
+    </entry>
+
+    <!-- Additional verbs: imperfect 3rd person plural -->
+    <entry>
+        <kw>caminaban</kw>
+        <posTag>V</posTag>
+        <en>were walking</en>
+    </entry>
+    <entry>
+        <kw>corrían</kw>
+        <posTag>V</posTag>
+        <en>were running</en>
+    </entry>
+    <entry>
+        <kw>comían</kw>
+        <posTag>V</posTag>
+        <en>were eating</en>
+    </entry>
+    <entry>
+        <kw>jugaban</kw>
+        <posTag>V</posTag>
+        <en>were playing</en>
+    </entry>
+    <entry>
+        <kw>vivían</kw>
+        <posTag>V</posTag>
+        <en>were living</en>
+    </entry>
+    <entry>
+        <kw>tenían</kw>
+        <posTag>V</posTag>
+        <en>had (pl, imperfect)</en>
+    </entry>
+    <entry>
+        <kw>querían</kw>
+        <posTag>V</posTag>
+        <en>wanted (pl)</en>
+    </entry>
+    <entry>
+        <kw>podían</kw>
+        <posTag>V</posTag>
+        <en>could (pl)</en>
+    </entry>
+    <entry>
+        <kw>hacían</kw>
+        <posTag>V</posTag>
+        <en>were doing (pl)</en>
+    </entry>
+    <entry>
+        <kw>sabían</kw>
+        <posTag>V</posTag>
+        <en>knew (pl)</en>
+    </entry>
+    <entry>
+        <kw>miraban</kw>
+        <posTag>V</posTag>
+        <en>were looking at (pl)</en>
+    </entry>
+    <entry>
+        <kw>esperaban</kw>
+        <posTag>V</posTag>
+        <en>were waiting (pl)</en>
+    </entry>
+
+    <!-- Additional verbs: present tense -->
+    <entry>
+        <kw>corre</kw>
+        <posTag>V</posTag>
+        <en>runs</en>
+    </entry>
+    <entry>
+        <kw>corren</kw>
+        <posTag>V</posTag>
+        <en>run (pl)</en>
+    </entry>
+    <entry>
+        <kw>come</kw>
+        <posTag>V</posTag>
+        <en>eats</en>
+    </entry>
+    <entry>
+        <kw>comen</kw>
+        <posTag>V</posTag>
+        <en>eat (pl)</en>
+    </entry>
+    <entry>
+        <kw>lee</kw>
+        <posTag>V</posTag>
+        <en>reads</en>
+    </entry>
+    <entry>
+        <kw>leen</kw>
+        <posTag>V</posTag>
+        <en>read (pl)</en>
+    </entry>
+    <entry>
+        <kw>bebe</kw>
+        <posTag>V</posTag>
+        <en>drinks</en>
+    </entry>
+    <entry>
+        <kw>beben</kw>
+        <posTag>V</posTag>
+        <en>drink (pl)</en>
+    </entry>
+    <entry>
+        <kw>duerme</kw>
+        <posTag>V</posTag>
+        <en>sleeps</en>
+    </entry>
+    <entry>
+        <kw>duermen</kw>
+        <posTag>V</posTag>
+        <en>sleep (pl)</en>
+    </entry>
+    <entry>
+        <kw>vive</kw>
+        <posTag>V</posTag>
+        <en>lives</en>
+    </entry>
+    <entry>
+        <kw>viven</kw>
+        <posTag>V</posTag>
+        <en>live (pl)</en>
+    </entry>
+    <entry>
+        <kw>juega</kw>
+        <posTag>V</posTag>
+        <en>plays</en>
+    </entry>
+    <entry>
+        <kw>juegan</kw>
+        <posTag>V</posTag>
+        <en>play (pl)</en>
+    </entry>
+    <entry>
+        <kw>sonríe</kw>
+        <posTag>V</posTag>
+        <en>smiles</en>
+    </entry>
+    <entry>
+        <kw>abraza</kw>
+        <posTag>V</posTag>
+        <en>hugs</en>
+    </entry>
+    <entry>
+        <kw>salta</kw>
+        <posTag>V</posTag>
+        <en>jumps</en>
+    </entry>
+    <entry>
+        <kw>saltan</kw>
+        <posTag>V</posTag>
+        <en>jump (pl)</en>
+    </entry>
+    <entry>
+        <kw>nada</kw>
+        <posTag>V</posTag>
+        <en>swims</en>
+    </entry>
+    <entry>
+        <kw>nadan</kw>
+        <posTag>V</posTag>
+        <en>swim (pl)</en>
+    </entry>
+    <entry>
+        <kw>ayuda</kw>
+        <posTag>V</posTag>
+        <en>helps</en>
+    </entry>
+    <entry>
+        <kw>ayudan</kw>
+        <posTag>V</posTag>
+        <en>help (pl)</en>
+    </entry>
+    <entry>
+        <kw>espera</kw>
+        <posTag>V</posTag>
+        <en>waits</en>
+    </entry>
+    <entry>
+        <kw>esperan</kw>
+        <posTag>V</posTag>
+        <en>wait (pl)</en>
+    </entry>
+    <entry>
+        <kw>empieza</kw>
+        <posTag>V</posTag>
+        <en>starts</en>
+    </entry>
+    <entry>
+        <kw>termina</kw>
+        <posTag>V</posTag>
+        <en>finishes</en>
+    </entry>
+    <entry>
+        <kw>regresa</kw>
+        <posTag>V</posTag>
+        <en>returns</en>
+    </entry>
+    <entry>
+        <kw>regresan</kw>
+        <posTag>V</posTag>
+        <en>return (pl)</en>
+    </entry>
+    <entry>
+        <kw>cierra</kw>
+        <posTag>V</posTag>
+        <en>closes</en>
+    </entry>
+    <entry>
+        <kw>cierran</kw>
+        <posTag>V</posTag>
+        <en>close (pl)</en>
+    </entry>
+    <entry>
+        <kw>piensa</kw>
+        <posTag>V</posTag>
+        <en>thinks</en>
+    </entry>
+    <entry>
+        <kw>siente</kw>
+        <posTag>V</posTag>
+        <en>feels</en>
+    </entry>
+    <entry>
+        <kw>grita</kw>
+        <posTag>V</posTag>
+        <en>shouts</en>
+    </entry>
+    <entry>
+        <kw>gritan</kw>
+        <posTag>V</posTag>
+        <en>shout (pl)</en>
+    </entry>
+
+    <!-- Commonly generated verbs -->
+    <entry>
+        <kw>acepta</kw>
+        <posTag>V</posTag>
+        <en>accepts</en>
+    </entry>
+    <entry>
+        <kw>aceptó</kw>
+        <posTag>V</posTag>
+        <en>accepted</en>
+    </entry>
+    <entry>
+        <kw>visita</kw>
+        <posTag>V</posTag>
+        <en>visits</en>
+    </entry>
+    <entry>
+        <kw>visitan</kw>
+        <posTag>V</posTag>
+        <en>visit (pl)</en>
+    </entry>
+    <entry>
+        <kw>usa</kw>
+        <posTag>V</posTag>
+        <en>uses</en>
+    </entry>
+    <entry>
+        <kw>usan</kw>
+        <posTag>V</posTag>
+        <en>use (pl)</en>
+    </entry>
+    <entry>
+        <kw>muestra</kw>
+        <posTag>V</posTag>
+        <en>shows</en>
+    </entry>
+    <entry>
+        <kw>mostró</kw>
+        <posTag>V</posTag>
+        <en>showed</en>
+    </entry>
+    <entry>
+        <kw>guardó</kw>
+        <posTag>V</posTag>
+        <en>kept/stored</en>
+    </entry>
+    <entry>
+        <kw>guarda</kw>
+        <posTag>V</posTag>
+        <en>keeps/stores</en>
+    </entry>
+
+    <entry>
+        <kw>rompe</kw>
+        <posTag>V</posTag>
+        <en>breaks</en>
+    </entry>
+    <entry>
+        <kw>rompen</kw>
+        <posTag>V</posTag>
+        <en>break (pl)</en>
+    </entry>
+    <entry>
+        <kw>construye</kw>
+        <posTag>V</posTag>
+        <en>builds</en>
+    </entry>
+    <entry>
+        <kw>construyen</kw>
+        <posTag>V</posTag>
+        <en>build (pl)</en>
+    </entry>
+    <entry>
+        <kw>vuela</kw>
+        <posTag>V</posTag>
+        <en>flies</en>
+    </entry>
+    <entry>
+        <kw>vuelan</kw>
+        <posTag>V</posTag>
+        <en>fly (pl)</en>
+    </entry>
+    <entry>
+        <kw>corre</kw>
+        <posTag>V</posTag>
+        <en>runs</en>
+    </entry>
+    <entry>
+        <kw>nada</kw>
+        <posTag>V</posTag>
+        <en>swims</en>
+    </entry>
+    <entry>
+        <kw>crece</kw>
+        <posTag>V</posTag>
+        <en>grows</en>
+    </entry>
+    <entry>
+        <kw>crecen</kw>
+        <posTag>V</posTag>
+        <en>grow (pl)</en>
+    </entry>
+
+    <!-- Beach/nature nouns -->
+    <entry>
+        <kw>castillo</kw>
+        <posTag>N</posTag>
+        <en>castle</en>
+    </entry>
+    <entry>
+        <kw>concha</kw>
+        <posTag>N</posTag>
+        <en>shell</en>
+    </entry>
+    <entry>
+        <kw>conchas</kw>
+        <posTag>N</posTag>
+        <en>shells</en>
+    </entry>
+    <entry>
+        <kw>gaviota</kw>
+        <posTag>N</posTag>
+        <en>seagull</en>
+    </entry>
+    <entry>
+        <kw>gaviotas</kw>
+        <posTag>N</posTag>
+        <en>seagulls</en>
+    </entry>
+    <entry>
+        <kw>océano</kw>
+        <posTag>N</posTag>
+        <en>ocean</en>
+    </entry>
+    <entry>
+        <kw>ola</kw>
+        <posTag>N</posTag>
+        <en>wave</en>
+    </entry>
+    <entry>
+        <kw>isla</kw>
+        <posTag>N</posTag>
+        <en>island</en>
+    </entry>
+    <entry>
+        <kw>barco</kw>
+        <posTag>N</posTag>
+        <en>boat</en>
+    </entry>
+    <entry>
+        <kw>peces</kw>
+        <posTag>N</posTag>
+        <en>fish (pl)</en>
+    </entry>
+
+    <!-- Beach adjectives -->
+    <entry>
+        <kw>marina</kw>
+        <posTag>A</posTag>
+        <en>marine (f)</en>
+    </entry>
+    <entry>
+        <kw>marino</kw>
+        <posTag>A</posTag>
+        <en>marine (m)</en>
+    </entry>
+    <entry>
+        <kw>marinas</kw>
+        <posTag>A</posTag>
+        <en>marine (f.pl)</en>
+    </entry>
+    <entry>
+        <kw>marinos</kw>
+        <posTag>A</posTag>
+        <en>marine (m.pl)</en>
+    </entry>
+
+    <!-- More adverbs -->
+    <entry>
+        <kw>suavemente</kw>
+        <posTag>ADV</posTag>
+        <en>gently</en>
+    </entry>
+    <entry>
+        <kw>alegremente</kw>
+        <posTag>ADV</posTag>
+        <en>happily</en>
+    </entry>
+    <entry>
+        <kw>fuertemente</kw>
+        <posTag>ADV</posTag>
+        <en>strongly</en>
+    </entry>
+
+    <!-- Commonly generated plural nouns -->
+    <entry>
+        <kw>tardes</kw>
+        <posTag>N</posTag>
+        <en>afternoons</en>
+    </entry>
+    <entry>
+        <kw>noches</kw>
+        <posTag>N</posTag>
+        <en>nights</en>
+    </entry>
+    <entry>
+        <kw>mañanas</kw>
+        <posTag>N</posTag>
+        <en>mornings</en>
+    </entry>
+    <entry>
+        <kw>jardines</kw>
+        <posTag>N</posTag>
+        <en>gardens</en>
+    </entry>
+    <entry>
+        <kw>familias</kw>
+        <posTag>N</posTag>
+        <en>families</en>
+    </entry>
+
+    <!-- More missing adjectives -->
+    <entry>
+        <kw>misteriosa</kw>
+        <posTag>A</posTag>
+        <en>mysterious (f)</en>
+    </entry>
+    <entry>
+        <kw>misterioso</kw>
+        <posTag>A</posTag>
+        <en>mysterious (m)</en>
+    </entry>
+    <entry>
+        <kw>curioso</kw>
+        <posTag>A</posTag>
+        <en>curious (m)</en>
+    </entry>
+    <entry>
+        <kw>curiosa</kw>
+        <posTag>A</posTag>
+        <en>curious (f)</en>
+    </entry>
+    <entry>
+        <kw>cómodo</kw>
+        <posTag>A</posTag>
+        <en>comfortable (m)</en>
+    </entry>
+    <entry>
+        <kw>cómoda</kw>
+        <posTag>A</posTag>
+        <en>comfortable (f)</en>
+    </entry>
+    <entry>
+        <kw>silencioso</kw>
+        <posTag>A</posTag>
+        <en>quiet (m)</en>
+    </entry>
+    <entry>
+        <kw>silenciosa</kw>
+        <posTag>A</posTag>
+        <en>quiet (f)</en>
+    </entry>
+    <entry>
+        <kw>oscuro</kw>
+        <posTag>A</posTag>
+        <en>dark (m)</en>
+    </entry>
+    <entry>
+        <kw>oscura</kw>
+        <posTag>A</posTag>
+        <en>dark (f)</en>
+    </entry>
+    <entry>
+        <kw>claro</kw>
+        <posTag>A</posTag>
+        <en>clear (m)</en>
+    </entry>
+    <entry>
+        <kw>clara</kw>
+        <posTag>A</posTag>
+        <en>clear (f)</en>
+    </entry>
+
+    <!-- Additional verbs: common present tense missing -->
+    <entry>
+        <kw>lanza</kw>
+        <posTag>V</posTag>
+        <en>throws</en>
+    </entry>
+    <entry>
+        <kw>lanzan</kw>
+        <posTag>V</posTag>
+        <en>throw (pl)</en>
+    </entry>
+    <entry>
+        <kw>lanzó</kw>
+        <posTag>V</posTag>
+        <en>threw</en>
+    </entry>
+    <entry>
+        <kw>llevó</kw>
+        <posTag>V</posTag>
+        <en>carried/took</en>
+    </entry>
+    <entry>
+        <kw>usó</kw>
+        <posTag>V</posTag>
+        <en>used</en>
+    </entry>
+    <entry>
+        <kw>limpió</kw>
+        <posTag>V</posTag>
+        <en>cleaned</en>
+    </entry>
+    <entry>
+        <kw>cuidó</kw>
+        <posTag>V</posTag>
+        <en>cared for</en>
+    </entry>
+    <entry>
+        <kw>paseó</kw>
+        <posTag>V</posTag>
+        <en>strolled</en>
+    </entry>
+    <entry>
+        <kw>nadó</kw>
+        <posTag>V</posTag>
+        <en>swam</en>
+    </entry>
+    <entry>
+        <kw>visitó</kw>
+        <posTag>V</posTag>
+        <en>visited</en>
+    </entry>
+    <entry>
+        <kw>buscó</kw>
+        <posTag>V</posTag>
+        <en>searched</en>
+    </entry>
+    <entry>
+        <kw>trae</kw>
+        <posTag>V</posTag>
+        <en>brings</en>
+    </entry>
+    <entry>
+        <kw>traen</kw>
+        <posTag>V</posTag>
+        <en>bring (pl)</en>
+    </entry>
+    <entry>
+        <kw>trajo</kw>
+        <posTag>V</posTag>
+        <en>brought</en>
+    </entry>
+    <entry>
+        <kw>llama</kw>
+        <posTag>V</posTag>
+        <en>calls</en>
+    </entry>
+    <entry>
+        <kw>llaman</kw>
+        <posTag>V</posTag>
+        <en>call (pl)</en>
+    </entry>
+    <entry>
+        <kw>puso</kw>
+        <posTag>V</posTag>
+        <en>put (past)</en>
+    </entry>
+    <entry>
+        <kw>dio</kw>
+        <posTag>V</posTag>
+        <en>gave</en>
+    </entry>
+    <entry>
+        <kw>dijo</kw>
+        <posTag>V</posTag>
+        <en>said</en>
+    </entry>
+    <entry>
+        <kw>supo</kw>
+        <posTag>V</posTag>
+        <en>found out</en>
+    </entry>
+    <entry>
+        <kw>salió</kw>
+        <posTag>V</posTag>
+        <en>went out</en>
+    </entry>
+    <entry>
+        <kw>entró</kw>
+        <posTag>V</posTag>
+        <en>entered</en>
+    </entry>
+    <entry>
+        <kw>subió</kw>
+        <posTag>V</posTag>
+        <en>went up</en>
+    </entry>
+    <entry>
+        <kw>bajó</kw>
+        <posTag>V</posTag>
+        <en>went down</en>
+    </entry>
+    <entry>
+        <kw>sacó</kw>
+        <posTag>V</posTag>
+        <en>took out</en>
+    </entry>
+    <entry>
+        <kw>dejó</kw>
+        <posTag>V</posTag>
+        <en>left/let</en>
+    </entry>
+    <entry>
+        <kw>siguió</kw>
+        <posTag>V</posTag>
+        <en>followed</en>
+    </entry>
+    <entry>
+        <kw>cuidó</kw>
+        <posTag>V</posTag>
+        <en>cared for</en>
+    </entry>
+    <entry>
+        <kw>cuida</kw>
+        <posTag>V</posTag>
+        <en>cares for</en>
+    </entry>
+    <entry>
+        <kw>cuidan</kw>
+        <posTag>V</posTag>
+        <en>care for (pl)</en>
+    </entry>
+    <entry>
+        <kw>sigue</kw>
+        <posTag>V</posTag>
+        <en>follows</en>
+    </entry>
+    <entry>
+        <kw>siguen</kw>
+        <posTag>V</posTag>
+        <en>follow (pl)</en>
+    </entry>
+    <entry>
+        <kw>deja</kw>
+        <posTag>V</posTag>
+        <en>leaves/lets</en>
+    </entry>
+    <entry>
+        <kw>dejan</kw>
+        <posTag>V</posTag>
+        <en>leave/let (pl)</en>
+    </entry>
+    <entry>
+        <kw>sube</kw>
+        <posTag>V</posTag>
+        <en>goes up</en>
+    </entry>
+    <entry>
+        <kw>baja</kw>
+        <posTag>V</posTag>
+        <en>goes down</en>
+    </entry>
+    <entry>
+        <kw>crea</kw>
+        <posTag>V</posTag>
+        <en>creates</en>
+    </entry>
+    <entry>
+        <kw>recibe</kw>
+        <posTag>V</posTag>
+        <en>receives</en>
+    </entry>
+    <entry>
+        <kw>reciben</kw>
+        <posTag>V</posTag>
+        <en>receive (pl)</en>
+    </entry>
+    <entry>
+        <kw>conoce</kw>
+        <posTag>V</posTag>
+        <en>knows (person)</en>
+    </entry>
+    <entry>
+        <kw>conocen</kw>
+        <posTag>V</posTag>
+        <en>know (pl)</en>
+    </entry>
+    <entry>
+        <kw>recoge</kw>
+        <posTag>V</posTag>
+        <en>picks up</en>
+    </entry>
+    <entry>
+        <kw>recogen</kw>
+        <posTag>V</posTag>
+        <en>pick up (pl)</en>
+    </entry>
+    <entry>
+        <kw>carga</kw>
+        <posTag>V</posTag>
+        <en>carries/loads</en>
+    </entry>
+    <entry>
+        <kw>limpia</kw>
+        <posTag>V</posTag>
+        <en>cleans</en>
+    </entry>
+    <entry>
+        <kw>limpian</kw>
+        <posTag>V</posTag>
+        <en>clean (pl)</en>
+    </entry>
+    <entry>
+        <kw>pasea</kw>
+        <posTag>V</posTag>
+        <en>strolls</en>
+    </entry>
+    <entry>
+        <kw>pasean</kw>
+        <posTag>V</posTag>
+        <en>stroll (pl)</en>
+    </entry>
+
+    <!-- Adjectives: more common ones -->
+    <entry>
+        <kw>alegre</kw>
+        <posTag>A</posTag>
+        <en>cheerful/happy</en>
+    </entry>
+    <entry>
+        <kw>alegres</kw>
+        <posTag>A</posTag>
+        <en>cheerful (pl)</en>
+    </entry>
+    <entry>
+        <kw>simpático</kw>
+        <posTag>A</posTag>
+        <en>nice/friendly (m)</en>
+    </entry>
+    <entry>
+        <kw>simpática</kw>
+        <posTag>A</posTag>
+        <en>nice/friendly (f)</en>
+    </entry>
+    <entry>
+        <kw>lindo</kw>
+        <posTag>A</posTag>
+        <en>cute/lovely (m)</en>
+    </entry>
+    <entry>
+        <kw>linda</kw>
+        <posTag>A</posTag>
+        <en>cute/lovely (f)</en>
+    </entry>
+    <entry>
+        <kw>joven</kw>
+        <posTag>A</posTag>
+        <en>young</en>
+    </entry>
+    <entry>
+        <kw>fiel</kw>
+        <posTag>A</posTag>
+        <en>loyal/faithful</en>
+    </entry>
+    <entry>
+        <kw>amable</kw>
+        <posTag>A</posTag>
+        <en>kind</en>
+    </entry>
+    <entry>
+        <kw>tibio</kw>
+        <posTag>A</posTag>
+        <en>warm (m)</en>
+    </entry>
+    <entry>
+        <kw>tibia</kw>
+        <posTag>A</posTag>
+        <en>warm (f)</en>
+    </entry>
+    <entry>
+        <kw>cálido</kw>
+        <posTag>A</posTag>
+        <en>warm (m)</en>
+    </entry>
+    <entry>
+        <kw>cálida</kw>
+        <posTag>A</posTag>
+        <en>warm (f)</en>
+    </entry>
+    <entry>
+        <kw>seco</kw>
+        <posTag>A</posTag>
+        <en>dry (m)</en>
+    </entry>
+    <entry>
+        <kw>seca</kw>
+        <posTag>A</posTag>
+        <en>dry (f)</en>
+    </entry>
+    <entry>
+        <kw>suave</kw>
+        <posTag>A</posTag>
+        <en>soft</en>
+    </entry>
+    <entry>
+        <kw>ligero</kw>
+        <posTag>A</posTag>
+        <en>light/slight (m)</en>
+    </entry>
+    <entry>
+        <kw>ligera</kw>
+        <posTag>A</posTag>
+        <en>light/slight (f)</en>
+    </entry>
+    <entry>
+        <kw>precioso</kw>
+        <posTag>A</posTag>
+        <en>precious/lovely (m)</en>
+    </entry>
+    <entry>
+        <kw>preciosa</kw>
+        <posTag>A</posTag>
+        <en>precious/lovely (f)</en>
+    </entry>
+    <entry>
+        <kw>enorme</kw>
+        <posTag>A</posTag>
+        <en>enormous</en>
+    </entry>
+    <entry>
+        <kw>pequeñito</kw>
+        <posTag>A</posTag>
+        <en>tiny (m)</en>
+    </entry>
+    <entry>
+        <kw>pequeñita</kw>
+        <posTag>A</posTag>
+        <en>tiny (f)</en>
+    </entry>
+
+    <!-- More nouns commonly generated -->
+    <entry>
+        <kw>vuelta</kw>
+        <posTag>N</posTag>
+        <en>return/turn</en>
+    </entry>
+    <entry>
+        <kw>sonrisa</kw>
+        <posTag>N</posTag>
+        <en>smile</en>
+    </entry>
+    <entry>
+        <kw>abrazo</kw>
+        <posTag>N</posTag>
+        <en>hug</en>
+    </entry>
+    <entry>
+        <kw>paso</kw>
+        <posTag>N</posTag>
+        <en>step</en>
+    </entry>
+    <entry>
+        <kw>pasos</kw>
+        <posTag>N</posTag>
+        <en>steps</en>
+    </entry>
+    <entry>
+        <kw>rato</kw>
+        <posTag>N</posTag>
+        <en>while/moment</en>
+    </entry>
+    <entry>
+        <kw>lago</kw>
+        <posTag>N</posTag>
+        <en>lake</en>
+    </entry>
+    <entry>
+        <kw>fuente</kw>
+        <posTag>N</posTag>
+        <en>fountain</en>
+    </entry>
+    <entry>
+        <kw>camisa</kw>
+        <posTag>N</posTag>
+        <en>shirt</en>
+    </entry>
+    <entry>
+        <kw>pantalón</kw>
+        <posTag>N</posTag>
+        <en>pants</en>
+    </entry>
+    <entry>
+        <kw>vestido</kw>
+        <posTag>N</posTag>
+        <en>dress</en>
+    </entry>
+    <entry>
+        <kw>jugo</kw>
+        <posTag>N</posTag>
+        <en>juice</en>
+    </entry>
+    <entry>
+        <kw>helado</kw>
+        <posTag>N</posTag>
+        <en>ice cream</en>
+    </entry>
+
+    <!-- Additional adverbs -->
+    <entry>
+        <kw>hoy</kw>
+        <posTag>ADV</posTag>
+        <en>today</en>
+    </entry>
+    <entry>
+        <kw>ayer</kw>
+        <posTag>ADV</posTag>
+        <en>yesterday</en>
+    </entry>
+    <entry>
+        <kw>pronto</kw>
+        <posTag>ADV</posTag>
+        <en>soon</en>
+    </entry>
+    <entry>
+        <kw>tarde</kw>
+        <posTag>ADV</posTag>
+        <en>late</en>
+    </entry>
+    <entry>
+        <kw>temprano</kw>
+        <posTag>ADV</posTag>
+        <en>early</en>
+    </entry>
+    <entry>
+        <kw>despacio</kw>
+        <posTag>ADV</posTag>
+        <en>slowly</en>
+    </entry>
+    <entry>
+        <kw>afuera</kw>
+        <posTag>ADV</posTag>
+        <en>outside</en>
+    </entry>
+    <entry>
+        <kw>adentro</kw>
+        <posTag>ADV</posTag>
+        <en>inside</en>
+    </entry>
+    <entry>
+        <kw>arriba</kw>
+        <posTag>ADV</posTag>
+        <en>up/above</en>
+    </entry>
+    <entry>
+        <kw>abajo</kw>
+        <posTag>ADV</posTag>
+        <en>down/below</en>
+    </entry>
+    <entry>
+        <kw>rápidamente</kw>
+        <posTag>ADV</posTag>
+        <en>quickly</en>
+    </entry>
+    <entry>
+        <kw>lentamente</kw>
+        <posTag>ADV</posTag>
+        <en>slowly</en>
+    </entry>
+    <entry>
+        <kw>felizmente</kw>
+        <posTag>ADV</posTag>
+        <en>happily</en>
+    </entry>
+    <entry>
+        <kw>tranquilamente</kw>
+        <posTag>ADV</posTag>
+        <en>calmly</en>
+    </entry>
+
+    <!-- === Additional Common Nouns === -->
+    <entry>
+        <kw>habitantes</kw>
+        <posTag>N</posTag>
+        <en>inhabitants</en>
+    </entry>
+    <entry>
+        <kw>habitante</kw>
+        <posTag>N</posTag>
+        <en>inhabitant</en>
+    </entry>
+    <entry>
+        <kw>paraguas</kw>
+        <posTag>N</posTag>
+        <en>umbrella</en>
+    </entry>
+    <entry>
+        <kw>tiendas</kw>
+        <posTag>N</posTag>
+        <en>shops</en>
+    </entry>
+    <entry>
+        <kw>tienda</kw>
+        <posTag>N</posTag>
+        <en>shop</en>
+    </entry>
+    <entry>
+        <kw>viento</kw>
+        <posTag>N</posTag>
+        <en>wind</en>
+    </entry>
+    <entry>
+        <kw>lluvia</kw>
+        <posTag>N</posTag>
+        <en>rain</en>
+    </entry>
+    <entry>
+        <kw>nube</kw>
+        <posTag>N</posTag>
+        <en>cloud</en>
+    </entry>
+    <entry>
+        <kw>nubes</kw>
+        <posTag>N</posTag>
+        <en>clouds</en>
+    </entry>
+    <entry>
+        <kw>tormenta</kw>
+        <posTag>N</posTag>
+        <en>storm</en>
+    </entry>
+    <entry>
+        <kw>tormentas</kw>
+        <posTag>N</posTag>
+        <en>storms</en>
+    </entry>
+    <entry>
+        <kw>temperatura</kw>
+        <posTag>N</posTag>
+        <en>temperature</en>
+    </entry>
+    <entry>
+        <kw>temperaturas</kw>
+        <posTag>N</posTag>
+        <en>temperatures</en>
+    </entry>
+    <entry>
+        <kw>pueblo</kw>
+        <posTag>N</posTag>
+        <en>town/village</en>
+    </entry>
+    <entry>
+        <kw>pueblos</kw>
+        <posTag>N</posTag>
+        <en>towns/villages</en>
+    </entry>
+    <entry>
+        <kw>ciudad</kw>
+        <posTag>N</posTag>
+        <en>city</en>
+    </entry>
+    <entry>
+        <kw>ciudades</kw>
+        <posTag>N</posTag>
+        <en>cities</en>
+    </entry>
+    <entry>
+        <kw>calle</kw>
+        <posTag>N</posTag>
+        <en>street</en>
+    </entry>
+    <entry>
+        <kw>calles</kw>
+        <posTag>N</posTag>
+        <en>streets</en>
+    </entry>
+    <entry>
+        <kw>plaza</kw>
+        <posTag>N</posTag>
+        <en>plaza/square</en>
+    </entry>
+    <entry>
+        <kw>plazas</kw>
+        <posTag>N</posTag>
+        <en>plazas/squares</en>
+    </entry>
+    <entry>
+        <kw>mercado</kw>
+        <posTag>N</posTag>
+        <en>market</en>
+    </entry>
+    <entry>
+        <kw>mercados</kw>
+        <posTag>N</posTag>
+        <en>markets</en>
+    </entry>
+    <entry>
+        <kw>iglesia</kw>
+        <posTag>N</posTag>
+        <en>church</en>
+    </entry>
+    <entry>
+        <kw>escuela</kw>
+        <posTag>N</posTag>
+        <en>school</en>
+    </entry>
+    <entry>
+        <kw>escuelas</kw>
+        <posTag>N</posTag>
+        <en>schools</en>
+    </entry>
+    <entry>
+        <kw>restaurante</kw>
+        <posTag>N</posTag>
+        <en>restaurant</en>
+    </entry>
+    <entry>
+        <kw>restaurantes</kw>
+        <posTag>N</posTag>
+        <en>restaurants</en>
+    </entry>
+    <entry>
+        <kw>río</kw>
+        <posTag>N</posTag>
+        <en>river</en>
+    </entry>
+    <entry>
+        <kw>ríos</kw>
+        <posTag>N</posTag>
+        <en>rivers</en>
+    </entry>
+    <entry>
+        <kw>montaña</kw>
+        <posTag>N</posTag>
+        <en>mountain</en>
+    </entry>
+    <entry>
+        <kw>montañas</kw>
+        <posTag>N</posTag>
+        <en>mountains</en>
+    </entry>
+    <entry>
+        <kw>bosque</kw>
+        <posTag>N</posTag>
+        <en>forest</en>
+    </entry>
+    <entry>
+        <kw>bosques</kw>
+        <posTag>N</posTag>
+        <en>forests</en>
+    </entry>
+    <entry>
+        <kw>lago</kw>
+        <posTag>N</posTag>
+        <en>lake</en>
+    </entry>
+    <entry>
+        <kw>lagos</kw>
+        <posTag>N</posTag>
+        <en>lakes</en>
+    </entry>
+    <entry>
+        <kw>campo</kw>
+        <posTag>N</posTag>
+        <en>field/countryside</en>
+    </entry>
+    <entry>
+        <kw>campos</kw>
+        <posTag>N</posTag>
+        <en>fields</en>
+    </entry>
+    <entry>
+        <kw>camino</kw>
+        <posTag>N</posTag>
+        <en>path/road</en>
+    </entry>
+    <entry>
+        <kw>caminos</kw>
+        <posTag>N</posTag>
+        <en>paths/roads</en>
+    </entry>
+    <entry>
+        <kw>puente</kw>
+        <posTag>N</posTag>
+        <en>bridge</en>
+    </entry>
+    <entry>
+        <kw>fuente</kw>
+        <posTag>N</posTag>
+        <en>fountain</en>
+    </entry>
+    <entry>
+        <kw>jardín</kw>
+        <posTag>N</posTag>
+        <en>garden</en>
+    </entry>
+    <entry>
+        <kw>jardines</kw>
+        <posTag>N</posTag>
+        <en>gardens</en>
+    </entry>
+    <entry>
+        <kw>flor</kw>
+        <posTag>N</posTag>
+        <en>flower</en>
+    </entry>
+    <entry>
+        <kw>flores</kw>
+        <posTag>N</posTag>
+        <en>flowers</en>
+    </entry>
+    <entry>
+        <kw>hoja</kw>
+        <posTag>N</posTag>
+        <en>leaf</en>
+    </entry>
+    <entry>
+        <kw>hojas</kw>
+        <posTag>N</posTag>
+        <en>leaves</en>
+    </entry>
+    <entry>
+        <kw>piedra</kw>
+        <posTag>N</posTag>
+        <en>stone</en>
+    </entry>
+    <entry>
+        <kw>piedras</kw>
+        <posTag>N</posTag>
+        <en>stones</en>
+    </entry>
+    <entry>
+        <kw>tierra</kw>
+        <posTag>N</posTag>
+        <en>earth/land</en>
+    </entry>
+    <entry>
+        <kw>aire</kw>
+        <posTag>N</posTag>
+        <en>air</en>
+    </entry>
+    <entry>
+        <kw>fuego</kw>
+        <posTag>N</posTag>
+        <en>fire</en>
+    </entry>
+    <entry>
+        <kw>nieve</kw>
+        <posTag>N</posTag>
+        <en>snow</en>
+    </entry>
+    <entry>
+        <kw>hielo</kw>
+        <posTag>N</posTag>
+        <en>ice</en>
+    </entry>
+    <entry>
+        <kw>mar</kw>
+        <posTag>N</posTag>
+        <en>sea</en>
+    </entry>
+    <entry>
+        <kw>ola</kw>
+        <posTag>N</posTag>
+        <en>wave</en>
+    </entry>
+    <entry>
+        <kw>olas</kw>
+        <posTag>N</posTag>
+        <en>waves</en>
+    </entry>
+    <entry>
+        <kw>arena</kw>
+        <posTag>N</posTag>
+        <en>sand</en>
+    </entry>
+    <entry>
+        <kw>isla</kw>
+        <posTag>N</posTag>
+        <en>island</en>
+    </entry>
+    <entry>
+        <kw>costa</kw>
+        <posTag>N</posTag>
+        <en>coast</en>
+    </entry>
+    <entry>
+        <kw>puerto</kw>
+        <posTag>N</posTag>
+        <en>port</en>
+    </entry>
+    <entry>
+        <kw>barco</kw>
+        <posTag>N</posTag>
+        <en>boat</en>
+    </entry>
+    <entry>
+        <kw>barcos</kw>
+        <posTag>N</posTag>
+        <en>boats</en>
+    </entry>
+    <entry>
+        <kw>comida</kw>
+        <posTag>N</posTag>
+        <en>food/meal</en>
+    </entry>
+    <entry>
+        <kw>pan</kw>
+        <posTag>N</posTag>
+        <en>bread</en>
+    </entry>
+    <entry>
+        <kw>leche</kw>
+        <posTag>N</posTag>
+        <en>milk</en>
+    </entry>
+    <entry>
+        <kw>carne</kw>
+        <posTag>N</posTag>
+        <en>meat</en>
+    </entry>
+    <entry>
+        <kw>fruta</kw>
+        <posTag>N</posTag>
+        <en>fruit</en>
+    </entry>
+    <entry>
+        <kw>frutas</kw>
+        <posTag>N</posTag>
+        <en>fruits</en>
+    </entry>
+    <entry>
+        <kw>verdura</kw>
+        <posTag>N</posTag>
+        <en>vegetable</en>
+    </entry>
+    <entry>
+        <kw>verduras</kw>
+        <posTag>N</posTag>
+        <en>vegetables</en>
+    </entry>
+    <entry>
+        <kw>mesa</kw>
+        <posTag>N</posTag>
+        <en>table</en>
+    </entry>
+    <entry>
+        <kw>silla</kw>
+        <posTag>N</posTag>
+        <en>chair</en>
+    </entry>
+    <entry>
+        <kw>sillas</kw>
+        <posTag>N</posTag>
+        <en>chairs</en>
+    </entry>
+    <entry>
+        <kw>ventana</kw>
+        <posTag>N</posTag>
+        <en>window</en>
+    </entry>
+    <entry>
+        <kw>ventanas</kw>
+        <posTag>N</posTag>
+        <en>windows</en>
+    </entry>
+    <entry>
+        <kw>puerta</kw>
+        <posTag>N</posTag>
+        <en>door</en>
+    </entry>
+    <entry>
+        <kw>puertas</kw>
+        <posTag>N</posTag>
+        <en>doors</en>
+    </entry>
+    <entry>
+        <kw>cama</kw>
+        <posTag>N</posTag>
+        <en>bed</en>
+    </entry>
+    <entry>
+        <kw>cocina</kw>
+        <posTag>N</posTag>
+        <en>kitchen</en>
+    </entry>
+    <entry>
+        <kw>baño</kw>
+        <posTag>N</posTag>
+        <en>bathroom</en>
+    </entry>
+    <entry>
+        <kw>habitación</kw>
+        <posTag>N</posTag>
+        <en>room</en>
+    </entry>
+    <entry>
+        <kw>habitaciones</kw>
+        <posTag>N</posTag>
+        <en>rooms</en>
+    </entry>
+    <entry>
+        <kw>techo</kw>
+        <posTag>N</posTag>
+        <en>roof/ceiling</en>
+    </entry>
+    <entry>
+        <kw>piso</kw>
+        <posTag>N</posTag>
+        <en>floor</en>
+    </entry>
+    <entry>
+        <kw>pared</kw>
+        <posTag>N</posTag>
+        <en>wall</en>
+    </entry>
+    <entry>
+        <kw>paredes</kw>
+        <posTag>N</posTag>
+        <en>walls</en>
+    </entry>
+    <entry>
+        <kw>luz</kw>
+        <posTag>N</posTag>
+        <en>light</en>
+    </entry>
+    <entry>
+        <kw>luces</kw>
+        <posTag>N</posTag>
+        <en>lights</en>
+    </entry>
+    <entry>
+        <kw>sombra</kw>
+        <posTag>N</posTag>
+        <en>shadow</en>
+    </entry>
+    <entry>
+        <kw>sombras</kw>
+        <posTag>N</posTag>
+        <en>shadows</en>
+    </entry>
+    <entry>
+        <kw>color</kw>
+        <posTag>N</posTag>
+        <en>color</en>
+    </entry>
+    <entry>
+        <kw>colores</kw>
+        <posTag>N</posTag>
+        <en>colors</en>
+    </entry>
+    <entry>
+        <kw>sonido</kw>
+        <posTag>N</posTag>
+        <en>sound</en>
+    </entry>
+    <entry>
+        <kw>sonidos</kw>
+        <posTag>N</posTag>
+        <en>sounds</en>
+    </entry>
+    <entry>
+        <kw>música</kw>
+        <posTag>N</posTag>
+        <en>music</en>
+    </entry>
+    <entry>
+        <kw>canción</kw>
+        <posTag>N</posTag>
+        <en>song</en>
+    </entry>
+    <entry>
+        <kw>canciones</kw>
+        <posTag>N</posTag>
+        <en>songs</en>
+    </entry>
+    <entry>
+        <kw>fiesta</kw>
+        <posTag>N</posTag>
+        <en>party/festival</en>
+    </entry>
+    <entry>
+        <kw>fiestas</kw>
+        <posTag>N</posTag>
+        <en>parties/festivals</en>
+    </entry>
+    <entry>
+        <kw>juego</kw>
+        <posTag>N</posTag>
+        <en>game</en>
+    </entry>
+    <entry>
+        <kw>juegos</kw>
+        <posTag>N</posTag>
+        <en>games</en>
+    </entry>
+    <entry>
+        <kw>trabajo</kw>
+        <posTag>N</posTag>
+        <en>work/job</en>
+    </entry>
+    <entry>
+        <kw>vida</kw>
+        <posTag>N</posTag>
+        <en>life</en>
+    </entry>
+    <entry>
+        <kw>tiempo</kw>
+        <posTag>N</posTag>
+        <en>time/weather</en>
+    </entry>
+    <entry>
+        <kw>momento</kw>
+        <posTag>N</posTag>
+        <en>moment</en>
+    </entry>
+    <entry>
+        <kw>mañana</kw>
+        <posTag>N</posTag>
+        <en>morning/tomorrow</en>
+    </entry>
+    <entry>
+        <kw>tarde</kw>
+        <posTag>N</posTag>
+        <en>afternoon</en>
+    </entry>
+    <entry>
+        <kw>noche</kw>
+        <posTag>N</posTag>
+        <en>night</en>
+    </entry>
+    <entry>
+        <kw>noches</kw>
+        <posTag>N</posTag>
+        <en>nights</en>
+    </entry>
+    <entry>
+        <kw>semana</kw>
+        <posTag>N</posTag>
+        <en>week</en>
+    </entry>
+    <entry>
+        <kw>mes</kw>
+        <posTag>N</posTag>
+        <en>month</en>
+    </entry>
+    <entry>
+        <kw>año</kw>
+        <posTag>N</posTag>
+        <en>year</en>
+    </entry>
+    <entry>
+        <kw>años</kw>
+        <posTag>N</posTag>
+        <en>years</en>
+    </entry>
+    <entry>
+        <kw>verano</kw>
+        <posTag>N</posTag>
+        <en>summer</en>
+    </entry>
+    <entry>
+        <kw>invierno</kw>
+        <posTag>N</posTag>
+        <en>winter</en>
+    </entry>
+    <entry>
+        <kw>otoño</kw>
+        <posTag>N</posTag>
+        <en>autumn</en>
+    </entry>
+    <entry>
+        <kw>primavera</kw>
+        <posTag>N</posTag>
+        <en>spring</en>
+    </entry>
+    <entry>
+        <kw>amigo</kw>
+        <posTag>N</posTag>
+        <en>friend (m)</en>
+    </entry>
+    <entry>
+        <kw>amiga</kw>
+        <posTag>N</posTag>
+        <en>friend (f)</en>
+    </entry>
+    <entry>
+        <kw>amigos</kw>
+        <posTag>N</posTag>
+        <en>friends (m)</en>
+    </entry>
+    <entry>
+        <kw>amigas</kw>
+        <posTag>N</posTag>
+        <en>friends (f)</en>
+    </entry>
+    <entry>
+        <kw>vecino</kw>
+        <posTag>N</posTag>
+        <en>neighbor (m)</en>
+    </entry>
+    <entry>
+        <kw>vecina</kw>
+        <posTag>N</posTag>
+        <en>neighbor (f)</en>
+    </entry>
+    <entry>
+        <kw>vecinos</kw>
+        <posTag>N</posTag>
+        <en>neighbors</en>
+    </entry>
+    <entry>
+        <kw>doctor</kw>
+        <posTag>N</posTag>
+        <en>doctor</en>
+    </entry>
+    <entry>
+        <kw>doctora</kw>
+        <posTag>N</posTag>
+        <en>doctor (f)</en>
+    </entry>
+    <entry>
+        <kw>profesor</kw>
+        <posTag>N</posTag>
+        <en>teacher (m)</en>
+    </entry>
+    <entry>
+        <kw>profesora</kw>
+        <posTag>N</posTag>
+        <en>teacher (f)</en>
+    </entry>
+    <entry>
+        <kw>estudiante</kw>
+        <posTag>N</posTag>
+        <en>student</en>
+    </entry>
+    <entry>
+        <kw>estudiantes</kw>
+        <posTag>N</posTag>
+        <en>students</en>
+    </entry>
+    <entry>
+        <kw>niños</kw>
+        <posTag>N</posTag>
+        <en>children (m)</en>
+    </entry>
+    <entry>
+        <kw>niñas</kw>
+        <posTag>N</posTag>
+        <en>girls</en>
+    </entry>
+    <entry>
+        <kw>hombres</kw>
+        <posTag>N</posTag>
+        <en>men</en>
+    </entry>
+    <entry>
+        <kw>mujeres</kw>
+        <posTag>N</posTag>
+        <en>women</en>
+    </entry>
+    <entry>
+        <kw>persona</kw>
+        <posTag>N</posTag>
+        <en>person</en>
+    </entry>
+    <entry>
+        <kw>personas</kw>
+        <posTag>N</posTag>
+        <en>people</en>
+    </entry>
+    <entry>
+        <kw>gente</kw>
+        <posTag>N</posTag>
+        <en>people</en>
+    </entry>
+    <entry>
+        <kw>ropa</kw>
+        <posTag>N</posTag>
+        <en>clothes</en>
+    </entry>
+    <entry>
+        <kw>zapatos</kw>
+        <posTag>N</posTag>
+        <en>shoes</en>
+    </entry>
+    <entry>
+        <kw>sombrero</kw>
+        <posTag>N</posTag>
+        <en>hat</en>
+    </entry>
+    <entry>
+        <kw>sombreros</kw>
+        <posTag>N</posTag>
+        <en>hats</en>
+    </entry>
+    <entry>
+        <kw>abrigo</kw>
+        <posTag>N</posTag>
+        <en>coat</en>
+    </entry>
+    <entry>
+        <kw>abrigos</kw>
+        <posTag>N</posTag>
+        <en>coats</en>
+    </entry>
+
+    <!-- === Additional Common Verbs === -->
+    <entry>
+        <kw>sopla</kw>
+        <posTag>V</posTag>
+        <en>blows</en>
+    </entry>
+    <entry>
+        <kw>sopló</kw>
+        <posTag>V</posTag>
+        <en>blew</en>
+    </entry>
+    <entry>
+        <kw>soplaba</kw>
+        <posTag>V</posTag>
+        <en>was blowing</en>
+    </entry>
+    <entry>
+        <kw>llueve</kw>
+        <posTag>V</posTag>
+        <en>it rains</en>
+    </entry>
+    <entry>
+        <kw>llovió</kw>
+        <posTag>V</posTag>
+        <en>it rained</en>
+    </entry>
+    <entry>
+        <kw>llovía</kw>
+        <posTag>V</posTag>
+        <en>it was raining</en>
+    </entry>
+    <entry>
+        <kw>trabaja</kw>
+        <posTag>V</posTag>
+        <en>works</en>
+    </entry>
+    <entry>
+        <kw>trabajaba</kw>
+        <posTag>V</posTag>
+        <en>was working</en>
+    </entry>
+    <entry>
+        <kw>trabajó</kw>
+        <posTag>V</posTag>
+        <en>worked</en>
+    </entry>
+    <entry>
+        <kw>trabajan</kw>
+        <posTag>V</posTag>
+        <en>they work</en>
+    </entry>
+    <entry>
+        <kw>vive</kw>
+        <posTag>V</posTag>
+        <en>lives</en>
+    </entry>
+    <entry>
+        <kw>vivía</kw>
+        <posTag>V</posTag>
+        <en>lived (imp)</en>
+    </entry>
+    <entry>
+        <kw>vivió</kw>
+        <posTag>V</posTag>
+        <en>lived</en>
+    </entry>
+    <entry>
+        <kw>viven</kw>
+        <posTag>V</posTag>
+        <en>they live</en>
+    </entry>
+    <entry>
+        <kw>abre</kw>
+        <posTag>V</posTag>
+        <en>opens</en>
+    </entry>
+    <entry>
+        <kw>abrió</kw>
+        <posTag>V</posTag>
+        <en>opened</en>
+    </entry>
+    <entry>
+        <kw>abren</kw>
+        <posTag>V</posTag>
+        <en>they open</en>
+    </entry>
+    <entry>
+        <kw>cierra</kw>
+        <posTag>V</posTag>
+        <en>closes</en>
+    </entry>
+    <entry>
+        <kw>cerró</kw>
+        <posTag>V</posTag>
+        <en>closed</en>
+    </entry>
+    <entry>
+        <kw>cierran</kw>
+        <posTag>V</posTag>
+        <en>they close</en>
+    </entry>
+    <entry>
+        <kw>compra</kw>
+        <posTag>V</posTag>
+        <en>buys</en>
+    </entry>
+    <entry>
+        <kw>compró</kw>
+        <posTag>V</posTag>
+        <en>bought</en>
+    </entry>
+    <entry>
+        <kw>compraba</kw>
+        <posTag>V</posTag>
+        <en>was buying</en>
+    </entry>
+    <entry>
+        <kw>compran</kw>
+        <posTag>V</posTag>
+        <en>they buy</en>
+    </entry>
+    <entry>
+        <kw>vende</kw>
+        <posTag>V</posTag>
+        <en>sells</en>
+    </entry>
+    <entry>
+        <kw>vendió</kw>
+        <posTag>V</posTag>
+        <en>sold</en>
+    </entry>
+    <entry>
+        <kw>venden</kw>
+        <posTag>V</posTag>
+        <en>they sell</en>
+    </entry>
+    <entry>
+        <kw>llega</kw>
+        <posTag>V</posTag>
+        <en>arrives</en>
+    </entry>
+    <entry>
+        <kw>llegó</kw>
+        <posTag>V</posTag>
+        <en>arrived</en>
+    </entry>
+    <entry>
+        <kw>llegaba</kw>
+        <posTag>V</posTag>
+        <en>was arriving</en>
+    </entry>
+    <entry>
+        <kw>llegan</kw>
+        <posTag>V</posTag>
+        <en>they arrive</en>
+    </entry>
+    <entry>
+        <kw>sale</kw>
+        <posTag>V</posTag>
+        <en>leaves/goes out</en>
+    </entry>
+    <entry>
+        <kw>salió</kw>
+        <posTag>V</posTag>
+        <en>left/went out</en>
+    </entry>
+    <entry>
+        <kw>salen</kw>
+        <posTag>V</posTag>
+        <en>they leave</en>
+    </entry>
+    <entry>
+        <kw>entra</kw>
+        <posTag>V</posTag>
+        <en>enters</en>
+    </entry>
+    <entry>
+        <kw>entró</kw>
+        <posTag>V</posTag>
+        <en>entered</en>
+    </entry>
+    <entry>
+        <kw>entran</kw>
+        <posTag>V</posTag>
+        <en>they enter</en>
+    </entry>
+    <entry>
+        <kw>sube</kw>
+        <posTag>V</posTag>
+        <en>goes up</en>
+    </entry>
+    <entry>
+        <kw>subió</kw>
+        <posTag>V</posTag>
+        <en>went up</en>
+    </entry>
+    <entry>
+        <kw>baja</kw>
+        <posTag>V</posTag>
+        <en>goes down</en>
+    </entry>
+    <entry>
+        <kw>bajó</kw>
+        <posTag>V</posTag>
+        <en>went down</en>
+    </entry>
+    <entry>
+        <kw>cae</kw>
+        <posTag>V</posTag>
+        <en>falls</en>
+    </entry>
+    <entry>
+        <kw>cayó</kw>
+        <posTag>V</posTag>
+        <en>fell</en>
+    </entry>
+    <entry>
+        <kw>caen</kw>
+        <posTag>V</posTag>
+        <en>they fall</en>
+    </entry>
+    <entry>
+        <kw>crece</kw>
+        <posTag>V</posTag>
+        <en>grows</en>
+    </entry>
+    <entry>
+        <kw>creció</kw>
+        <posTag>V</posTag>
+        <en>grew</en>
+    </entry>
+    <entry>
+        <kw>crecen</kw>
+        <posTag>V</posTag>
+        <en>they grow</en>
+    </entry>
+    <entry>
+        <kw>nada</kw>
+        <posTag>V</posTag>
+        <en>swims</en>
+    </entry>
+    <entry>
+        <kw>nadó</kw>
+        <posTag>V</posTag>
+        <en>swam</en>
+    </entry>
+    <entry>
+        <kw>nadan</kw>
+        <posTag>V</posTag>
+        <en>they swim</en>
+    </entry>
+    <entry>
+        <kw>vuela</kw>
+        <posTag>V</posTag>
+        <en>flies</en>
+    </entry>
+    <entry>
+        <kw>voló</kw>
+        <posTag>V</posTag>
+        <en>flew</en>
+    </entry>
+    <entry>
+        <kw>vuelan</kw>
+        <posTag>V</posTag>
+        <en>they fly</en>
+    </entry>
+    <entry>
+        <kw>canta</kw>
+        <posTag>V</posTag>
+        <en>sings</en>
+    </entry>
+    <entry>
+        <kw>cantó</kw>
+        <posTag>V</posTag>
+        <en>sang</en>
+    </entry>
+    <entry>
+        <kw>cantaba</kw>
+        <posTag>V</posTag>
+        <en>was singing</en>
+    </entry>
+    <entry>
+        <kw>cantan</kw>
+        <posTag>V</posTag>
+        <en>they sing</en>
+    </entry>
+    <entry>
+        <kw>baila</kw>
+        <posTag>V</posTag>
+        <en>dances</en>
+    </entry>
+    <entry>
+        <kw>bailó</kw>
+        <posTag>V</posTag>
+        <en>danced</en>
+    </entry>
+    <entry>
+        <kw>bailaba</kw>
+        <posTag>V</posTag>
+        <en>was dancing</en>
+    </entry>
+    <entry>
+        <kw>bailan</kw>
+        <posTag>V</posTag>
+        <en>they dance</en>
+    </entry>
+    <entry>
+        <kw>ríe</kw>
+        <posTag>V</posTag>
+        <en>laughs</en>
+    </entry>
+    <entry>
+        <kw>rió</kw>
+        <posTag>V</posTag>
+        <en>laughed</en>
+    </entry>
+    <entry>
+        <kw>ríen</kw>
+        <posTag>V</posTag>
+        <en>they laugh</en>
+    </entry>
+    <entry>
+        <kw>llora</kw>
+        <posTag>V</posTag>
+        <en>cries</en>
+    </entry>
+    <entry>
+        <kw>lloró</kw>
+        <posTag>V</posTag>
+        <en>cried</en>
+    </entry>
+    <entry>
+        <kw>lloran</kw>
+        <posTag>V</posTag>
+        <en>they cry</en>
+    </entry>
+    <entry>
+        <kw>grita</kw>
+        <posTag>V</posTag>
+        <en>shouts</en>
+    </entry>
+    <entry>
+        <kw>gritó</kw>
+        <posTag>V</posTag>
+        <en>shouted</en>
+    </entry>
+    <entry>
+        <kw>gritan</kw>
+        <posTag>V</posTag>
+        <en>they shout</en>
+    </entry>
+    <entry>
+        <kw>habla</kw>
+        <posTag>V</posTag>
+        <en>speaks</en>
+    </entry>
+    <entry>
+        <kw>habló</kw>
+        <posTag>V</posTag>
+        <en>spoke</en>
+    </entry>
+    <entry>
+        <kw>hablaba</kw>
+        <posTag>V</posTag>
+        <en>was speaking</en>
+    </entry>
+    <entry>
+        <kw>hablan</kw>
+        <posTag>V</posTag>
+        <en>they speak</en>
+    </entry>
+    <entry>
+        <kw>escucha</kw>
+        <posTag>V</posTag>
+        <en>listens</en>
+    </entry>
+    <entry>
+        <kw>escuchó</kw>
+        <posTag>V</posTag>
+        <en>listened</en>
+    </entry>
+    <entry>
+        <kw>escuchaba</kw>
+        <posTag>V</posTag>
+        <en>was listening</en>
+    </entry>
+    <entry>
+        <kw>escuchan</kw>
+        <posTag>V</posTag>
+        <en>they listen</en>
+    </entry>
+    <entry>
+        <kw>piensa</kw>
+        <posTag>V</posTag>
+        <en>thinks</en>
+    </entry>
+    <entry>
+        <kw>pensó</kw>
+        <posTag>V</posTag>
+        <en>thought</en>
+    </entry>
+    <entry>
+        <kw>pensaba</kw>
+        <posTag>V</posTag>
+        <en>was thinking</en>
+    </entry>
+    <entry>
+        <kw>piensan</kw>
+        <posTag>V</posTag>
+        <en>they think</en>
+    </entry>
+    <entry>
+        <kw>sabe</kw>
+        <posTag>V</posTag>
+        <en>knows</en>
+    </entry>
+    <entry>
+        <kw>sabía</kw>
+        <posTag>V</posTag>
+        <en>knew</en>
+    </entry>
+    <entry>
+        <kw>saben</kw>
+        <posTag>V</posTag>
+        <en>they know</en>
+    </entry>
+    <entry>
+        <kw>conoce</kw>
+        <posTag>V</posTag>
+        <en>knows (person/place)</en>
+    </entry>
+    <entry>
+        <kw>conocía</kw>
+        <posTag>V</posTag>
+        <en>knew (person/place)</en>
+    </entry>
+    <entry>
+        <kw>conocen</kw>
+        <posTag>V</posTag>
+        <en>they know</en>
+    </entry>
+    <entry>
+        <kw>espera</kw>
+        <posTag>V</posTag>
+        <en>waits/hopes</en>
+    </entry>
+    <entry>
+        <kw>esperó</kw>
+        <posTag>V</posTag>
+        <en>waited</en>
+    </entry>
+    <entry>
+        <kw>esperaba</kw>
+        <posTag>V</posTag>
+        <en>was waiting</en>
+    </entry>
+    <entry>
+        <kw>esperan</kw>
+        <posTag>V</posTag>
+        <en>they wait</en>
+    </entry>
+    <entry>
+        <kw>busca</kw>
+        <posTag>V</posTag>
+        <en>looks for</en>
+    </entry>
+    <entry>
+        <kw>buscó</kw>
+        <posTag>V</posTag>
+        <en>looked for</en>
+    </entry>
+    <entry>
+        <kw>buscaba</kw>
+        <posTag>V</posTag>
+        <en>was looking for</en>
+    </entry>
+    <entry>
+        <kw>buscan</kw>
+        <posTag>V</posTag>
+        <en>they look for</en>
+    </entry>
+    <entry>
+        <kw>encuentra</kw>
+        <posTag>V</posTag>
+        <en>finds</en>
+    </entry>
+    <entry>
+        <kw>encontró</kw>
+        <posTag>V</posTag>
+        <en>found</en>
+    </entry>
+    <entry>
+        <kw>encontraba</kw>
+        <posTag>V</posTag>
+        <en>was finding</en>
+    </entry>
+    <entry>
+        <kw>encuentran</kw>
+        <posTag>V</posTag>
+        <en>they find</en>
+    </entry>
+    <entry>
+        <kw>pone</kw>
+        <posTag>V</posTag>
+        <en>puts</en>
+    </entry>
+    <entry>
+        <kw>puso</kw>
+        <posTag>V</posTag>
+        <en>put</en>
+    </entry>
+    <entry>
+        <kw>ponen</kw>
+        <posTag>V</posTag>
+        <en>they put</en>
+    </entry>
+    <entry>
+        <kw>lleva</kw>
+        <posTag>V</posTag>
+        <en>carries/wears</en>
+    </entry>
+    <entry>
+        <kw>llevó</kw>
+        <posTag>V</posTag>
+        <en>carried/wore</en>
+    </entry>
+    <entry>
+        <kw>llevaba</kw>
+        <posTag>V</posTag>
+        <en>was carrying</en>
+    </entry>
+    <entry>
+        <kw>llevan</kw>
+        <posTag>V</posTag>
+        <en>they carry</en>
+    </entry>
+    <entry>
+        <kw>usa</kw>
+        <posTag>V</posTag>
+        <en>uses</en>
+    </entry>
+    <entry>
+        <kw>usó</kw>
+        <posTag>V</posTag>
+        <en>used</en>
+    </entry>
+    <entry>
+        <kw>usaba</kw>
+        <posTag>V</posTag>
+        <en>was using</en>
+    </entry>
+    <entry>
+        <kw>usan</kw>
+        <posTag>V</posTag>
+        <en>they use</en>
+    </entry>
+    <entry>
+        <kw>construye</kw>
+        <posTag>V</posTag>
+        <en>builds</en>
+    </entry>
+    <entry>
+        <kw>construyó</kw>
+        <posTag>V</posTag>
+        <en>built</en>
+    </entry>
+    <entry>
+        <kw>construyen</kw>
+        <posTag>V</posTag>
+        <en>they build</en>
+    </entry>
+    <entry>
+        <kw>cubre</kw>
+        <posTag>V</posTag>
+        <en>covers</en>
+    </entry>
+    <entry>
+        <kw>cubrió</kw>
+        <posTag>V</posTag>
+        <en>covered</en>
+    </entry>
+    <entry>
+        <kw>cubren</kw>
+        <posTag>V</posTag>
+        <en>they cover</en>
+    </entry>
+    <entry>
+        <kw>protege</kw>
+        <posTag>V</posTag>
+        <en>protects</en>
+    </entry>
+    <entry>
+        <kw>protegió</kw>
+        <posTag>V</posTag>
+        <en>protected</en>
+    </entry>
+    <entry>
+        <kw>protegen</kw>
+        <posTag>V</posTag>
+        <en>they protect</en>
+    </entry>
+    <entry>
+        <kw>disfruta</kw>
+        <posTag>V</posTag>
+        <en>enjoys</en>
+    </entry>
+    <entry>
+        <kw>disfrutó</kw>
+        <posTag>V</posTag>
+        <en>enjoyed</en>
+    </entry>
+    <entry>
+        <kw>disfrutaba</kw>
+        <posTag>V</posTag>
+        <en>was enjoying</en>
+    </entry>
+    <entry>
+        <kw>disfrutan</kw>
+        <posTag>V</posTag>
+        <en>they enjoy</en>
+    </entry>
+    <entry>
+        <kw>celebra</kw>
+        <posTag>V</posTag>
+        <en>celebrates</en>
+    </entry>
+    <entry>
+        <kw>celebró</kw>
+        <posTag>V</posTag>
+        <en>celebrated</en>
+    </entry>
+    <entry>
+        <kw>celebran</kw>
+        <posTag>V</posTag>
+        <en>they celebrate</en>
+    </entry>
+    <entry>
+        <kw>cocina</kw>
+        <posTag>V</posTag>
+        <en>cooks</en>
+    </entry>
+    <entry>
+        <kw>cocinó</kw>
+        <posTag>V</posTag>
+        <en>cooked</en>
+    </entry>
+    <entry>
+        <kw>cocinaba</kw>
+        <posTag>V</posTag>
+        <en>was cooking</en>
+    </entry>
+    <entry>
+        <kw>cocinan</kw>
+        <posTag>V</posTag>
+        <en>they cook</en>
+    </entry>
+    <entry>
+        <kw>prepara</kw>
+        <posTag>V</posTag>
+        <en>prepares</en>
+    </entry>
+    <entry>
+        <kw>preparó</kw>
+        <posTag>V</posTag>
+        <en>prepared</en>
+    </entry>
+    <entry>
+        <kw>preparaba</kw>
+        <posTag>V</posTag>
+        <en>was preparing</en>
+    </entry>
+    <entry>
+        <kw>preparan</kw>
+        <posTag>V</posTag>
+        <en>they prepare</en>
+    </entry>
+    <entry>
+        <kw>limpia</kw>
+        <posTag>V</posTag>
+        <en>cleans</en>
+    </entry>
+    <entry>
+        <kw>limpió</kw>
+        <posTag>V</posTag>
+        <en>cleaned</en>
+    </entry>
+    <entry>
+        <kw>limpian</kw>
+        <posTag>V</posTag>
+        <en>they clean</en>
+    </entry>
+    <entry>
+        <kw>enseña</kw>
+        <posTag>V</posTag>
+        <en>teaches</en>
+    </entry>
+    <entry>
+        <kw>enseñó</kw>
+        <posTag>V</posTag>
+        <en>taught</en>
+    </entry>
+    <entry>
+        <kw>enseñaba</kw>
+        <posTag>V</posTag>
+        <en>was teaching</en>
+    </entry>
+    <entry>
+        <kw>enseñan</kw>
+        <posTag>V</posTag>
+        <en>they teach</en>
+    </entry>
+    <entry>
+        <kw>aprende</kw>
+        <posTag>V</posTag>
+        <en>learns</en>
+    </entry>
+    <entry>
+        <kw>aprendió</kw>
+        <posTag>V</posTag>
+        <en>learned</en>
+    </entry>
+    <entry>
+        <kw>aprenden</kw>
+        <posTag>V</posTag>
+        <en>they learn</en>
+    </entry>
+    <entry>
+        <kw>pinta</kw>
+        <posTag>V</posTag>
+        <en>paints</en>
+    </entry>
+    <entry>
+        <kw>pintó</kw>
+        <posTag>V</posTag>
+        <en>painted</en>
+    </entry>
+    <entry>
+        <kw>pintaba</kw>
+        <posTag>V</posTag>
+        <en>was painting</en>
+    </entry>
+    <entry>
+        <kw>pintan</kw>
+        <posTag>V</posTag>
+        <en>they paint</en>
+    </entry>
+    <entry>
+        <kw>dibuja</kw>
+        <posTag>V</posTag>
+        <en>draws</en>
+    </entry>
+    <entry>
+        <kw>dibujó</kw>
+        <posTag>V</posTag>
+        <en>drew</en>
+    </entry>
+    <entry>
+        <kw>dibujan</kw>
+        <posTag>V</posTag>
+        <en>they draw</en>
+    </entry>
+    <entry>
+        <kw>crea</kw>
+        <posTag>V</posTag>
+        <en>creates</en>
+    </entry>
+    <entry>
+        <kw>creó</kw>
+        <posTag>V</posTag>
+        <en>created</en>
+    </entry>
+    <entry>
+        <kw>crean</kw>
+        <posTag>V</posTag>
+        <en>they create</en>
+    </entry>
+    <entry>
+        <kw>brilla</kw>
+        <posTag>V</posTag>
+        <en>shines</en>
+    </entry>
+    <entry>
+        <kw>brillaba</kw>
+        <posTag>V</posTag>
+        <en>was shining</en>
+    </entry>
+    <entry>
+        <kw>brillan</kw>
+        <posTag>V</posTag>
+        <en>they shine</en>
+    </entry>
+    <entry>
+        <kw>ilumina</kw>
+        <posTag>V</posTag>
+        <en>illuminates</en>
+    </entry>
+    <entry>
+        <kw>iluminó</kw>
+        <posTag>V</posTag>
+        <en>illuminated</en>
+    </entry>
+    <entry>
+        <kw>iluminaba</kw>
+        <posTag>V</posTag>
+        <en>was illuminating</en>
+    </entry>
+    <entry>
+        <kw>mueve</kw>
+        <posTag>V</posTag>
+        <en>moves</en>
+    </entry>
+    <entry>
+        <kw>movió</kw>
+        <posTag>V</posTag>
+        <en>moved</en>
+    </entry>
+    <entry>
+        <kw>mueven</kw>
+        <posTag>V</posTag>
+        <en>they move</en>
+    </entry>
+
+    <!-- === Additional Common Adjectives === -->
+    <entry>
+        <kw>frío</kw>
+        <posTag>A</posTag>
+        <en>cold (m)</en>
+    </entry>
+    <entry>
+        <kw>fría</kw>
+        <posTag>A</posTag>
+        <en>cold (f)</en>
+    </entry>
+    <entry>
+        <kw>fríos</kw>
+        <posTag>A</posTag>
+        <en>cold (m.pl)</en>
+    </entry>
+    <entry>
+        <kw>frías</kw>
+        <posTag>A</posTag>
+        <en>cold (f.pl)</en>
+    </entry>
+    <entry>
+        <kw>caliente</kw>
+        <posTag>A</posTag>
+        <en>hot</en>
+    </entry>
+    <entry>
+        <kw>calientes</kw>
+        <posTag>A</posTag>
+        <en>hot (pl)</en>
+    </entry>
+    <entry>
+        <kw>seco</kw>
+        <posTag>A</posTag>
+        <en>dry (m)</en>
+    </entry>
+    <entry>
+        <kw>seca</kw>
+        <posTag>A</posTag>
+        <en>dry (f)</en>
+    </entry>
+    <entry>
+        <kw>húmedo</kw>
+        <posTag>A</posTag>
+        <en>humid (m)</en>
+    </entry>
+    <entry>
+        <kw>húmeda</kw>
+        <posTag>A</posTag>
+        <en>humid (f)</en>
+    </entry>
+    <entry>
+        <kw>oscuro</kw>
+        <posTag>A</posTag>
+        <en>dark (m)</en>
+    </entry>
+    <entry>
+        <kw>oscura</kw>
+        <posTag>A</posTag>
+        <en>dark (f)</en>
+    </entry>
+    <entry>
+        <kw>oscuros</kw>
+        <posTag>A</posTag>
+        <en>dark (m.pl)</en>
+    </entry>
+    <entry>
+        <kw>oscuras</kw>
+        <posTag>A</posTag>
+        <en>dark (f.pl)</en>
+    </entry>
+    <entry>
+        <kw>claro</kw>
+        <posTag>A</posTag>
+        <en>clear/light (m)</en>
+    </entry>
+    <entry>
+        <kw>clara</kw>
+        <posTag>A</posTag>
+        <en>clear/light (f)</en>
+    </entry>
+    <entry>
+        <kw>claros</kw>
+        <posTag>A</posTag>
+        <en>clear (m.pl)</en>
+    </entry>
+    <entry>
+        <kw>claras</kw>
+        <posTag>A</posTag>
+        <en>clear (f.pl)</en>
+    </entry>
+    <entry>
+        <kw>fuerte</kw>
+        <posTag>A</posTag>
+        <en>strong</en>
+    </entry>
+    <entry>
+        <kw>fuertes</kw>
+        <posTag>A</posTag>
+        <en>strong (pl)</en>
+    </entry>
+    <entry>
+        <kw>débil</kw>
+        <posTag>A</posTag>
+        <en>weak</en>
+    </entry>
+    <entry>
+        <kw>débiles</kw>
+        <posTag>A</posTag>
+        <en>weak (pl)</en>
+    </entry>
+    <entry>
+        <kw>largo</kw>
+        <posTag>A</posTag>
+        <en>long (m)</en>
+    </entry>
+    <entry>
+        <kw>larga</kw>
+        <posTag>A</posTag>
+        <en>long (f)</en>
+    </entry>
+    <entry>
+        <kw>largos</kw>
+        <posTag>A</posTag>
+        <en>long (m.pl)</en>
+    </entry>
+    <entry>
+        <kw>largas</kw>
+        <posTag>A</posTag>
+        <en>long (f.pl)</en>
+    </entry>
+    <entry>
+        <kw>corto</kw>
+        <posTag>A</posTag>
+        <en>short (m)</en>
+    </entry>
+    <entry>
+        <kw>corta</kw>
+        <posTag>A</posTag>
+        <en>short (f)</en>
+    </entry>
+    <entry>
+        <kw>alto</kw>
+        <posTag>A</posTag>
+        <en>tall (m)</en>
+    </entry>
+    <entry>
+        <kw>alta</kw>
+        <posTag>A</posTag>
+        <en>tall (f)</en>
+    </entry>
+    <entry>
+        <kw>altos</kw>
+        <posTag>A</posTag>
+        <en>tall (m.pl)</en>
+    </entry>
+    <entry>
+        <kw>altas</kw>
+        <posTag>A</posTag>
+        <en>tall (f.pl)</en>
+    </entry>
+    <entry>
+        <kw>bajo</kw>
+        <posTag>A</posTag>
+        <en>short/low (m)</en>
+    </entry>
+    <entry>
+        <kw>ancho</kw>
+        <posTag>A</posTag>
+        <en>wide (m)</en>
+    </entry>
+    <entry>
+        <kw>ancha</kw>
+        <posTag>A</posTag>
+        <en>wide (f)</en>
+    </entry>
+    <entry>
+        <kw>estrecho</kw>
+        <posTag>A</posTag>
+        <en>narrow (m)</en>
+    </entry>
+    <entry>
+        <kw>estrecha</kw>
+        <posTag>A</posTag>
+        <en>narrow (f)</en>
+    </entry>
+    <entry>
+        <kw>limpio</kw>
+        <posTag>A</posTag>
+        <en>clean (m)</en>
+    </entry>
+    <entry>
+        <kw>limpia</kw>
+        <posTag>A</posTag>
+        <en>clean (f)</en>
+    </entry>
+    <entry>
+        <kw>sucio</kw>
+        <posTag>A</posTag>
+        <en>dirty (m)</en>
+    </entry>
+    <entry>
+        <kw>sucia</kw>
+        <posTag>A</posTag>
+        <en>dirty (f)</en>
+    </entry>
+    <entry>
+        <kw>lleno</kw>
+        <posTag>A</posTag>
+        <en>full (m)</en>
+    </entry>
+    <entry>
+        <kw>llena</kw>
+        <posTag>A</posTag>
+        <en>full (f)</en>
+    </entry>
+    <entry>
+        <kw>vacío</kw>
+        <posTag>A</posTag>
+        <en>empty (m)</en>
+    </entry>
+    <entry>
+        <kw>vacía</kw>
+        <posTag>A</posTag>
+        <en>empty (f)</en>
+    </entry>
+    <entry>
+        <kw>rico</kw>
+        <posTag>A</posTag>
+        <en>rich (m)</en>
+    </entry>
+    <entry>
+        <kw>rica</kw>
+        <posTag>A</posTag>
+        <en>rich (f)</en>
+    </entry>
+    <entry>
+        <kw>pobre</kw>
+        <posTag>A</posTag>
+        <en>poor</en>
+    </entry>
+    <entry>
+        <kw>pobres</kw>
+        <posTag>A</posTag>
+        <en>poor (pl)</en>
+    </entry>
+    <entry>
+        <kw>dulce</kw>
+        <posTag>A</posTag>
+        <en>sweet</en>
+    </entry>
+    <entry>
+        <kw>dulces</kw>
+        <posTag>A</posTag>
+        <en>sweet (pl)</en>
+    </entry>
+    <entry>
+        <kw>amable</kw>
+        <posTag>A</posTag>
+        <en>kind</en>
+    </entry>
+    <entry>
+        <kw>amables</kw>
+        <posTag>A</posTag>
+        <en>kind (pl)</en>
+    </entry>
+    <entry>
+        <kw>famoso</kw>
+        <posTag>A</posTag>
+        <en>famous (m)</en>
+    </entry>
+    <entry>
+        <kw>famosa</kw>
+        <posTag>A</posTag>
+        <en>famous (f)</en>
+    </entry>
+    <entry>
+        <kw>conocido</kw>
+        <posTag>A</posTag>
+        <en>known/famous (m)</en>
+    </entry>
+    <entry>
+        <kw>conocida</kw>
+        <posTag>A</posTag>
+        <en>known/famous (f)</en>
+    </entry>
+    <entry>
+        <kw>antiguo</kw>
+        <posTag>A</posTag>
+        <en>ancient/old (m)</en>
+    </entry>
+    <entry>
+        <kw>antigua</kw>
+        <posTag>A</posTag>
+        <en>ancient/old (f)</en>
+    </entry>
+    <entry>
+        <kw>moderno</kw>
+        <posTag>A</posTag>
+        <en>modern (m)</en>
+    </entry>
+    <entry>
+        <kw>moderna</kw>
+        <posTag>A</posTag>
+        <en>modern (f)</en>
+    </entry>
+    <entry>
+        <kw>importante</kw>
+        <posTag>A</posTag>
+        <en>important</en>
+    </entry>
+    <entry>
+        <kw>importantes</kw>
+        <posTag>A</posTag>
+        <en>important (pl)</en>
+    </entry>
+    <entry>
+        <kw>diferente</kw>
+        <posTag>A</posTag>
+        <en>different</en>
+    </entry>
+    <entry>
+        <kw>diferentes</kw>
+        <posTag>A</posTag>
+        <en>different (pl)</en>
+    </entry>
+    <entry>
+        <kw>especial</kw>
+        <posTag>A</posTag>
+        <en>special</en>
+    </entry>
+    <entry>
+        <kw>especiales</kw>
+        <posTag>A</posTag>
+        <en>special (pl)</en>
+    </entry>
+    <entry>
+        <kw>natural</kw>
+        <posTag>A</posTag>
+        <en>natural</en>
+    </entry>
+    <entry>
+        <kw>principal</kw>
+        <posTag>A</posTag>
+        <en>main/principal</en>
+    </entry>
+    <entry>
+        <kw>favorito</kw>
+        <posTag>A</posTag>
+        <en>favorite (m)</en>
+    </entry>
+    <entry>
+        <kw>favorita</kw>
+        <posTag>A</posTag>
+        <en>favorite (f)</en>
+    </entry>
+    <entry>
+        <kw>perfecto</kw>
+        <posTag>A</posTag>
+        <en>perfect (m)</en>
+    </entry>
+    <entry>
+        <kw>perfecta</kw>
+        <posTag>A</posTag>
+        <en>perfect (f)</en>
+    </entry>
+    <entry>
+        <kw>típico</kw>
+        <posTag>A</posTag>
+        <en>typical (m)</en>
+    </entry>
+    <entry>
+        <kw>típica</kw>
+        <posTag>A</posTag>
+        <en>typical (f)</en>
+    </entry>
+    <entry>
+        <kw>tranquilo</kw>
+        <posTag>A</posTag>
+        <en>calm (m)</en>
+    </entry>
+    <entry>
+        <kw>tranquila</kw>
+        <posTag>A</posTag>
+        <en>calm (f)</en>
+    </entry>
+    <entry>
+        <kw>silencioso</kw>
+        <posTag>A</posTag>
+        <en>silent (m)</en>
+    </entry>
+    <entry>
+        <kw>silenciosa</kw>
+        <posTag>A</posTag>
+        <en>silent (f)</en>
+    </entry>
+    <entry>
+        <kw>ruidoso</kw>
+        <posTag>A</posTag>
+        <en>noisy (m)</en>
+    </entry>
+    <entry>
+        <kw>ruidosa</kw>
+        <posTag>A</posTag>
+        <en>noisy (f)</en>
+    </entry>
+    <entry>
+        <kw>colorido</kw>
+        <posTag>A</posTag>
+        <en>colorful (m)</en>
+    </entry>
+    <entry>
+        <kw>colorida</kw>
+        <posTag>A</posTag>
+        <en>colorful (f)</en>
+    </entry>
+    <entry>
+        <kw>brillante</kw>
+        <posTag>A</posTag>
+        <en>brilliant/shiny</en>
+    </entry>
+    <entry>
+        <kw>brillantes</kw>
+        <posTag>A</posTag>
+        <en>brilliant (pl)</en>
+    </entry>
+    <entry>
+        <kw>delicioso</kw>
+        <posTag>A</posTag>
+        <en>delicious (m)</en>
+    </entry>
+    <entry>
+        <kw>deliciosa</kw>
+        <posTag>A</posTag>
+        <en>delicious (f)</en>
+    </entry>
+    <entry>
+        <kw>fresco</kw>
+        <posTag>A</posTag>
+        <en>fresh/cool (m)</en>
+    </entry>
+    <entry>
+        <kw>fresca</kw>
+        <posTag>A</posTag>
+        <en>fresh/cool (f)</en>
+    </entry>
+    <entry>
+        <kw>suave</kw>
+        <posTag>A</posTag>
+        <en>soft/gentle</en>
+    </entry>
+    <entry>
+        <kw>suaves</kw>
+        <posTag>A</posTag>
+        <en>soft (pl)</en>
+    </entry>
+    <entry>
+        <kw>duro</kw>
+        <posTag>A</posTag>
+        <en>hard (m)</en>
+    </entry>
+    <entry>
+        <kw>dura</kw>
+        <posTag>A</posTag>
+        <en>hard (f)</en>
+    </entry>
+    <entry>
+        <kw>cálido</kw>
+        <posTag>A</posTag>
+        <en>warm (m)</en>
+    </entry>
+    <entry>
+        <kw>cálida</kw>
+        <posTag>A</posTag>
+        <en>warm (f)</en>
+    </entry>
+    <entry>
+        <kw>agradable</kw>
+        <posTag>A</posTag>
+        <en>pleasant</en>
+    </entry>
+    <entry>
+        <kw>increíble</kw>
+        <posTag>A</posTag>
+        <en>incredible</en>
+    </entry>
+    <entry>
+        <kw>maravilloso</kw>
+        <posTag>A</posTag>
+        <en>wonderful (m)</en>
+    </entry>
+    <entry>
+        <kw>maravillosa</kw>
+        <posTag>A</posTag>
+        <en>wonderful (f)</en>
+    </entry>
+    <entry>
+        <kw>magnífico</kw>
+        <posTag>A</posTag>
+        <en>magnificent (m)</en>
+    </entry>
+    <entry>
+        <kw>magnífica</kw>
+        <posTag>A</posTag>
+        <en>magnificent (f)</en>
+    </entry>
+    <entry>
+        <kw>popular</kw>
+        <posTag>A</posTag>
+        <en>popular</en>
+    </entry>
+    <entry>
+        <kw>populares</kw>
+        <posTag>A</posTag>
+        <en>popular (pl)</en>
+    </entry>
+    <entry>
+        <kw>cercano</kw>
+        <posTag>A</posTag>
+        <en>nearby (m)</en>
+    </entry>
+    <entry>
+        <kw>cercana</kw>
+        <posTag>A</posTag>
+        <en>nearby (f)</en>
+    </entry>
+    <entry>
+        <kw>lejano</kw>
+        <posTag>A</posTag>
+        <en>distant (m)</en>
+    </entry>
+    <entry>
+        <kw>lejana</kw>
+        <posTag>A</posTag>
+        <en>distant (f)</en>
+    </entry>
+    <entry>
+        <kw>profundo</kw>
+        <posTag>A</posTag>
+        <en>deep (m)</en>
+    </entry>
+    <entry>
+        <kw>profunda</kw>
+        <posTag>A</posTag>
+        <en>deep (f)</en>
+    </entry>
+
+    <!-- === Additional Adverbs === -->
+    <entry>
+        <kw>cerca</kw>
+        <posTag>ADV</posTag>
+        <en>nearby</en>
+    </entry>
+    <entry>
+        <kw>lejos</kw>
+        <posTag>ADV</posTag>
+        <en>far</en>
+    </entry>
+    <entry>
+        <kw>dentro</kw>
+        <posTag>ADV</posTag>
+        <en>inside</en>
+    </entry>
+    <entry>
+        <kw>fuera</kw>
+        <posTag>ADV</posTag>
+        <en>outside</en>
+    </entry>
+    <entry>
+        <kw>arriba</kw>
+        <posTag>ADV</posTag>
+        <en>up/above</en>
+    </entry>
+    <entry>
+        <kw>abajo</kw>
+        <posTag>ADV</posTag>
+        <en>down/below</en>
+    </entry>
+    <entry>
+        <kw>todo</kw>
+        <posTag>ADV</posTag>
+        <en>all/everything</en>
+    </entry>
+    <entry>
+        <kw>todos</kw>
+        <posTag>DET</posTag>
+        <en>all (m.pl)</en>
+    </entry>
+    <entry>
+        <kw>todas</kw>
+        <posTag>DET</posTag>
+        <en>all (f.pl)</en>
+    </entry>
+    <entry>
+        <kw>cada</kw>
+        <posTag>DET</posTag>
+        <en>each/every</en>
+    </entry>
+    <entry>
+        <kw>otro</kw>
+        <posTag>DET</posTag>
+        <en>other (m)</en>
+    </entry>
+    <entry>
+        <kw>otra</kw>
+        <posTag>DET</posTag>
+        <en>other (f)</en>
+    </entry>
+    <entry>
+        <kw>otros</kw>
+        <posTag>DET</posTag>
+        <en>other (m.pl)</en>
+    </entry>
+    <entry>
+        <kw>otras</kw>
+        <posTag>DET</posTag>
+        <en>other (f.pl)</en>
+    </entry>
+    <entry>
+        <kw>muchos</kw>
+        <posTag>DET</posTag>
+        <en>many (m)</en>
+    </entry>
+    <entry>
+        <kw>muchas</kw>
+        <posTag>DET</posTag>
+        <en>many (f)</en>
+    </entry>
+    <entry>
+        <kw>pocos</kw>
+        <posTag>DET</posTag>
+        <en>few (m)</en>
+    </entry>
+    <entry>
+        <kw>pocas</kw>
+        <posTag>DET</posTag>
+        <en>few (f)</en>
+    </entry>
+    <entry>
+        <kw>algunos</kw>
+        <posTag>DET</posTag>
+        <en>some (m)</en>
+    </entry>
+    <entry>
+        <kw>algunas</kw>
+        <posTag>DET</posTag>
+        <en>some (f)</en>
+    </entry>
+    <entry>
+        <kw>varios</kw>
+        <posTag>DET</posTag>
+        <en>several (m)</en>
+    </entry>
+    <entry>
+        <kw>varias</kw>
+        <posTag>DET</posTag>
+        <en>several (f)</en>
     </entry>
 </lexicon>

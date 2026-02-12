@@ -32,6 +32,16 @@ class FailureInfo(BaseModel):
     message: str
 
 
+class ParseMetrics(BaseModel):
+    statesExplored: int = 0
+    statesGenerated: int = 0
+    maxQueueSize: int = 0
+    ruleExpansions: int = 0
+    terminalAttempts: int = 0
+    terminalSuccesses: int = 0
+    parseTimeMs: float = 0.0
+
+
 class ParseResult(BaseModel):
     valid: bool
     sentence: str
@@ -42,6 +52,7 @@ class ParseResult(BaseModel):
     ambiguous: bool = False
     failure: Optional[FailureInfo] = None
     error: Optional[str] = None
+    metrics: Optional[ParseMetrics] = None
 
 
 class VerifyLoopRequest(BaseModel):
@@ -71,3 +82,44 @@ class VerifyLoopResponse(BaseModel):
     final_result: ParseResult
     success: bool
     total_attempts: int
+
+
+class XRayRequest(BaseModel):
+    prompt: str = Field(..., min_length=1, description="Creative prompt for paragraph generation")
+    language: str = Field(default="spanish", description="Grammar language")
+
+
+class SentenceAnalysis(BaseModel):
+    sentence: str
+    original: str
+    result: ParseResult
+    in_grammar_scope: bool
+    translation: str = ""
+
+
+class XRayStats(BaseModel):
+    total_sentences: int
+    parsed_sentences: int
+    coverage_percentage: float
+    total_words: int
+    known_words: int
+    word_coverage_percentage: float
+    rules_used: List[RuleApplied]
+    unique_pos_tags: List[str]
+
+
+class XRayResponse(BaseModel):
+    prompt: str
+    language: str
+    generated_text: str
+    system_prompt: str = ""
+    user_message: str = ""
+    sentences: List[SentenceAnalysis]
+    stats: XRayStats
+
+
+class GrammarStats(BaseModel):
+    language: str
+    grammar_rules: int
+    lexicon_words: int
+    pos_tags: List[str]

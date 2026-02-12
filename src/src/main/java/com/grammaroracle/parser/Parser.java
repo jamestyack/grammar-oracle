@@ -21,15 +21,23 @@ public class Parser {
     private String furthestToken;
     private Set<String> expectedAtFurthest;
 
+    // Performance metrics for the most recent parse
+    private ParseMetrics lastMetrics;
+
     public Parser(Language language) throws Exception {
         this.productionRules = new ProductionRules(language);
         this.lexicon = new Lexicon(language);
     }
 
     public List<ParseMemory> parse(Sentence sentence) throws BadSentenceException {
+        ParseMetrics metrics = new ParseMetrics();
+        long startTime = System.nanoTime();
+
         // Check for unknown words first
         for (String word : sentence.getWords()) {
             if (!lexicon.containsWord(word)) {
+                metrics.setParseTimeNanos(System.nanoTime() - startTime);
+                this.lastMetrics = metrics;
                 throw new BadSentenceException(
                         "Unknown word: '" + word + "'",
                         indexOf(sentence, word), word, Collections.emptyList()
@@ -38,6 +46,8 @@ public class Parser {
         }
 
         if (sentence.length() == 0) {
+            metrics.setParseTimeNanos(System.nanoTime() - startTime);
+            this.lastMetrics = metrics;
             throw new BadSentenceException("Empty sentence");
         }
 
@@ -49,9 +59,12 @@ public class Parser {
         List<ParseMemory> successfulParses = new ArrayList<>();
         Queue<ParseMemory> active = new LinkedList<>();
         active.add(new ParseMemory(productionRules.getStartingSymbol()));
+        metrics.incrementStatesGenerated();
 
         while (!active.isEmpty() && successfulParses.size() < MAX_PARSES) {
+            metrics.updateMaxQueueSize(active.size());
             ParseMemory memory = active.poll();
+            metrics.incrementStatesExplored();
 
             if (!memory.hasSymbols()) {
                 // All symbols consumed — check if all words consumed too
@@ -65,6 +78,7 @@ public class Parser {
 
             if (isTerminal(symbol)) {
                 // Terminal: try to match against next word
+                metrics.incrementTerminalAttempts();
                 int nextPos = memory.getPosition() + 1;
                 if (nextPos >= sentence.length()) {
                     trackFailure(memory.getPosition(), sentence, symbol);
@@ -75,10 +89,12 @@ public class Parser {
                 LexiconEntry entry = lexicon.getEntry(word);
 
                 if (entry != null && entry.hasTag(symbol)) {
+                    metrics.incrementTerminalSuccesses();
                     ParseMemory next = memory.clone();
                     next.advancePosition();
                     next.recordMatch(symbol);
                     active.add(next);
+                    metrics.incrementStatesGenerated();
                 } else {
                     trackFailure(nextPos, sentence, symbol);
                 }
@@ -91,12 +107,17 @@ public class Parser {
                 }
 
                 for (Rule rule : matchingRules) {
+                    metrics.incrementRuleExpansions();
                     ParseMemory expanded = memory.clone();
                     expanded.expandRule(rule);
                     active.add(expanded);
+                    metrics.incrementStatesGenerated();
                 }
             }
         }
+
+        metrics.setParseTimeNanos(System.nanoTime() - startTime);
+        this.lastMetrics = metrics;
 
         if (successfulParses.isEmpty()) {
             String failToken = furthestToken != null ? furthestToken : sentence.getWord(0);
@@ -111,6 +132,10 @@ public class Parser {
 
         log.info("Found {} parse(s) for: {}", successfulParses.size(), sentence);
         return successfulParses;
+    }
+
+    public ParseMetrics getLastMetrics() {
+        return lastMetrics;
     }
 
     private boolean isTerminal(String symbol) {

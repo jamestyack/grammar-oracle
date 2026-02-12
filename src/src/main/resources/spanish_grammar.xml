@@ -6,11 +6,34 @@
         <rhs>S</rhs>
     </rule>
 
-    <!-- === Sentence patterns === -->
+    <!-- === Sentence-level: S delegates to CLAUSE, with optional conjunction === -->
+
+    <!-- Simple sentence -->
+    <rule number="50">
+        <lhs>S</lhs>
+        <rhs>CLAUSE</rhs>
+    </rule>
+
+    <!-- Compound sentence: CLAUSE CONJ CLAUSE (el perro corre y el gato duerme) -->
+    <rule number="51">
+        <lhs>S</lhs>
+        <rhs>CLAUSE</rhs>
+        <rhs>CONJ</rhs>
+        <rhs>CLAUSE</rhs>
+    </rule>
+
+    <!-- Adverb-fronted sentence (siempre el perro corre) -->
+    <rule number="52">
+        <lhs>S</lhs>
+        <rhs>ADV</rhs>
+        <rhs>CLAUSE</rhs>
+    </rule>
+
+    <!-- === Clause patterns (non-recursive base sentences) === -->
 
     <!-- Copular: NP + copula + adjective (el perro es grande) -->
     <rule number="2">
-        <lhs>S</lhs>
+        <lhs>CLAUSE</lhs>
         <rhs>NP</rhs>
         <rhs>V_COP</rhs>
         <rhs>A</rhs>
@@ -18,21 +41,21 @@
 
     <!-- Intransitive: NP + verb (el perro corre) -->
     <rule number="3">
-        <lhs>S</lhs>
+        <lhs>CLAUSE</lhs>
         <rhs>NP</rhs>
         <rhs>VP</rhs>
     </rule>
 
     <!-- Existential: existential verb + NP (hay un perro) -->
     <rule number="4">
-        <lhs>S</lhs>
+        <lhs>CLAUSE</lhs>
         <rhs>V_EX</rhs>
         <rhs>NP</rhs>
     </rule>
 
     <!-- Transitive: NP + verb + NP (el hombre come la manzana) -->
     <rule number="5">
-        <lhs>S</lhs>
+        <lhs>CLAUSE</lhs>
         <rhs>NP</rhs>
         <rhs>VP</rhs>
         <rhs>NP</rhs>
@@ -40,7 +63,7 @@
 
     <!-- Copular with adverb: NP + copula + ADV + adjective (el perro es muy grande) -->
     <rule number="6">
-        <lhs>S</lhs>
+        <lhs>CLAUSE</lhs>
         <rhs>NP</rhs>
         <rhs>V_COP</rhs>
         <rhs>ADV</rhs>
@@ -49,7 +72,7 @@
 
     <!-- Negated copular: NP + NEG + copula + adjective (el perro no es grande) -->
     <rule number="7">
-        <lhs>S</lhs>
+        <lhs>CLAUSE</lhs>
         <rhs>NP</rhs>
         <rhs>NEG</rhs>
         <rhs>V_COP</rhs>
@@ -58,7 +81,7 @@
 
     <!-- Prepositional: NP + copula + PP (el gato está en la casa) -->
     <rule number="8">
-        <lhs>S</lhs>
+        <lhs>CLAUSE</lhs>
         <rhs>NP</rhs>
         <rhs>V_COP</rhs>
         <rhs>PP</rhs>
@@ -66,52 +89,175 @@
 
     <!-- Intransitive + PP: NP + verb + PP (el niño corre en el parque) -->
     <rule number="9">
-        <lhs>S</lhs>
+        <lhs>CLAUSE</lhs>
         <rhs>NP</rhs>
         <rhs>VP</rhs>
         <rhs>PP</rhs>
     </rule>
 
-    <!-- === Noun phrase patterns === -->
+    <!-- Transitive + PP: NP + verb + NP + PP (el niño lee un libro en la casa) -->
+    <rule number="41">
+        <lhs>CLAUSE</lhs>
+        <rhs>NP</rhs>
+        <rhs>VP</rhs>
+        <rhs>NP</rhs>
+        <rhs>PP</rhs>
+    </rule>
 
-    <!-- NP: determiner + noun (el perro) -->
+    <!-- Copular + A + PP: NP + copula + A + PP (el perro es grande en la casa) -->
+    <rule number="42">
+        <lhs>CLAUSE</lhs>
+        <rhs>NP</rhs>
+        <rhs>V_COP</rhs>
+        <rhs>A</rhs>
+        <rhs>PP</rhs>
+    </rule>
+
+    <!-- Copular with adverb + adjective + PP: NP + V_COP + ADV + A + PP (el perro es muy grande en la casa) -->
+    <rule number="56">
+        <lhs>CLAUSE</lhs>
+        <rhs>NP</rhs>
+        <rhs>V_COP</rhs>
+        <rhs>ADV</rhs>
+        <rhs>A</rhs>
+        <rhs>PP</rhs>
+    </rule>
+
+    <!-- Negated intransitive: NP + NEG + VP (el perro no corre) -->
+    <rule number="43">
+        <lhs>CLAUSE</lhs>
+        <rhs>NP</rhs>
+        <rhs>NEG</rhs>
+        <rhs>VP</rhs>
+    </rule>
+
+    <!-- Negated transitive: NP + NEG + VP + NP (el niño no come la manzana) -->
+    <rule number="44">
+        <lhs>CLAUSE</lhs>
+        <rhs>NP</rhs>
+        <rhs>NEG</rhs>
+        <rhs>VP</rhs>
+        <rhs>NP</rhs>
+    </rule>
+
+    <!-- Negated copular + PP: NP + NEG + V_COP + PP (el gato no está en la casa) -->
+    <rule number="45">
+        <lhs>CLAUSE</lhs>
+        <rhs>NP</rhs>
+        <rhs>NEG</rhs>
+        <rhs>V_COP</rhs>
+        <rhs>PP</rhs>
+    </rule>
+
+    <!-- Existential + PP: V_EX + NP + PP (hay un gato en la casa) -->
+    <rule number="46">
+        <lhs>CLAUSE</lhs>
+        <rhs>V_EX</rhs>
+        <rhs>NP</rhs>
+        <rhs>PP</rhs>
+    </rule>
+
+    <!-- Copular with compound adjective: NP + V_COP + A + CONJ + A (el parque es grande y verde) -->
+    <rule number="53">
+        <lhs>CLAUSE</lhs>
+        <rhs>NP</rhs>
+        <rhs>V_COP</rhs>
+        <rhs>A</rhs>
+        <rhs>CONJ</rhs>
+        <rhs>A</rhs>
+    </rule>
+
+    <!-- Shared-subject coordination: NP + VP + CONJ + VP (el perro corre y duerme) -->
+    <rule number="54">
+        <lhs>CLAUSE</lhs>
+        <rhs>NP</rhs>
+        <rhs>VP</rhs>
+        <rhs>CONJ</rhs>
+        <rhs>VP</rhs>
+    </rule>
+
+    <!-- Shared-subject transitive: NP + VP + NP + CONJ + VP + NP (el niño come pan y bebe agua) -->
+    <rule number="55">
+        <lhs>CLAUSE</lhs>
+        <rhs>NP</rhs>
+        <rhs>VP</rhs>
+        <rhs>NP</rhs>
+        <rhs>CONJ</rhs>
+        <rhs>VP</rhs>
+        <rhs>NP</rhs>
+    </rule>
+
+    <!-- === Noun phrase: NP delegates to BASE_NP, with optional conjunction === -->
+
+    <!-- Simple NP -->
+    <rule number="60">
+        <lhs>NP</lhs>
+        <rhs>BASE_NP</rhs>
+    </rule>
+
+    <!-- Compound NP: BASE_NP CONJ BASE_NP (el perro y el gato) -->
+    <rule number="61">
+        <lhs>NP</lhs>
+        <rhs>BASE_NP</rhs>
+        <rhs>CONJ</rhs>
+        <rhs>BASE_NP</rhs>
+    </rule>
+
+    <!-- === Base noun phrase patterns (non-recursive) === -->
+
+    <!-- BASE_NP: bare noun / proper name (Carlos, María) -->
+    <rule number="17">
+        <lhs>BASE_NP</lhs>
+        <rhs>N</rhs>
+    </rule>
+
+    <!-- BASE_NP: determiner + noun (el perro) -->
     <rule number="10">
-        <lhs>NP</lhs>
+        <lhs>BASE_NP</lhs>
         <rhs>DET</rhs>
         <rhs>N</rhs>
     </rule>
 
-    <!-- NP: determiner + noun + adjective (el perro grande) -->
+    <!-- BASE_NP: determiner + noun + adjective (el perro grande) -->
     <rule number="11">
-        <lhs>NP</lhs>
+        <lhs>BASE_NP</lhs>
         <rhs>DET</rhs>
         <rhs>N</rhs>
         <rhs>A</rhs>
     </rule>
 
-    <!-- NP: determiner + adjective + noun (el gran perro) -->
+    <!-- BASE_NP: determiner + adjective + noun (el gran perro) -->
     <rule number="12">
-        <lhs>NP</lhs>
+        <lhs>BASE_NP</lhs>
         <rhs>DET</rhs>
         <rhs>A</rhs>
         <rhs>N</rhs>
     </rule>
 
-    <!-- NP: determiner + noun + PP (el libro de la mujer) -->
+    <!-- BASE_NP: determiner + noun + PP (el libro de la mujer) -->
     <rule number="13">
-        <lhs>NP</lhs>
+        <lhs>BASE_NP</lhs>
         <rhs>DET</rhs>
         <rhs>N</rhs>
         <rhs>PP</rhs>
     </rule>
 
-    <!-- NP: determiner + noun + adjective + PP (el perro grande de la casa) -->
+    <!-- BASE_NP: determiner + noun + adjective + PP (el perro grande de la casa) -->
     <rule number="14">
-        <lhs>NP</lhs>
+        <lhs>BASE_NP</lhs>
         <rhs>DET</rhs>
         <rhs>N</rhs>
         <rhs>A</rhs>
         <rhs>PP</rhs>
+    </rule>
+
+    <!-- BASE_NP: determiner + noun + adjective + adjective (el perro grande bonito) -->
+    <rule number="16">
+        <lhs>BASE_NP</lhs>
+        <rhs>DET</rhs>
+        <rhs>N</rhs>
+        <rhs>A</rhs>
+        <rhs>A</rhs>
     </rule>
 
     <!-- === Verb phrase patterns === -->
@@ -141,6 +287,21 @@
         <lhs>VP</lhs>
         <rhs>ADV</rhs>
         <rhs>V</rhs>
+    </rule>
+
+    <!-- VP: negated verb + adverb (no come bien) -->
+    <rule number="24">
+        <lhs>VP</lhs>
+        <rhs>NEG</rhs>
+        <rhs>V</rhs>
+        <rhs>ADV</rhs>
+    </rule>
+
+    <!-- VP: verb + PP (corre en el parque) -->
+    <rule number="25">
+        <lhs>VP</lhs>
+        <rhs>V</rhs>
+        <rhs>PP</rhs>
     </rule>
 
     <!-- === Prepositional phrase === -->

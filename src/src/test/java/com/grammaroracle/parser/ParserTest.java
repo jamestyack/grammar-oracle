@@ -145,13 +145,14 @@ class ParserTest {
         List<ParseMemory> parses = parser.parse(sent);
         JsonSerializer serializer = new JsonSerializer(parser.getLexicon());
 
-        JSONObject json = serializer.serializeValidParse(sent, parses);
+        JSONObject json = serializer.serializeValidParse(sent, parses, parser.getLastMetrics());
         assertTrue(json.getBoolean("valid"));
         assertEquals("el perro es grande", json.getString("sentence"));
         assertTrue(json.has("tokens"));
         assertTrue(json.has("parseTree"));
         assertTrue(json.has("rulesApplied"));
         assertEquals(parses.size(), json.getInt("parses"));
+        assertTrue(json.has("metrics"));
     }
 
     @Test
@@ -163,11 +164,12 @@ class ParserTest {
             parser.parse(sent);
             fail("Should have thrown BadSentenceException");
         } catch (BadSentenceException ex) {
-            JSONObject json = serializer.serializeInvalidParse(sent, ex);
+            JSONObject json = serializer.serializeInvalidParse(sent, ex, parser.getLastMetrics());
             assertFalse(json.getBoolean("valid"));
             assertTrue(json.has("failure"));
             assertTrue(json.getJSONObject("failure").has("index"));
             assertTrue(json.getJSONObject("failure").has("expectedCategories"));
+            assertTrue(json.has("metrics"));
         }
     }
 
@@ -177,7 +179,7 @@ class ParserTest {
         List<ParseMemory> parses = parser.parse(sent);
         JsonSerializer serializer = new JsonSerializer(parser.getLexicon());
 
-        JSONObject json = serializer.serializeValidParse(sent, parses);
+        JSONObject json = serializer.serializeValidParse(sent, parses, parser.getLastMetrics());
         var tokens = json.getJSONArray("tokens");
         assertTrue(tokens.length() > 0);
         assertTrue(tokens.getJSONObject(0).has("translation"));

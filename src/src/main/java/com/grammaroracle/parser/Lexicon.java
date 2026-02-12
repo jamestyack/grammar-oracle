@@ -37,7 +37,21 @@ public class Lexicon {
                         .map(Element::getText)
                         .collect(Collectors.toList());
                 String translation = entryElem.getChildText("en");
-                entries.put(word, new LexiconEntry(word, tags, translation));
+
+                LexiconEntry existing = entries.get(word);
+                if (existing != null) {
+                    // Merge tags from duplicate entries
+                    List<String> mergedTags = new ArrayList<>(existing.getPosTags());
+                    for (String tag : tags) {
+                        if (!mergedTags.contains(tag)) {
+                            mergedTags.add(tag);
+                        }
+                    }
+                    String mergedTranslation = translation != null ? translation : existing.getTranslation();
+                    entries.put(word, new LexiconEntry(word, mergedTags, mergedTranslation));
+                } else {
+                    entries.put(word, new LexiconEntry(word, tags, translation));
+                }
             }
         }
 

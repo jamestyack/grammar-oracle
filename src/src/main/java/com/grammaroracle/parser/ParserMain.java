@@ -48,10 +48,10 @@ public class ParserMain {
                 JsonSerializer serializer = new JsonSerializer(parser.getLexicon());
                 try {
                     List<ParseMemory> parses = parser.parse(sent);
-                    JSONObject result = serializer.serializeValidParse(sent, parses);
+                    JSONObject result = serializer.serializeValidParse(sent, parses, parser.getLastMetrics());
                     System.out.println(result.toString(2));
                 } catch (BadSentenceException e) {
-                    JSONObject result = serializer.serializeInvalidParse(sent, e);
+                    JSONObject result = serializer.serializeInvalidParse(sent, e, parser.getLastMetrics());
                     System.out.println(result.toString(2));
                 }
             } else {
