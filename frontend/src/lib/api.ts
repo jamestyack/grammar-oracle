@@ -97,7 +97,28 @@ export interface XRayResponse {
   stats: XRayStats;
 }
 
+export interface GrammarStats {
+  language: string;
+  grammar_rules: number;
+  lexicon_words: number;
+  pos_tags: string[];
+}
+
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+
+export async function fetchGrammarStats(
+  language: string = "spanish"
+): Promise<GrammarStats> {
+  const response = await fetch(
+    `${API_BASE}/stats?language=${encodeURIComponent(language)}`
+  );
+
+  if (!response.ok) {
+    throw new Error(`API error: ${response.status}`);
+  }
+
+  return response.json();
+}
 
 export async function validateSentence(
   sentence: string,

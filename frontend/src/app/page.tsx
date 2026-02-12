@@ -1,13 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   ParseResult,
   VerifyLoopResponse,
   XRayResponse,
+  GrammarStats,
   validateSentence,
   generateSentence,
   xrayText,
+  fetchGrammarStats,
 } from "@/lib/api";
 import TokenSpan from "@/components/TokenSpan";
 import ParseTreeView from "@/components/ParseTreeView";
@@ -54,13 +56,17 @@ const SAMPLE_CATEGORIES = [
     ],
   },
   {
+    label: "Grammar Gaps",
+    sentences: ["el niño lee libro"],
+  },
+  {
     label: "Invalid",
-    sentences: ["grande perro", "el niño lee libro", "corre el"],
+    sentences: ["grande perro", "corre el"],
   },
 ];
 
 const ALL_VALID_SENTENCES = SAMPLE_CATEGORIES
-  .filter((c) => c.label !== "Invalid")
+  .filter((c) => c.label !== "Invalid" && c.label !== "Grammar Gaps")
   .flatMap((c) => c.sentences);
 
 const SAMPLE_PROMPTS = [
@@ -97,6 +103,13 @@ export default function Home() {
   // X-Ray mode state
   const [xrayPrompt, setXrayPrompt] = useState("");
   const [xrayResult, setXrayResult] = useState<XRayResponse | null>(null);
+
+  // Grammar stats (loaded once)
+  const [grammarStats, setGrammarStats] = useState<GrammarStats | null>(null);
+
+  useEffect(() => {
+    fetchGrammarStats(language).then(setGrammarStats).catch(() => {});
+  }, [language]);
 
   async function handleValidateSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -230,6 +243,18 @@ export default function Home() {
         {/* === VALIDATE MODE === */}
         {mode === "validate" && (
           <>
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-sm text-blue-800 space-y-1">
+              <p>
+                <strong>Parse Sentence</strong> tests any Spanish sentence against a formal Context-Free Grammar (CFG) using a deterministic parser.
+                {grammarStats && <> The grammar currently has <strong>{grammarStats.grammar_rules} rules</strong> and a lexicon of <strong>{grammarStats.lexicon_words} words</strong>.</>}
+              </p>
+              <p className="text-blue-600">
+                Sentences outside the grammar&apos;s scope will be rejected — this is expected behavior, not a bug. The parser validates structure, not meaning.
+              </p>
+              <p className="text-blue-500 text-xs">
+                Questions or feedback? <a href="https://medium.com/@truehumania" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-700">Join the discussion</a>
+              </p>
+            </div>
             <form onSubmit={handleValidateSubmit} className="space-y-4">
               <div className="flex gap-3">
                 <input
@@ -272,6 +297,8 @@ export default function Home() {
                         className={`px-2.5 py-1 text-xs rounded hover:bg-gray-200 transition-colors ${
                           cat.label === "Invalid"
                             ? "bg-red-50 text-red-600 hover:bg-red-100"
+                            : cat.label === "Grammar Gaps"
+                            ? "bg-amber-50 text-amber-600 hover:bg-amber-100"
                             : "bg-gray-100 text-gray-600"
                         }`}
                       >
@@ -376,6 +403,19 @@ export default function Home() {
         {/* === GENERATE MODE === */}
         {mode === "generate" && (
           <>
+            <div className="bg-purple-50 border border-purple-200 rounded-lg p-4 text-sm text-purple-800 space-y-1">
+              <p>
+                <strong>LLM + Verify</strong> asks Claude to generate a Spanish sentence from your prompt, then the CFG parser validates it.
+                If validation fails, the parser&apos;s error feedback is sent back to Claude for retry — demonstrating neuro-symbolic correction.
+                {grammarStats && <> Claude is constrained to work within the grammar&apos;s <strong>{grammarStats.grammar_rules} rules</strong> and <strong>{grammarStats.lexicon_words}-word</strong> vocabulary.</>}
+              </p>
+              <p className="text-purple-600">
+                The LLM is guided by grammar rules but may still produce sentences outside scope. Up to 3 retry attempts are made automatically.
+              </p>
+              <p className="text-purple-500 text-xs">
+                Questions or feedback? <a href="https://medium.com/@truehumania" target="_blank" rel="noopener noreferrer" className="underline hover:text-purple-700">Join the discussion</a>
+              </p>
+            </div>
             <form onSubmit={handleGenerateSubmit} className="space-y-4">
               <div className="flex gap-3">
                 <input
@@ -431,6 +471,18 @@ export default function Home() {
         {/* === X-RAY MODE === */}
         {mode === "xray" && (
           <>
+            <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-4 text-sm text-emerald-800 space-y-1">
+              <p>
+                <strong>Grammar X-Ray</strong> asks Claude to write a natural Spanish paragraph (unconstrained by grammar rules), then the CFG parser X-rays every sentence — color-coding each word by part of speech and revealing which structures it can formally validate.
+                {grammarStats && <> Coverage depends on the grammar&apos;s <strong>{grammarStats.grammar_rules} rules</strong> and <strong>{grammarStats.lexicon_words}-word</strong> lexicon.</>}
+              </p>
+              <p className="text-emerald-600">
+                Sentences outside scope get a &quot;not in grammar scope&quot; label — this shows the boundaries of the formal grammar, which is part of the insight. Click any sentence to expand its parse tree and parser metrics.
+              </p>
+              <p className="text-emerald-500 text-xs">
+                Questions or feedback? <a href="https://medium.com/@truehumania" target="_blank" rel="noopener noreferrer" className="underline hover:text-emerald-700">Join the discussion</a>
+              </p>
+            </div>
             <form onSubmit={handleXRaySubmit} className="space-y-4">
               <div className="flex gap-3">
                 <input

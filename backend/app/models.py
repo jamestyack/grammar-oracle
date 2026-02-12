@@ -116,3 +116,10 @@ class XRayResponse(BaseModel):
     user_message: str = ""
     sentences: List[SentenceAnalysis]
     stats: XRayStats
+
+
+class GrammarStats(BaseModel):
+    language: str
+    grammar_rules: int
+    lexicon_words: int
+    pos_tags: List[str]
