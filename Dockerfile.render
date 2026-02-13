@@ -1,0 +1,44 @@
+# Production Dockerfile for Render deployment
+# Builds Java parser JAR + Python backend in a single image
+
+# Stage 1: Build the Java parser JAR
+FROM maven:3.9-eclipse-temurin-21-alpine AS jar-builder
+WORKDIR /build
+COPY src/pom.xml pom.xml
+COPY src/src/ src/
+RUN mvn clean package -q -DskipTests
+
+# Stage 2: Get Java runtime
+FROM eclipse-temurin:21-jre-alpine AS java-base
+
+# Stage 3: Final image with Python + Java + JAR
+FROM python:3.11-slim
+
+# Copy Java runtime
+COPY --from=java-base /opt/java/openjdk /opt/java/openjdk
+ENV JAVA_HOME=/opt/java/openjdk
+ENV PATH="${JAVA_HOME}/bin:${PATH}"
+
+WORKDIR /app
+
+# Install Python dependencies
+COPY backend/requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy backend application
+COPY backend/app/ app/
+
+# Copy the built parser JAR
+COPY --from=jar-builder /build/target/grammar-oracle-parser.jar /app/parser/grammar-oracle-parser.jar
+ENV PARSER_JAR_PATH=/app/parser/grammar-oracle-parser.jar
+
+# Copy grammar/lexicon resources (needed by parser)
+COPY src/src/main/resources/ /app/resources/
+
+# Non-root user for security
+RUN useradd --create-home --shell /bin/bash appuser
+USER appuser
+
+EXPOSE 8000
+
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

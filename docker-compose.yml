@@ -19,6 +19,9 @@ services:
         condition: service_completed_successfully
     environment:
       - PARSER_JAR_PATH=/app/parser/grammar-oracle-parser.jar
+      - CORS_ORIGINS=http://localhost:3000
+      # Set MOCK_LLM=true to use canned responses instead of calling Claude (saves tokens for demos/testing)
+      # - MOCK_LLM=true
 
   frontend:
     build:

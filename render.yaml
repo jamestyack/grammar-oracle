@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: grammar-oracle-backend
+    runtime: docker
+    dockerfilePath: ./Dockerfile.render
+    dockerContext: .
+    envVars:
+      - key: CORS_ORIGINS
+        value: https://grammar-oracle.vercel.app
+      - key: MOCK_LLM
+        value: "true"
+      # Uncomment and set for real LLM calls:
+      # - key: ANTHROPIC_API_KEY
+      #   sync: false
+    healthCheckPath: /health

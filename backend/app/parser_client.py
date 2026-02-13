@@ -8,9 +8,9 @@ from typing import Optional
 
 from .models import ParseResult
 
-# Resolve the JAR path relative to the project root
+# Resolve the JAR path: env var > default relative to project root
 _PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
-_DEFAULT_JAR = _PROJECT_ROOT / "src" / "target" / "grammar-oracle-parser.jar"
+_DEFAULT_JAR = Path(os.environ.get("PARSER_JAR_PATH", str(_PROJECT_ROOT / "src" / "target" / "grammar-oracle-parser.jar")))
 
 
 def _find_java() -> str:

@@ -1,11 +1,13 @@
 from __future__ import annotations
-from typing import List, Optional
+from typing import List, Literal, Optional
 from pydantic import BaseModel, Field
+
+SUPPORTED_LANGUAGES = ("spanish",)
 
 
 class ValidateRequest(BaseModel):
-    sentence: str = Field(..., min_length=1, description="Sentence to validate")
-    language: str = Field(default="spanish", description="Grammar language")
+    sentence: str = Field(..., min_length=1, max_length=500, description="Sentence to validate")
+    language: Literal["spanish"] = Field(default="spanish", description="Grammar language")
 
 
 class Token(BaseModel):
@@ -56,9 +58,9 @@ class ParseResult(BaseModel):
 
 
 class VerifyLoopRequest(BaseModel):
-    prompt: str = Field(..., min_length=1, description="Natural language description of desired sentence")
-    language: str = Field(default="spanish", description="Grammar language")
-    max_retries: int = Field(default=3, ge=1, le=10, description="Maximum generation attempts")
+    prompt: str = Field(..., min_length=1, max_length=500, description="Natural language description of desired sentence")
+    language: Literal["spanish"] = Field(default="spanish", description="Grammar language")
+    max_retries: int = Field(default=3, ge=1, le=5, description="Maximum generation attempts")
 
 
 class ClaudeMessage(BaseModel):
@@ -85,8 +87,8 @@ class VerifyLoopResponse(BaseModel):
 
 
 class XRayRequest(BaseModel):
-    prompt: str = Field(..., min_length=1, description="Creative prompt for paragraph generation")
-    language: str = Field(default="spanish", description="Grammar language")
+    prompt: str = Field(..., min_length=1, max_length=500, description="Creative prompt for paragraph generation")
+    language: Literal["spanish"] = Field(default="spanish", description="Grammar language")
 
 
 class SentenceAnalysis(BaseModel):

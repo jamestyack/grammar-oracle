@@ -171,6 +171,9 @@ npm install
 # Set environment variables
 cp .env.example .env
 # Edit .env with your API keys (Claude/OpenAI)
+
+# Optional: mock LLM calls (uses canned responses, no tokens consumed)
+# export MOCK_LLM=true
 ```
 
 ### Running Locally
@@ -195,7 +198,42 @@ npm run dev
 ```bash
 docker-compose up --build
 # Visit http://localhost:3000
+
+# To run with mock LLM (no API key needed, no tokens consumed):
+# Uncomment MOCK_LLM=true in docker-compose.yml backend environment section
 ```
+
+### Deploying to Vercel + Render
+
+The app is designed for split deployment: **frontend on Vercel**, **backend on Render**.
+
+**Frontend (Vercel):**
+
+1. Import the repo in Vercel
+2. Set **Root Directory** to `frontend/`
+3. Add environment variable: `NEXT_PUBLIC_API_URL` = your Render backend URL (e.g., `https://grammar-oracle-backend.onrender.com`)
+4. Deploy — Vercel auto-detects Next.js
+
+**Backend (Render):**
+
+1. Create a new Web Service, connect the repo
+2. Set **Dockerfile Path** to `./Dockerfile.render` and **Docker Context** to `.` (repo root)
+3. Or use the included `render.yaml` for Blueprint deployment
+4. Add environment variables:
+   - `CORS_ORIGINS` = your Vercel frontend URL (e.g., `https://grammar-oracle.vercel.app`)
+   - `MOCK_LLM` = `true` (for demo mode, no API key needed)
+   - `ANTHROPIC_API_KEY` = your key (only if `MOCK_LLM` is not set)
+5. Health check path: `/health`
+
+**Environment variables summary:**
+
+| Variable | Service | Required | Description |
+|----------|---------|----------|-------------|
+| `NEXT_PUBLIC_API_URL` | Frontend | Yes | Backend URL (build-time) |
+| `CORS_ORIGINS` | Backend | Yes | Comma-separated allowed origins |
+| `ANTHROPIC_API_KEY` | Backend | No* | Claude API key (*required if `MOCK_LLM` is off) |
+| `MOCK_LLM` | Backend | No | Set `true` to use canned responses |
+| `PARSER_JAR_PATH` | Backend | No | Auto-set in Docker; override for custom setups |
 
 ## API Usage
 

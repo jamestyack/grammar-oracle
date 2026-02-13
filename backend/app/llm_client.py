@@ -1,10 +1,62 @@
 """Anthropic Claude client for sentence generation."""
 
+import os
+import random
 from typing import Optional, List, Dict
 from anthropic import Anthropic
 
 
 _client: Optional[Anthropic] = None
+_MOCK_LLM = os.environ.get("MOCK_LLM", "").lower() in ("1", "true", "yes")
+
+# Canned responses for mock mode — valid sentences the parser can handle
+_MOCK_SENTENCES = {
+    "copular": [
+        "el perro es grande",
+        "la gata es bonita",
+        "el niño es alto",
+        "la casa es pequeña",
+    ],
+    "transitive": [
+        "el hombre come la manzana",
+        "la mujer lee un libro",
+        "el niño bebe la leche",
+        "la niña come una manzana",
+    ],
+    "existential": [
+        "hay un gato en la casa",
+        "hay una mujer en el parque",
+        "hay un perro",
+        "hay un libro en la mesa",
+    ],
+    "pp": [
+        "el perro corre en el parque",
+        "la mujer camina por la calle",
+        "el gato duerme en la casa",
+        "el niño lee un libro en la casa",
+    ],
+    "negation": [
+        "el perro no es grande",
+        "el niño no come la manzana",
+        "la mujer no corre",
+        "el gato no duerme",
+    ],
+    "conjunction": [
+        "el perro corre y el gato duerme",
+        "la mujer lee un libro y el hombre come",
+        "el niño es alto pero la niña es pequeña",
+        "hay un gato y hay un perro",
+    ],
+}
+_MOCK_ALL = [s for group in _MOCK_SENTENCES.values() for s in group]
+
+_MOCK_PARAGRAPH = (
+    "El perro grande corre en el parque. "
+    "La mujer camina por la calle con su gato. "
+    "Hay un niño en la casa. "
+    "El niño lee un libro y la niña come una manzana. "
+    "El día es bonito."
+)
 
 
 def _get_client() -> Anthropic:
@@ -74,26 +126,24 @@ def generate_sentence(
     previous_attempts: Optional[List[Dict[str, str]]] = None,
 ) -> GenerateResult:
     """Call Claude to generate a sentence. Returns result with messages context."""
-    client = _get_client()
-
-    messages = []
-
-    messages.append({
-        "role": "user",
-        "content": f"Generate a grammatically valid {language} sentence matching this description: {prompt}",
-    })
+    user_msg = f"Generate a grammatically valid {language} sentence matching this description: {prompt}"
+    messages: List[Dict[str, str]] = [{"role": "user", "content": user_msg}]
 
     if previous_attempts:
         for attempt in previous_attempts:
-            messages.append({
-                "role": "assistant",
-                "content": attempt["sentence"],
-            })
-            messages.append({
-                "role": "user",
-                "content": attempt["feedback"],
-            })
+            messages.append({"role": "assistant", "content": attempt["sentence"]})
+            messages.append({"role": "user", "content": attempt["feedback"]})
 
+    if _MOCK_LLM:
+        sentence = random.choice(_MOCK_ALL)
+        full_messages = messages + [{"role": "assistant", "content": sentence}]
+        return GenerateResult(
+            sentence=sentence,
+            system_prompt=SYSTEM_PROMPT + "\n\n[MOCK MODE — no LLM call made]",
+            messages=full_messages,
+        )
+
+    client = _get_client()
     response = client.messages.create(
         model="claude-sonnet-4-20250514",
         max_tokens=150,
@@ -105,7 +155,6 @@ def generate_sentence(
     raw = raw.strip('"').strip("'").strip(".").strip("!").strip("?")
     sentence = raw.lower()
 
-    # Include Claude's response in the message log
     full_messages = messages + [{"role": "assistant", "content": sentence}]
 
     return GenerateResult(
@@ -153,12 +202,17 @@ class ParagraphResult:
 
 def generate_paragraph(prompt: str, language: str) -> ParagraphResult:
     """Generate a natural paragraph of Spanish text (unconstrained by CFG)."""
-    client = _get_client()
     user_message = f"Write a short paragraph (3-5 sentences) in {language} about: {prompt}"
-    messages = [{
-        "role": "user",
-        "content": user_message,
-    }]
+
+    if _MOCK_LLM:
+        return ParagraphResult(
+            text=_MOCK_PARAGRAPH,
+            system_prompt=XRAY_SYSTEM_PROMPT + "\n\n[MOCK MODE — no LLM call made]",
+            user_message=user_message,
+        )
+
+    client = _get_client()
+    messages = [{"role": "user", "content": user_message}]
     response = client.messages.create(
         model="claude-sonnet-4-20250514",
         max_tokens=500,
@@ -172,10 +226,48 @@ def generate_paragraph(prompt: str, language: str) -> ParagraphResult:
     )
 
 
+_MOCK_TRANSLATIONS = {
+    "el perro es grande": "The dog is big",
+    "la gata es bonita": "The cat is pretty",
+    "el niño es alto": "The boy is tall",
+    "la casa es pequeña": "The house is small",
+    "el hombre come la manzana": "The man eats the apple",
+    "la mujer lee un libro": "The woman reads a book",
+    "el niño bebe la leche": "The boy drinks the milk",
+    "la niña come una manzana": "The girl eats an apple",
+    "hay un gato en la casa": "There is a cat in the house",
+    "hay una mujer en el parque": "There is a woman in the park",
+    "hay un perro": "There is a dog",
+    "hay un libro en la mesa": "There is a book on the table",
+    "el perro corre en el parque": "The dog runs in the park",
+    "la mujer camina por la calle": "The woman walks along the street",
+    "el gato duerme en la casa": "The cat sleeps in the house",
+    "el niño lee un libro en la casa": "The boy reads a book in the house",
+    "el perro no es grande": "The dog is not big",
+    "el niño no come la manzana": "The boy does not eat the apple",
+    "la mujer no corre": "The woman does not run",
+    "el gato no duerme": "The cat does not sleep",
+    "el perro corre y el gato duerme": "The dog runs and the cat sleeps",
+    "la mujer lee un libro y el hombre come": "The woman reads a book and the man eats",
+    "el niño es alto pero la niña es pequeña": "The boy is tall but the girl is small",
+    "hay un gato y hay un perro": "There is a cat and there is a dog",
+    "el perro grande corre en el parque": "The big dog runs in the park",
+    "la mujer camina por la calle con su gato": "The woman walks along the street with her cat",
+    "hay un niño en la casa": "There is a boy in the house",
+    "el niño lee un libro y la niña come una manzana": "The boy reads a book and the girl eats an apple",
+    "el día es bonito": "The day is nice",
+}
+
+
 def translate_sentences(sentences: List[str]) -> List[str]:
     """Translate a list of Spanish sentences into natural English using Claude."""
     if not sentences:
         return []
+
+    if _MOCK_LLM:
+        return [_MOCK_TRANSLATIONS.get(s.lower().strip(), f"[mock translation of: {s}]") for s in sentences]
+
+    import re
     client = _get_client()
     numbered = "\n".join(f"{i+1}. {s}" for i, s in enumerate(sentences))
     response = client.messages.create(
@@ -192,7 +284,6 @@ def translate_sentences(sentences: List[str]) -> List[str]:
     # Strip the numbering prefix (e.g. "1. ", "1) ")
     translations = []
     for line in lines:
-        import re
         cleaned = re.sub(r"^\d+[\.\)]\s*", "", line)
         translations.append(cleaned)
     # Pad if Claude returned fewer lines than expected
