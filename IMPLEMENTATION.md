@@ -119,6 +119,21 @@ grammar-packs/spanish/v0.2/
 - GitHub Actions CI pipeline
 - Acceptance criteria: positive ≥95%, negative ≥95%, ambiguity ≤10%
 
+### Phase 10: Multi-Language Support (Cornish) 📋 FUTURE
+
+**Goal**: Add the parser's original language — Cornish — alongside Spanish
+
+The Java parser was originally built for Cornish (2004 thesis). The `Language` enum already includes `CORNISH`, and the architecture loads `{language}_grammar.xml` and `{language}_lexicon.xml` by convention. Adding Cornish requires:
+
+- Create `cornish_grammar.xml` and `cornish_lexicon.xml` from original thesis materials
+- Make `TERMINAL_TAGS` in `Parser.java` data-driven (read from grammar XML) instead of hardcoded — this is the key blocker, since Cornish likely uses different POS tags
+- Add Cornish-specific `TAG_COLORS` and `TAG_LABELS` in the frontend (or make them dynamic from the `/grammar-detail` endpoint)
+- Language-specific LLM system prompts for verifier loop and X-Ray modes
+- Language-specific sample sentences in the frontend
+- The Parse Sentence and Grammar & Lexicon tabs are closest to "just working" — the LLM-dependent tabs (Verify, X-Ray) need per-language prompt engineering
+
+**Narrative value**: The original Cornish parser (a minority Celtic language) correcting a modern LLM — demonstrating that formal grammars for under-resourced languages can augment neural systems.
+
 ---
 
 ## Architecture Decisions

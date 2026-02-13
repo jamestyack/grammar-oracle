@@ -301,16 +301,20 @@ export default function Home() {
         {/* === VALIDATE MODE === */}
         {mode === "validate" && (
           <>
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-sm text-blue-800 space-y-1">
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-sm text-blue-800 space-y-2">
               <p>
-                <strong>Parse Sentence</strong> tests any Spanish sentence against a formal Context-Free Grammar (CFG) using a deterministic parser.
+                <strong>Grammar Oracle</strong> uses a formal Context-Free Grammar (CFG) built in a 2004 university thesis to parse Spanish sentences — and to verify what modern LLMs generate.
                 {grammarStats && <> The grammar currently has <strong>{grammarStats.grammar_rules} rules</strong> and a lexicon of <strong>{grammarStats.lexicon_words} words</strong>.</>}
               </p>
+              <p className="text-blue-700">
+                <strong>How it works:</strong> The parser uses breadth-first search (BFS) over the grammar rules to find valid parse trees. This brute-force approach is exponential in theory, but works here because the grammar is deliberately small (~41 rules, ~991 words). Sentences outside the grammar&apos;s scope will be rejected — this is expected behavior, not a bug.
+              </p>
               <p className="text-blue-600">
-                Sentences outside the grammar&apos;s scope will be rejected — this is expected behavior, not a bug. The parser validates structure, not meaning.
+                <strong>Current limitations:</strong> No morphology — each word form (e.g. &quot;perro&quot; vs &quot;perros&quot;) must be listed separately. No agreement checking (gender/number). Bare proper names (&quot;Carlos corre&quot;) don&apos;t parse yet (needs a PROPN tag). Spanish only for now.
               </p>
               <p className="text-blue-500 text-xs">
-                Questions or feedback? <a href="https://medium.com/@jamestyack/i-found-my-2004-ai-thesis-in-a-drawer-it-explains-todays-ai-problem-68f370a23427" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-700">Join the discussion</a>
+                <strong>What&apos;s next:</strong> Phase 7 adds a morphology layer (plurals, agreement). Phase 8 replaces BFS with an Earley parser for better scalability and ambiguity handling. The original parser was built for Cornish — multi-language support is planned.
+                {" "}<a href="https://medium.com/@jamestyack/i-found-my-2004-ai-thesis-in-a-drawer-it-explains-todays-ai-problem-68f370a23427" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-700">Read the full story</a>
               </p>
             </div>
             <form onSubmit={handleValidateSubmit} className="space-y-4">

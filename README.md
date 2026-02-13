@@ -235,17 +235,18 @@ curl -X POST http://localhost:8000/xray \
 
 ## Project Status
 
-**Current Phase**: Phase 5 — Grammar Hardening
+**Current Phase**: Phase 6 — Verifier Loop Experiment Harness (infrastructure built, awaiting first full run)
 
 - ✅ **Phase 1**: Java CFG parser with JSON output + FastAPI backend
 - ✅ **Phase 2**: Next.js frontend with interactive visualization (token spans, parse trees, rule traces, failure diagnostics)
 - ✅ **Phase 3**: LLM verifier loop — generate → validate → constraint feedback → retry
 - ✅ **Phase 4**: Grammar X-Ray, parser performance metrics, Grammar & Lexicon viewer
 - ✅ **Phase 5**: Grammar hardening — position-aware NP types (`NP_EX` for existential frames), bare noun object rejection
-- 📋 **Phase 6** (next): Verifier loop experiment harness — reproducible metrics (pass@1, pass@k, failure histograms)
+- 🔧 **Phase 6** (in progress): Experiment harness — 198 prompts, 3 baselines, failure classification, metrics dashboard (CLI runner built; web-triggered runs planned)
 - 📋 **Phase 7**: Minimal morphology layer — plural handling, gender/number agreement, `PROPN` tag
-- 📋 **Phase 8**: Earley parser + packed parse forest — scalability and ambiguity representation
+- 📋 **Phase 8**: Earley parser + packed parse forest — replace BFS with polynomial-time parsing
 - 📋 **Phase 9**: Grammar Pack CI/CD — versioned, testable grammar artifacts
+- 📋 **Phase 10** (future): Multi-language support — Cornish grammar (the parser's original 2004 language) alongside Spanish
 
 See [IMPLEMENTATION.md](IMPLEMENTATION.md) for detailed roadmap.
 
@@ -279,12 +280,14 @@ See [IMPLEMENTATION.md](IMPLEMENTATION.md) for detailed roadmap.
 
 **Important**: Grammar Oracle validates against **declared grammar scope**. Rejection of a natural sentence outside scope is expected behavior, not a bug.
 
-### Known Issues
+### Known Limitations
 
-- **Bare proper names not supported**: After the Phase 5 NP fix, bare proper names like "Carlos corre" no longer parse because all NP positions require a determiner. A future `PROPN` terminal tag (Phase 7) will restore proper name support with explicit tagging.
+- **BFS parser is exponential**: The parser uses exhaustive breadth-first search — it works because the grammar is small (~41 rules, ~991 words), but it cannot scale to larger grammars. Phase 8 will replace BFS with an Earley parser (O(n^3) worst case, O(n^2) for unambiguous grammars), which also enables packed parse forests for representing ambiguity efficiently.
+- **Bare proper names not supported**: After the Phase 5 NP fix, bare proper names like "Carlos corre" no longer parse because all NP positions require a determiner. A future `PROPN` terminal tag (Phase 7) will restore proper name support.
 - **No morphological analysis**: Words must be in the lexicon exactly as written. "perros" (plural) requires a separate entry from "perro" (singular). Phase 7 will add basic inflection handling.
-- **BFS parser doesn't scale**: Exhaustive breadth-first search is exponential. Works only because the grammar is small (~41 rules). Phase 8 will replace with Earley parsing.
 - **No gender/number agreement**: "el perra" or "la perro" are accepted if both words are in the lexicon. Phase 7 will add post-parse agreement checking.
+- **Spanish only**: The parser architecture supports multiple languages (the Java `Language` enum already includes `CORNISH` from the original 2004 thesis), but only Spanish grammar/lexicon XML files exist. Phase 10 would add Cornish as a second language — the original language this parser was built for.
+- **Experiment runner is CLI-only**: The Phase 6 experiment harness currently runs via command line. A future update will add web-triggered experiment runs so the Experiments tab is fully self-contained.
 
 ## Documentation
 
