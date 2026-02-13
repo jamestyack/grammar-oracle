@@ -15,6 +15,7 @@ import {
   fetchGrammarDetail,
   fetchExperimentResults,
   fetchExperimentDetail,
+  fetchHealth,
 } from "@/lib/api";
 import TokenSpan from "@/components/TokenSpan";
 import ParseTreeView from "@/components/ParseTreeView";
@@ -118,6 +119,13 @@ export default function Home() {
   // Experiment results (loaded when experiments tab is selected)
   const [experimentSummaries, setExperimentSummaries] = useState<ExperimentSummary[] | null>(null);
   const [experimentLoading, setExperimentLoading] = useState(false);
+
+  // Backend health / mock mode indicator
+  const [mockLlm, setMockLlm] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    fetchHealth().then((h) => setMockLlm(h.mock_llm)).catch(() => {});
+  }, []);
 
   useEffect(() => {
     fetchGrammarStats(language).then(setGrammarStats).catch(() => {});
@@ -227,6 +235,12 @@ export default function Home() {
           </p>
         </div>
       </header>
+
+      {mockLlm && (
+        <div className="bg-amber-100 border-b border-amber-300 px-6 py-2 text-center text-sm text-amber-800 font-medium">
+          Demo Mode — LLM responses are mocked (no real Claude API calls)
+        </div>
+      )}
 
       <main className="max-w-4xl mx-auto px-6 py-8 space-y-8">
         {/* Mode Toggle */}

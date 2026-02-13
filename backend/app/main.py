@@ -19,6 +19,7 @@ from .parser_client import parse_sentence
 from .verifier_loop import run_verify_loop
 from .xray import run_xray
 from .grammar_stats import get_grammar_stats, get_grammar_detail
+from .llm_client import _MOCK_LLM
 
 logger = logging.getLogger(__name__)
 
@@ -62,7 +63,7 @@ def _safe_error(e: Exception) -> str:
 
 @app.get("/health")
 def health():
-    return {"status": "ok", "service": "grammar-oracle-backend"}
+    return {"status": "ok", "service": "grammar-oracle-backend", "mock_llm": _MOCK_LLM}
 
 
 @app.post("/validate", response_model=ParseResult)

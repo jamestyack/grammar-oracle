@@ -164,6 +164,20 @@ export interface ExperimentDetail {
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
+export interface HealthStatus {
+  status: string;
+  service: string;
+  mock_llm: boolean;
+}
+
+export async function fetchHealth(): Promise<HealthStatus> {
+  const response = await fetch(`${API_BASE}/health`);
+  if (!response.ok) {
+    throw new Error(`API error: ${response.status}`);
+  }
+  return response.json();
+}
+
 export async function fetchGrammarDetail(
   language: string = "spanish"
 ): Promise<GrammarDetail> {
