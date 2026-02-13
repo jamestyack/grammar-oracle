@@ -124,6 +124,44 @@ export interface GrammarDetail {
   pos_tags: string[];
 }
 
+// --- Experiment types ---
+
+export interface BaselineMetrics {
+  feedback_mode: string;
+  total_prompts: number;
+  pass_at_1: number;
+  pass_at_k: number;
+  mean_retries_to_pass: number;
+  median_retries_to_pass: number;
+  mean_latency_seconds: number;
+  p95_latency_seconds: number;
+  failure_histogram: Record<string, number>;
+  template_breakdown: Record<string, { pass_at_1: number; pass_at_k: number; total?: number }>;
+}
+
+export interface ExperimentSummary {
+  run_id: string;
+  timestamp: string;
+  language: string;
+  max_retries: number;
+  total_prompts: number;
+  baselines: BaselineMetrics[];
+}
+
+export interface ExperimentResult {
+  prompt: string;
+  template_id: string;
+  feedback_mode: string;
+  response: VerifyLoopResponse;
+  elapsed_seconds: number;
+  failure_category: string | null;
+}
+
+export interface ExperimentDetail {
+  summary: ExperimentSummary;
+  results: ExperimentResult[];
+}
+
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
 export async function fetchGrammarDetail(
@@ -205,5 +243,25 @@ export async function xrayText(
     throw new Error(body || `API error: ${response.status}`);
   }
 
+  return response.json();
+}
+
+export async function fetchExperimentResults(): Promise<ExperimentSummary[]> {
+  const response = await fetch(`${API_BASE}/experiment-results`);
+  if (!response.ok) {
+    throw new Error(`API error: ${response.status}`);
+  }
+  return response.json();
+}
+
+export async function fetchExperimentDetail(
+  runId: string
+): Promise<ExperimentDetail> {
+  const response = await fetch(
+    `${API_BASE}/experiment-results/${encodeURIComponent(runId)}`
+  );
+  if (!response.ok) {
+    throw new Error(`API error: ${response.status}`);
+  }
   return response.json();
 }

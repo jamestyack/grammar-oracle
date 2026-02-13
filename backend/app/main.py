@@ -1,6 +1,9 @@
 from dotenv import load_dotenv
 load_dotenv()
 
+import json
+from pathlib import Path
+
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -9,6 +12,8 @@ from .parser_client import parse_sentence
 from .verifier_loop import run_verify_loop
 from .xray import run_xray
 from .grammar_stats import get_grammar_stats, get_grammar_detail
+
+_EXPERIMENTS_DIR = Path(__file__).resolve().parent.parent.parent / "experiments" / "verifier_loop" / "results"
 
 app = FastAPI(
     title="Grammar Oracle API",
@@ -78,3 +83,37 @@ def xray(request: XRayRequest):
         if "api key" in msg or "authentication" in msg or "api_key" in msg:
             raise HTTPException(status_code=503, detail="LLM service not configured. Set ANTHROPIC_API_KEY.")
         raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/experiment-results")
+def list_experiment_results():
+    """List available experiment summaries."""
+    if not _EXPERIMENTS_DIR.exists():
+        return []
+    summaries = sorted(_EXPERIMENTS_DIR.glob("*_summary.json"), reverse=True)
+    results = []
+    for s in summaries[:10]:
+        results.append(json.loads(s.read_text()))
+    return results
+
+
+@app.get("/experiment-results/{run_id}")
+def get_experiment_result(run_id: str):
+    """Get a specific experiment run's summary and individual results."""
+    if not _EXPERIMENTS_DIR.exists():
+        raise HTTPException(status_code=404, detail="No experiments directory")
+
+    summary_file = _EXPERIMENTS_DIR / f"{run_id}_summary.json"
+    if not summary_file.exists():
+        raise HTTPException(status_code=404, detail="Run not found")
+
+    summary = json.loads(summary_file.read_text())
+
+    # Load individual results from JSONL files
+    details = []
+    for f in sorted(_EXPERIMENTS_DIR.glob(f"{run_id}_*.jsonl")):
+        for line in f.read_text().strip().split("\n"):
+            if line:
+                details.append(json.loads(line))
+
+    return {"summary": summary, "results": details}

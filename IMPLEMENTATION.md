@@ -1,6 +1,6 @@
 # Grammar Oracle Implementation Plan
 
-**Current Phase**: Phase 5 — Grammar Hardening
+**Current Phase**: Phase 6 — Verifier Loop Experiment Harness (harness built, awaiting first run)
 **Origin**: [cornish-parser](https://github.com/jamestyack/cornish-parser) (2004 university thesis)
 
 ---
@@ -56,19 +56,26 @@
 - Added 6 targeted Java parser tests (26 total, all passing)
 - **Trade-off**: Bare proper names ("Carlos corre") no longer parse — requires future `PROPN` terminal tag
 
----
-
-## Research Roadmap
-
-### Phase 6: Verifier Loop Experiment Harness 📋 NEXT
+### Phase 6: Verifier Loop Experiment Harness 🔧 IN PROGRESS
 
 **Goal**: Turn the verifier loop demo into measurable, repeatable results
 
-- **Experimental protocol**: ~200 prompts across templates (copular, transitive, existential, PP, negation, conjunction)
-- **Metrics**: pass@1, pass@k, mean retries-to-pass, latency breakdown, failure histogram (OOV, missing DET, wrong POS, unsupported construction)
-- **Baselines**: (A) single-shot without feedback, (B) generic natural-language feedback vs structural feedback
-- **Repro harness**: CLI runner that replays prompts and writes results JSONL
-- **Deliverable**: `experiments/verifier_loop/` with dataset, runner, and reproducible report
+**Completed** (harness built, awaiting first full experiment run):
+- **Prompt dataset**: 198 prompts across 6 grammar templates (copular, transitive, existential, PP, negation, conjunction) in `experiments/verifier_loop/prompts.json`
+- **Pluggable feedback**: `run_verify_loop()` now accepts optional `feedback_formatter` parameter, enabling baseline comparisons without code duplication
+- **CLI experiment runner**: `experiments/verifier_loop/run_experiment.py` — reads prompts, runs each through the verifier loop, writes JSONL results. Supports `--baselines`, `--templates`, `--dry-run`, `--delay` flags
+- **Three baselines**: structural feedback (current), generic NL feedback ("try again"), single-shot (no feedback)
+- **Failure classification**: Categorizes failures as OOV word, missing DET, wrong POS, unsupported construction, or error
+- **Metrics computation**: `compute_metrics.py` computes pass@1, pass@k, mean retries-to-pass, mean/p95 latency, failure histogram, per-template breakdown
+- **Report generation**: `generate_report.py` produces Markdown summary tables
+- **API endpoints**: `GET /experiment-results` and `GET /experiment-results/{run_id}` serve pre-computed results
+- **Frontend "Experiments" tab** (5th tab): Dashboard with metrics summary cards, baseline comparison table, per-template breakdown, failure histogram, and individual result browser with drill-down into full `VerifierLoopView`
+
+**Next**: Run first full experiment (`python3 run_experiment.py --baselines structural,none`), analyze results, iterate on prompt quality
+
+---
+
+## Research Roadmap
 
 ### Phase 7: Minimal Morphology Layer 📋 PLANNED
 
@@ -139,8 +146,9 @@ Docker Compose with three services: parser (Java 21), backend (FastAPI Python 3.
 | POS tag categories | 10 (DET, N, V, V_COP, V_EX, A, ADV, NEG, PREP, CONJ) |
 | Non-terminal symbols | 8 (SENTENCE, S, CLAUSE, NP, NP_EX, BASE_NP, VP, PP) |
 | Java parser tests | 26 (all passing) |
-| API endpoints | 6 (health, validate, verify-loop, xray, stats, grammar-detail) |
-| Frontend modes | 4 (Parse Sentence, LLM + Verify, Grammar X-Ray, Grammar & Lexicon) |
+| API endpoints | 8 (health, validate, verify-loop, xray, stats, grammar-detail, experiment-results, experiment-results/{id}) |
+| Frontend modes | 5 (Parse Sentence, LLM + Verify, Grammar X-Ray, Grammar & Lexicon, Experiments) |
+| Experiment prompts | 198 across 6 templates (copular, transitive, existential, PP, negation, conjunction) |
 
 ---
 

@@ -7,11 +7,14 @@ import {
   XRayResponse,
   GrammarStats,
   GrammarDetail,
+  ExperimentSummary,
   validateSentence,
   generateSentence,
   xrayText,
   fetchGrammarStats,
   fetchGrammarDetail,
+  fetchExperimentResults,
+  fetchExperimentDetail,
 } from "@/lib/api";
 import TokenSpan from "@/components/TokenSpan";
 import ParseTreeView from "@/components/ParseTreeView";
@@ -20,6 +23,7 @@ import FailureView from "@/components/FailureView";
 import VerifierLoopView from "@/components/VerifierLoopView";
 import XRayView from "@/components/XRayView";
 import GrammarLexiconView from "@/components/GrammarLexiconView";
+import ExperimentDashboard from "@/components/ExperimentDashboard";
 
 const SAMPLE_CATEGORIES = [
   {
@@ -88,7 +92,7 @@ const XRAY_PROMPTS = [
 ];
 
 export default function Home() {
-  const [mode, setMode] = useState<"validate" | "generate" | "xray" | "grammar">("validate");
+  const [mode, setMode] = useState<"validate" | "generate" | "xray" | "grammar" | "experiments">("validate");
   const [sentence, setSentence] = useState("");
   const [language, setLanguage] = useState("spanish");
   const [result, setResult] = useState<ParseResult | null>(null);
@@ -111,6 +115,10 @@ export default function Home() {
   const [grammarDetail, setGrammarDetail] = useState<GrammarDetail | null>(null);
   const [grammarDetailLoading, setGrammarDetailLoading] = useState(false);
 
+  // Experiment results (loaded when experiments tab is selected)
+  const [experimentSummaries, setExperimentSummaries] = useState<ExperimentSummary[] | null>(null);
+  const [experimentLoading, setExperimentLoading] = useState(false);
+
   useEffect(() => {
     fetchGrammarStats(language).then(setGrammarStats).catch(() => {});
   }, [language]);
@@ -124,6 +132,16 @@ export default function Home() {
         .finally(() => setGrammarDetailLoading(false));
     }
   }, [mode, language, grammarDetail]);
+
+  useEffect(() => {
+    if (mode === "experiments" && !experimentSummaries) {
+      setExperimentLoading(true);
+      fetchExperimentResults()
+        .then(setExperimentSummaries)
+        .catch(() => setExperimentSummaries([]))
+        .finally(() => setExperimentLoading(false));
+    }
+  }, [mode, experimentSummaries]);
 
   async function handleValidateSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -263,6 +281,19 @@ export default function Home() {
             <span className="block text-sm font-semibold">Grammar & Lexicon</span>
             <span className="block text-[11px] mt-0.5 opacity-60">
               Explore rules and vocabulary
+            </span>
+          </button>
+          <button
+            onClick={() => setMode("experiments")}
+            className={`flex-1 px-4 py-2.5 rounded-lg text-left transition-colors ${
+              mode === "experiments"
+                ? "bg-white text-gray-900 shadow-sm"
+                : "text-gray-500 hover:text-gray-700"
+            }`}
+          >
+            <span className="block text-sm font-semibold">Experiments</span>
+            <span className="block text-[11px] mt-0.5 opacity-60">
+              Verifier loop metrics
             </span>
           </button>
         </div>
@@ -582,6 +613,36 @@ export default function Home() {
             )}
 
             {grammarDetail && <GrammarLexiconView detail={grammarDetail} />}
+          </>
+        )}
+
+        {/* === EXPERIMENTS MODE === */}
+        {mode === "experiments" && (
+          <>
+            <div className="bg-orange-50 border border-orange-200 rounded-lg p-4 text-sm text-orange-800 space-y-1">
+              <p>
+                <strong>Experiments</strong> shows results from batch verifier loop runs — measuring how well Claude generates grammatically valid sentences with and without structural feedback from the CFG parser.
+              </p>
+              <p className="text-orange-600">
+                Metrics include pass@1 (first-try success), pass@k (success within k retries), failure categorization, and baseline comparison (structural feedback vs generic vs single-shot).
+              </p>
+              <p className="text-orange-500 text-xs">
+                Run experiments via CLI: <code className="bg-orange-100 px-1 rounded">python experiments/verifier_loop/run_experiment.py --baselines structural,none</code>
+              </p>
+            </div>
+
+            {experimentLoading && (
+              <div className="text-sm text-gray-500 animate-pulse">
+                Loading experiment results...
+              </div>
+            )}
+
+            {experimentSummaries && (
+              <ExperimentDashboard
+                summaries={experimentSummaries}
+                onLoadDetail={fetchExperimentDetail}
+              />
+            )}
           </>
         )}
 

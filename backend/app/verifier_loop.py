@@ -1,14 +1,28 @@
 """Verifier loop: generate sentence via LLM, validate via CFG parser, retry on failure."""
 
-from typing import List, Dict
+from typing import List, Dict, Callable, Optional
 from .models import ParseResult, VerifyAttempt, VerifyLoopResponse, ClaudeMessage
 from .parser_client import parse_sentence
 from .llm_client import generate_sentence
 from .constraint_formatter import format_constraint_feedback
 
 
-def run_verify_loop(prompt: str, language: str, max_retries: int = 3) -> VerifyLoopResponse:
-    """Run the generate -> validate -> feedback loop."""
+def run_verify_loop(
+    prompt: str,
+    language: str,
+    max_retries: int = 3,
+    feedback_formatter: Optional[Callable[[ParseResult], str]] = None,
+) -> VerifyLoopResponse:
+    """Run the generate -> validate -> feedback loop.
+
+    Args:
+        feedback_formatter: Optional callable to format constraint feedback.
+            When None, uses the default structural constraint feedback.
+            Pass a custom function for baseline experiments (e.g. generic feedback).
+    """
+    if feedback_formatter is None:
+        feedback_formatter = format_constraint_feedback
+
     attempts: List[VerifyAttempt] = []
     previous_attempts: List[Dict[str, str]] = []
 
@@ -44,7 +58,7 @@ def run_verify_loop(prompt: str, language: str, max_retries: int = 3) -> VerifyL
                 total_attempts=attempt_num,
             )
 
-        feedback = format_constraint_feedback(result)
+        feedback = feedback_formatter(result)
         attempts.append(VerifyAttempt(
             attempt_number=attempt_num,
             sentence=gen_result.sentence,
