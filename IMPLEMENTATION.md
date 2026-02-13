@@ -1,96 +1,103 @@
 # Grammar Oracle Implementation Plan
 
-**Status**: Phases 1–2 complete, Phase 3 next
-**Timeline**: 8 weeks to research-ready system
+**Current Phase**: Phase 5 — Grammar Hardening
+**Origin**: [cornish-parser](https://github.com/jamestyack/cornish-parser) (2004 university thesis)
 
 ---
 
-## Quick Reference
+## Completed Phases
 
-This document provides the detailed implementation plan for Grammar Oracle. For complete architectural details, see [ARCHITECTURE.md](ARCHITECTURE.md).
-
----
-
-## Implementation Phases
-
-### Phase 1: JSON Output + Basic API (Weeks 1-2) ✅ COMPLETE
+### Phase 1: JSON Output + Basic API ✅
 
 **Goal**: Parser outputs JSON, FastAPI validates sentences
 
-**Java Changes** (in `src/`):
-1. Add `org.json:json:20240303` dependency to pom.xml
-2. Create `JsonSerializer.java` with serializeValidParse() and serializeInvalidParse()
-3. Enhance `BadSentenceException.java` with failure diagnostic fields
-4. Modify `Parser.java` to capture failure state
-5. Add `--json` CLI flag to `ParserMain.java`
+- Added `JsonSerializer.java` for structured JSON output (parse trees, tokens, rule traces, failure diagnostics)
+- Created FastAPI backend with `/validate` endpoint
+- Java subprocess wrapper for parser invocation
+- Pydantic request/response models
 
-**Python Backend** (NEW `backend/` directory):
-- FastAPI app with `/validate` endpoint
-- Pydantic models for parse results
-- Java subprocess wrapper
+### Phase 2: Frontend Visualization ✅
 
-**Deliverable**:
-```bash
-curl -X POST http://localhost:8000/validate \
-  -d '{"sentence": "el perro es grande", "language": "spanish"}'
-```
-Returns structured JSON with parse tree or failure diagnostics.
+**Goal**: Interactive X-ray view of parse results
 
----
+- Next.js 16 app with `ParseTreeView`, `TokenSpan`, `RuleTrace`, `FailureView` components
+- Color-coded POS tags with English translations and hover tooltips
+- Sample sentences organized by category
+- Docker Compose for local deployment (parser + backend + frontend)
 
-### Phase 2: Frontend Visualization (Weeks 3-4) ✅ COMPLETE
+### Phase 3: LLM Verifier Loop ✅
 
-**Goal**: Interactive X-ray view (token spans, parse trees, rule traces, failures)
+**Goal**: LLM generates → CFG validates → constraint feedback → retry
 
-**Next.js 16 App** (`frontend/` directory):
-- `ParseTreeView.tsx` - collapsible hierarchical tree with word annotations and English translations
-- `TokenSpan.tsx` - color-coded POS tag spans with inline translations and hover tooltips
-- `RuleTrace.tsx` - numbered derivation rule list
-- `FailureView.tsx` - human-readable failure diagnostics with fix suggestions and POS tag descriptions
+- Claude integration via Anthropic SDK
+- `/verify-loop` endpoint with up to 3 retry attempts
+- Constraint formatter converts parser failure diagnostics into LLM-friendly feedback
+- `VerifierLoopView` component showing attempt timeline with before/after comparison
 
-**Additional deliverables**:
-- Sample sentences organized by category (Simple, Transitive, Prepositional, Adverbs & Negation, Invalid)
-- "I'm feeling lucky" random sentence button
-- Spanish grammar expanded to 19 rules (added PP, VP+adverb, NP+PP patterns)
-- Spanish lexicon expanded to 144 entries (people, animals, places, food, colors, adjectives, verbs, adverbs, prepositions)
-- Docker frontend service (Node 20 Alpine, port 3000)
+### Phase 4: Grammar X-Ray + Parser Metrics + Grammar & Lexicon Viewer ✅
 
-**Deliverable**: User inputs "el perro es grande" → sees colored tokens with translations, expandable parse tree, rule trace. Invalid inputs show actionable diagnostics.
+**Goal**: Unconstrained LLM generation analyzed by CFG parser
 
----
+- **Grammar X-Ray**: Claude writes natural Spanish paragraph → CFG parser X-rays every sentence
+- Color-coded flowing text with per-word POS annotation, click-to-expand parse trees
+- **Parser performance metrics**: states explored, rule expansions, terminal match rates, branching factor, parse time — with plain-English interpretation
+- **Grammar & Lexicon viewer**: Browse all grammar rules grouped by non-terminal, searchable/filterable lexicon table
+- Dynamic stats via `/stats` and `/grammar-detail` endpoints (computed from XML at runtime)
+- LLM prompt inspector showing system prompt, user message, and raw Claude response
+- Coverage statistics (sentence and word recognition percentages)
 
-### Phase 3: LLM Integration + Verifier Loop (Weeks 5-6) 📋 PLANNED
+### Phase 5: Grammar Hardening — NP Bare Noun Fix ✅
 
-**Goal**: LLM generates → CFG validates → retry on failure
+**Goal**: Eliminate overgeneration of bare noun phrases
 
-**Backend Enhancements**:
-- LLM client abstraction (Claude + OpenAI)
-- `/verify-loop` endpoint with retry logic
-- Constraint formatting from failure diagnostics
-
-**Frontend Enhancements**:
-- `GenerateMode.tsx` - prompt input
-- `VerifierLoopView.tsx` - attempt timeline
-- `BeforeAfterView.tsx` - comparison view
-
-**"Wow Moment" Workflow**:
-1. Prompt: "Generate Spanish sentence about big dog"
-2. LLM Attempt 1: "Grande perro" (invalid)
-3. CFG rejects: Expected DET at start
-4. LLM Attempt 2: "El perro es grande" (valid)
-5. UI shows before/after with parse trees
-
-**Deliverable**: Working verifier loop demo visible to user
+- **Problem**: `BASE_NP → N` (rule 17) allowed bare nouns in all positions, incorrectly accepting sentences like "el niño lee libro" (should require determiner for object)
+- **Fix**: Removed rule 17. Created position-aware `NP_EX` non-terminal for existential frames only (`hay perro`). All other NP positions now require determiners.
+- Added 4 new grammar rules (NP_EX variants) and updated 2 existential clause rules
+- Added 6 targeted Java parser tests (26 total, all passing)
+- **Trade-off**: Bare proper names ("Carlos corre") no longer parse — requires future `PROPN` terminal tag
 
 ---
 
-### Phase 4: Grammar Pack CI/CD (Weeks 7-8) 📋 PLANNED
+## Research Roadmap
+
+### Phase 6: Verifier Loop Experiment Harness 📋 NEXT
+
+**Goal**: Turn the verifier loop demo into measurable, repeatable results
+
+- **Experimental protocol**: ~200 prompts across templates (copular, transitive, existential, PP, negation, conjunction)
+- **Metrics**: pass@1, pass@k, mean retries-to-pass, latency breakdown, failure histogram (OOV, missing DET, wrong POS, unsupported construction)
+- **Baselines**: (A) single-shot without feedback, (B) generic natural-language feedback vs structural feedback
+- **Repro harness**: CLI runner that replays prompts and writes results JSONL
+- **Deliverable**: `experiments/verifier_loop/` with dataset, runner, and reproducible report
+
+### Phase 7: Minimal Morphology Layer 📋 PLANNED
+
+**Goal**: Reduce lexicon brittleness; enable basic agreement checks
+
+- Handle plural -s/-es for nouns/adjectives
+- Determiner gender/number variants (el/la/los/las; un/una/unos/unas)
+- Token → lemma + features (gender, number) normalization pipeline
+- Post-parse agreement checker: DET↔N and ADJ↔N agreement
+- Report "syntactically in-scope, agreement violation" when parse succeeds but agreement fails
+- Add `PROPN` terminal tag for proper names (fixes Phase 5 trade-off)
+
+### Phase 8: Earley Parser + Packed Forest 📋 PLANNED
+
+**Goal**: Scale parsing; preserve explainability; represent ambiguity without explosion
+
+- Replace BFS with Earley parser (predict/scan/complete operations)
+- Build packed parse forest (SPPF-like shared substructures)
+- Ambiguity metrics: packed nodes, packed edges, estimated derivation count
+- Preserve current diagnostics: expected categories at position k, best-failure frontier
+- Performance benchmarks against current BFS on same sentence set
+- Feature-flagged: JSON output supports both forest and sampled tree expansion
+
+### Phase 9: Grammar Pack CI/CD 📋 PLANNED
 
 **Goal**: Versioned grammar packs with automated validation
 
-**Grammar Pack Structure** (NEW `grammar-packs/` directory):
 ```
-grammar-packs/spanish/v0.1/
+grammar-packs/spanish/v0.2/
 ├── grammar.xml          # CFG rules
 ├── lexicon.xml          # Token → POS mappings
 ├── scope.md             # Coverage contract
@@ -102,195 +109,47 @@ grammar-packs/spanish/v0.1/
 └── CHANGELOG.md
 ```
 
-**CI Pipeline** (`.github/workflows/grammar-ci.yml`):
-- Test changed grammar packs
+- GitHub Actions CI pipeline
 - Acceptance criteria: positive ≥95%, negative ≥95%, ambiguity ≤10%
-
-**Deliverable**: Grammar packs as versioned, testable artifacts
 
 ---
 
 ## Architecture Decisions
 
-### 1. Java Parser Integration: Subprocess Execution
+### Java Parser Integration: Subprocess Execution
 
-**Decision**: FastAPI calls Java JAR via subprocess with JSON serialization
+FastAPI calls Java JAR via subprocess with JSON serialization. Preserves historical authenticity (2004 code), provides language isolation, and fits the "2004 engine correcting 2026 LLM" narrative. Subprocess overhead (~20-50ms) is acceptable for research use.
 
-**Rationale**:
-- Preserves historical authenticity (2004 code remains intact)
-- Language isolation (Python orchestration, Java validation)
-- Easy to containerize and debug independently
-- Fits "2004 engine correcting 2026 LLM" narrative
-- Subprocess overhead (~20-50ms) is acceptable for demo/research use
+### JSON Data Contract
 
-**Implementation**:
-```python
-# FastAPI backend calls Java subprocess
-result = subprocess.run(
-    ["java", "-jar", "grammar-oracle-parser.jar", "--json", "--sentence", text],
-    capture_output=True, text=True, timeout=5
-)
-parse_result = json.loads(result.stdout)
-```
+Stable JSON schema across all phases. Valid parses include: parse tree, tokens with translations, rules applied, parse count, ambiguity flag, performance metrics. Invalid parses include: failure index, expected categories, human-readable message.
 
-### 2. JSON Data Contract
+### Deployment
 
-**Valid Parse**:
-```json
-{
-  "valid": true,
-  "sentence": "el perro es grande",
-  "tokens": [{"word": "el", "tag": "DET", "translation": "the"}, ...],
-  "parseTree": {"symbol": "SENTENCE", "children": [...]},
-  "rulesApplied": [{"number": 1, "rule": "SENTENCE->S"}, ...],
-  "parses": 1,
-  "ambiguous": false
-}
-```
-
-**Invalid Parse**:
-```json
-{
-  "valid": false,
-  "sentence": "grande perro",
-  "tokens": [{"word": "grande", "tag": "A"}, ...],
-  "failure": {
-    "index": 0,
-    "token": "grande",
-    "expectedCategories": ["DET", "V_EX"],
-    "message": "Expected determiner or existential verb at sentence start"
-  }
-}
-```
-
-### 3. Deployment: Multi-Container Docker Compose
-
-**Services**:
-1. **parser**: Java 21 Alpine + JAR (no network exposure, called by backend)
-2. **backend**: FastAPI Python 3.11 (port 8000, orchestrates LLM + parser)
-3. **frontend**: Next.js Node 20 (port 3000, interactive UI)
-
-**Target Platform**: Render (recommended) or Railway for Docker deployment
+Docker Compose with three services: parser (Java 21), backend (FastAPI Python 3.11, port 8000), frontend (Next.js Node 20, port 3000).
 
 ---
 
-## Verification Strategy
+## Current Grammar Statistics
 
-### Phase 1 Testing
-```bash
-# Java JSON output
-cd src
-mvn clean package
-java -jar target/grammar-oracle-parser.jar --json --language SPANISH --sentence "el perro es grande"
-# Expected: Valid JSON with parseTree, rulesApplied, tokens
-
-# FastAPI endpoint
-cd backend
-uvicorn app.main:app --reload
-curl -X POST http://localhost:8000/validate \
-  -H "Content-Type: application/json" \
-  -d '{"sentence": "el perro es grande", "language": "spanish"}'
-```
-
-### Phase 2 Testing
-```bash
-# Frontend
-cd frontend
-npm run dev  # Port 3000
-# Test: Input "el perro es grande" → See visualization
-```
-
-### Phase 3 Testing
-```bash
-# Verifier loop
-curl -X POST http://localhost:8000/verify-loop \
-  -d '{"prompt": "Spanish sentence about big dog", "language": "spanish"}'
-# Expected: JSON with attempts showing retry progression
-```
-
-### Phase 4 Testing
-```bash
-# Grammar pack test runner
-python -m app.test_runner --pack grammar-packs/spanish/v0.1
-# Expected: metrics.json with pass rates ≥95%
-
-# CI simulation (GitHub Actions)
-# Modify grammar test file → push → CI validates
-```
-
-### Integration Testing
-```bash
-# Full stack
-docker-compose up --build
-# Visit http://localhost:3000
-# Test: Complete verifier loop workflow
-```
+| Metric | Value |
+|--------|-------|
+| Grammar rules | 41 (was 38 before Phase 5) |
+| Lexicon words | ~991 unique |
+| POS tag categories | 10 (DET, N, V, V_COP, V_EX, A, ADV, NEG, PREP, CONJ) |
+| Non-terminal symbols | 8 (SENTENCE, S, CLAUSE, NP, NP_EX, BASE_NP, VP, PP) |
+| Java parser tests | 26 (all passing) |
+| API endpoints | 6 (health, validate, verify-loop, xray, stats, grammar-detail) |
+| Frontend modes | 4 (Parse Sentence, LLM + Verify, Grammar X-Ray, Grammar & Lexicon) |
 
 ---
 
 ## Success Metrics
 
-**Technical**:
-- API latency: ≤ 100ms validation (95th percentile)
-- Verifier loop: ≤ 5 seconds including LLM
-- Grammar pack CI: Positive ≥95%, Negative ≥95%, Ambiguity ≤10%
+**Technical**: API latency ≤100ms (95th percentile), verifier loop ≤5s including LLM, grammar pack CI positive/negative ≥95%
 
-**Demo**:
-- "Wow moment" reliable in ≥90% of demos
-- Parse trees render correctly
-- Failure visualization clear
-
-**Research**:
-- CFG catches LLM errors
-- Structured constraints improve retry success
-- System reveals ambiguities not surfaced elsewhere
+**Research**: CFG catches LLM structural errors, constraint feedback improves retry success rate, parse trees provide interpretable explanations, system reveals structural ambiguities
 
 ---
 
-## Timeline Estimate
-
-- **Phase 1** (JSON + API): 2 weeks
-- **Phase 2** (Frontend): 2 weeks
-- **Phase 3** (LLM Integration): 2 weeks
-- **Phase 4** (Grammar Pack CI/CD): 2 weeks
-
-**Total**: 8 weeks to research-ready system
-
----
-
-## Risks & Mitigations
-
-**Risk 1: Subprocess Overhead**
-- **Mitigation**: Keep Java process warm; acceptable for research/demo
-
-**Risk 2: LLM Retry Non-Convergence**
-- **Mitigation**: max_retries=3; constraint prompts include examples; show partial results
-
-**Risk 3: Grammar Pack Scope Creep**
-- **Mitigation**: scope.md prominently displayed; error messages include "outside scope" disclaimer
-
-**Risk 4: CI Test Maintenance**
-- **Mitigation**: Keep tests focused (10-20 sentences); co-located with packs; CHANGELOG tracks additions
-
----
-
-## Next Steps After Implementation
-
-**Short Term (Months 1-3)**:
-- Expand grammar packs: English v0.1, Cornish v2.0 (155 rules), Spanish v0.2
-- User testing: language learners, NLP researchers
-- Performance optimization
-
-**Medium Term (Months 4-6)**:
-- Research publication: benchmark vs baseline grammar checkers
-- Advanced features: multi-parse visualization, backtracking animation
-- Community: open source, documentation site
-
-**Long Term (Months 7-12)**:
-- Grammar pack marketplace
-- Constrained decoding mode integration
-- Mobile app
-
----
-
-**Note**: This implementation builds on the cornish-parser (2004) foundation. Multi-language support (Spanish) provides the starting point for grammar pack development.
+**Note**: This implementation builds on the cornish-parser (2004) foundation. The research roadmap prioritizes measurability (Phase 6), linguistic coverage (Phase 7), scalability (Phase 8), and CI/CD (Phase 9).

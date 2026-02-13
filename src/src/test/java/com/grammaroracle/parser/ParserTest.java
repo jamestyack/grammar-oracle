@@ -137,6 +137,55 @@ class ParserTest {
         assertTrue(ex.getIndex() >= 0);
     }
 
+    // --- NP Bare Noun Fix ---
+
+    @Test
+    void parsesExistentialBareNoun() throws Exception {
+        // "hay perro" - bare noun allowed after existential verb
+        Sentence sent = new Sentence("hay perro");
+        List<ParseMemory> parses = parser.parse(sent);
+        assertFalse(parses.isEmpty());
+    }
+
+    @Test
+    void parsesExistentialWithDet() throws Exception {
+        // "hay un perro" - determiner also allowed after existential verb
+        Sentence sent = new Sentence("hay un perro");
+        List<ParseMemory> parses = parser.parse(sent);
+        assertFalse(parses.isEmpty());
+    }
+
+    @Test
+    void parsesExistentialBareNounPP() throws Exception {
+        // "hay perro en la casa" - bare noun + PP in existential
+        Sentence sent = new Sentence("hay perro en la casa");
+        List<ParseMemory> parses = parser.parse(sent);
+        assertFalse(parses.isEmpty());
+    }
+
+    @Test
+    void rejectsBareNounObject() {
+        // "el niño lee libro" - bare noun in object position should fail
+        Sentence sent = new Sentence("el niño lee libro");
+        assertThrows(BadSentenceException.class, () -> parser.parse(sent));
+    }
+
+    @Test
+    void parsesTransitiveWithDetObject() throws Exception {
+        // "el niño lee un libro" - determiner required in object position
+        Sentence sent = new Sentence("el niño lee un libro");
+        List<ParseMemory> parses = parser.parse(sent);
+        assertFalse(parses.isEmpty());
+    }
+
+    @Test
+    void rejectsBareNounSubject() {
+        // "perro corre" - bare noun in subject position should fail
+        // (proper names need PROPN tag in future; for now bare nouns are rejected)
+        Sentence sent = new Sentence("perro corre");
+        assertThrows(BadSentenceException.class, () -> parser.parse(sent));
+    }
+
     // --- JSON Serialization ---
 
     @Test
