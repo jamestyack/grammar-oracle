@@ -6,10 +6,12 @@ import {
   VerifyLoopResponse,
   XRayResponse,
   GrammarStats,
+  GrammarDetail,
   validateSentence,
   generateSentence,
   xrayText,
   fetchGrammarStats,
+  fetchGrammarDetail,
 } from "@/lib/api";
 import TokenSpan from "@/components/TokenSpan";
 import ParseTreeView from "@/components/ParseTreeView";
@@ -17,6 +19,7 @@ import RuleTrace from "@/components/RuleTrace";
 import FailureView from "@/components/FailureView";
 import VerifierLoopView from "@/components/VerifierLoopView";
 import XRayView from "@/components/XRayView";
+import GrammarLexiconView from "@/components/GrammarLexiconView";
 
 const SAMPLE_CATEGORIES = [
   {
@@ -25,6 +28,7 @@ const SAMPLE_CATEGORIES = [
       "el perro es grande",
       "la gata es bonita",
       "hay un gato",
+      "hay perro",
       "el niño corre",
     ],
   },
@@ -56,17 +60,13 @@ const SAMPLE_CATEGORIES = [
     ],
   },
   {
-    label: "Grammar Gaps",
-    sentences: ["el niño lee libro"],
-  },
-  {
     label: "Invalid",
-    sentences: ["grande perro", "corre el"],
+    sentences: ["grande perro", "corre el", "el niño lee libro"],
   },
 ];
 
 const ALL_VALID_SENTENCES = SAMPLE_CATEGORIES
-  .filter((c) => c.label !== "Invalid" && c.label !== "Grammar Gaps")
+  .filter((c) => c.label !== "Invalid")
   .flatMap((c) => c.sentences);
 
 const SAMPLE_PROMPTS = [
@@ -88,7 +88,7 @@ const XRAY_PROMPTS = [
 ];
 
 export default function Home() {
-  const [mode, setMode] = useState<"validate" | "generate" | "xray">("validate");
+  const [mode, setMode] = useState<"validate" | "generate" | "xray" | "grammar">("validate");
   const [sentence, setSentence] = useState("");
   const [language, setLanguage] = useState("spanish");
   const [result, setResult] = useState<ParseResult | null>(null);
@@ -107,9 +107,23 @@ export default function Home() {
   // Grammar stats (loaded once)
   const [grammarStats, setGrammarStats] = useState<GrammarStats | null>(null);
 
+  // Grammar detail (loaded when grammar tab is selected)
+  const [grammarDetail, setGrammarDetail] = useState<GrammarDetail | null>(null);
+  const [grammarDetailLoading, setGrammarDetailLoading] = useState(false);
+
   useEffect(() => {
     fetchGrammarStats(language).then(setGrammarStats).catch(() => {});
   }, [language]);
+
+  useEffect(() => {
+    if (mode === "grammar" && !grammarDetail) {
+      setGrammarDetailLoading(true);
+      fetchGrammarDetail(language)
+        .then(setGrammarDetail)
+        .catch(() => {})
+        .finally(() => setGrammarDetailLoading(false));
+    }
+  }, [mode, language, grammarDetail]);
 
   async function handleValidateSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -238,6 +252,19 @@ export default function Home() {
               AI writes, CFG analyzes every word
             </span>
           </button>
+          <button
+            onClick={() => setMode("grammar")}
+            className={`flex-1 px-4 py-2.5 rounded-lg text-left transition-colors ${
+              mode === "grammar"
+                ? "bg-white text-gray-900 shadow-sm"
+                : "text-gray-500 hover:text-gray-700"
+            }`}
+          >
+            <span className="block text-sm font-semibold">Grammar & Lexicon</span>
+            <span className="block text-[11px] mt-0.5 opacity-60">
+              Explore rules and vocabulary
+            </span>
+          </button>
         </div>
 
         {/* === VALIDATE MODE === */}
@@ -297,8 +324,6 @@ export default function Home() {
                         className={`px-2.5 py-1 text-xs rounded hover:bg-gray-200 transition-colors ${
                           cat.label === "Invalid"
                             ? "bg-red-50 text-red-600 hover:bg-red-100"
-                            : cat.label === "Grammar Gaps"
-                            ? "bg-amber-50 text-amber-600 hover:bg-amber-100"
                             : "bg-gray-100 text-gray-600"
                         }`}
                       >
@@ -531,6 +556,32 @@ export default function Home() {
             </form>
 
             {xrayResult && <XRayView response={xrayResult} />}
+          </>
+        )}
+
+        {/* === GRAMMAR MODE === */}
+        {mode === "grammar" && (
+          <>
+            <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 text-sm text-amber-800 space-y-1">
+              <p>
+                <strong>Grammar & Lexicon</strong> shows the complete set of rules and vocabulary that the CFG parser uses to validate sentences.
+                {grammarStats && <> Currently: <strong>{grammarStats.grammar_rules} grammar rules</strong> and a <strong>{grammarStats.lexicon_words}-word</strong> lexicon across <strong>{grammarStats.pos_tags.length} POS tag categories</strong>.</>}
+              </p>
+              <p className="text-amber-600">
+                Grammar rules define valid sentence structures (e.g. &quot;a sentence is a noun phrase followed by a verb phrase&quot;). The lexicon maps every known Spanish word to its part of speech and English translation.
+              </p>
+              <p className="text-amber-500 text-xs">
+                Questions or feedback? <a href="https://medium.com/@jamestyack/i-found-my-2004-ai-thesis-in-a-drawer-it-explains-todays-ai-problem-68f370a23427" target="_blank" rel="noopener noreferrer" className="underline hover:text-amber-700">Join the discussion</a>
+              </p>
+            </div>
+
+            {grammarDetailLoading && (
+              <div className="text-sm text-gray-500 animate-pulse">
+                Loading grammar and lexicon data...
+              </div>
+            )}
+
+            {grammarDetail && <GrammarLexiconView detail={grammarDetail} />}
           </>
         )}
 

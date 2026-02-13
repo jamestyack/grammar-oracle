@@ -104,7 +104,41 @@ export interface GrammarStats {
   pos_tags: string[];
 }
 
+export interface GrammarRule {
+  number: number;
+  lhs: string;
+  rhs: string[];
+  comment: string;
+}
+
+export interface LexiconEntry {
+  word: string;
+  tag: string;
+  translation: string;
+}
+
+export interface GrammarDetail {
+  language: string;
+  grammar_rules: GrammarRule[];
+  lexicon_entries: LexiconEntry[];
+  pos_tags: string[];
+}
+
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+
+export async function fetchGrammarDetail(
+  language: string = "spanish"
+): Promise<GrammarDetail> {
+  const response = await fetch(
+    `${API_BASE}/grammar-detail?language=${encodeURIComponent(language)}`
+  );
+
+  if (!response.ok) {
+    throw new Error(`API error: ${response.status}`);
+  }
+
+  return response.json();
+}
 
 export async function fetchGrammarStats(
   language: string = "spanish"

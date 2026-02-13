@@ -4,11 +4,11 @@ load_dotenv()
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
-from .models import ValidateRequest, ParseResult, VerifyLoopRequest, VerifyLoopResponse, XRayRequest, XRayResponse, GrammarStats
+from .models import ValidateRequest, ParseResult, VerifyLoopRequest, VerifyLoopResponse, XRayRequest, XRayResponse, GrammarStats, GrammarDetail
 from .parser_client import parse_sentence
 from .verifier_loop import run_verify_loop
 from .xray import run_xray
-from .grammar_stats import get_grammar_stats
+from .grammar_stats import get_grammar_stats, get_grammar_detail
 
 app = FastAPI(
     title="Grammar Oracle API",
@@ -57,6 +57,14 @@ def verify_loop(request: VerifyLoopRequest):
 def stats(language: str = "spanish"):
     try:
         return get_grammar_stats(language)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/grammar-detail", response_model=GrammarDetail)
+def grammar_detail(language: str = "spanish"):
+    try:
+        return get_grammar_detail(language)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 

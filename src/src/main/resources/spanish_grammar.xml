@@ -46,11 +46,11 @@
         <rhs>VP</rhs>
     </rule>
 
-    <!-- Existential: existential verb + NP (hay un perro) -->
+    <!-- Existential: existential verb + NP_EX (hay un perro, hay perro) -->
     <rule number="4">
         <lhs>CLAUSE</lhs>
         <rhs>V_EX</rhs>
-        <rhs>NP</rhs>
+        <rhs>NP_EX</rhs>
     </rule>
 
     <!-- Transitive: NP + verb + NP (el hombre come la manzana) -->
@@ -149,11 +149,11 @@
         <rhs>PP</rhs>
     </rule>
 
-    <!-- Existential + PP: V_EX + NP + PP (hay un gato en la casa) -->
+    <!-- Existential + PP: V_EX + NP_EX + PP (hay un gato en la casa) -->
     <rule number="46">
         <lhs>CLAUSE</lhs>
         <rhs>V_EX</rhs>
-        <rhs>NP</rhs>
+        <rhs>NP_EX</rhs>
         <rhs>PP</rhs>
     </rule>
 
@@ -203,13 +203,7 @@
         <rhs>BASE_NP</rhs>
     </rule>
 
-    <!-- === Base noun phrase patterns (non-recursive) === -->
-
-    <!-- BASE_NP: bare noun / proper name (Carlos, María) -->
-    <rule number="17">
-        <lhs>BASE_NP</lhs>
-        <rhs>N</rhs>
-    </rule>
+    <!-- === Base noun phrase patterns (non-recursive, require DET) === -->
 
     <!-- BASE_NP: determiner + noun (el perro) -->
     <rule number="10">
@@ -258,6 +252,35 @@
         <rhs>N</rhs>
         <rhs>A</rhs>
         <rhs>A</rhs>
+    </rule>
+
+    <!-- === Existential noun phrase (allows bare nouns after "hay") === -->
+
+    <!-- NP_EX: standard determiner NP (hay un perro, hay la casa) -->
+    <rule number="70">
+        <lhs>NP_EX</lhs>
+        <rhs>BASE_NP</rhs>
+    </rule>
+
+    <!-- NP_EX: bare noun (hay perro, hay gato) -->
+    <rule number="71">
+        <lhs>NP_EX</lhs>
+        <rhs>N</rhs>
+    </rule>
+
+    <!-- NP_EX: bare noun + adjective (hay perro grande) -->
+    <rule number="72">
+        <lhs>NP_EX</lhs>
+        <rhs>N</rhs>
+        <rhs>A</rhs>
+    </rule>
+
+    <!-- NP_EX: compound bare nouns (hay perro y gato) -->
+    <rule number="73">
+        <lhs>NP_EX</lhs>
+        <rhs>N</rhs>
+        <rhs>CONJ</rhs>
+        <rhs>N</rhs>
     </rule>
 
     <!-- === Verb phrase patterns === -->

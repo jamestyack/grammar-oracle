@@ -235,13 +235,17 @@ curl -X POST http://localhost:8000/xray \
 
 ## Project Status
 
-**Current Phase**: Phase 4 - Grammar X-Ray + Parser Metrics
+**Current Phase**: Phase 5 — Grammar Hardening
 
-- ✅ **Phase 1**: Java CFG parser with JSON output + FastAPI backend (19 rules, ~990 lexicon entries)
+- ✅ **Phase 1**: Java CFG parser with JSON output + FastAPI backend
 - ✅ **Phase 2**: Next.js frontend with interactive visualization (token spans, parse trees, rule traces, failure diagnostics)
 - ✅ **Phase 3**: LLM verifier loop — generate → validate → constraint feedback → retry
-- ✅ **Phase 4**: Grammar X-Ray — unconstrained LLM generation + per-sentence CFG analysis, parser performance metrics with plain-English interpretation, LLM prompt inspector
-- 📋 **Next**: Grammar Packs with CI/CD, additional languages
+- ✅ **Phase 4**: Grammar X-Ray, parser performance metrics, Grammar & Lexicon viewer
+- ✅ **Phase 5**: Grammar hardening — position-aware NP types (`NP_EX` for existential frames), bare noun object rejection
+- 📋 **Phase 6** (next): Verifier loop experiment harness — reproducible metrics (pass@1, pass@k, failure histograms)
+- 📋 **Phase 7**: Minimal morphology layer — plural handling, gender/number agreement, `PROPN` tag
+- 📋 **Phase 8**: Earley parser + packed parse forest — scalability and ambiguity representation
+- 📋 **Phase 9**: Grammar Pack CI/CD — versioned, testable grammar artifacts
 
 See [IMPLEMENTATION.md](IMPLEMENTATION.md) for detailed roadmap.
 
@@ -277,7 +281,10 @@ See [IMPLEMENTATION.md](IMPLEMENTATION.md) for detailed roadmap.
 
 ### Known Issues
 
-- **Bare noun objects accepted**: The grammar rule `BASE_NP -> N` allows noun phrases without determiners (needed for existential constructions like "hay perro"), but this also means sentences like "el niño lee libro" are incorrectly accepted — in standard Spanish, direct objects typically require a determiner ("el niño lee **un** libro"). A future fix would split NP rules by syntactic position (subject vs object) to enforce determiner requirements where appropriate.
+- **Bare proper names not supported**: After the Phase 5 NP fix, bare proper names like "Carlos corre" no longer parse because all NP positions require a determiner. A future `PROPN` terminal tag (Phase 7) will restore proper name support with explicit tagging.
+- **No morphological analysis**: Words must be in the lexicon exactly as written. "perros" (plural) requires a separate entry from "perro" (singular). Phase 7 will add basic inflection handling.
+- **BFS parser doesn't scale**: Exhaustive breadth-first search is exponential. Works only because the grammar is small (~41 rules). Phase 8 will replace with Earley parsing.
+- **No gender/number agreement**: "el perra" or "la perro" are accepted if both words are in the lexicon. Phase 7 will add post-parse agreement checking.
 
 ## Documentation
 

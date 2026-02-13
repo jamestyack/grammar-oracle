@@ -123,3 +123,23 @@ class GrammarStats(BaseModel):
     grammar_rules: int
     lexicon_words: int
     pos_tags: List[str]
+
+
+class GrammarRule(BaseModel):
+    number: int
+    lhs: str
+    rhs: List[str]
+    comment: str = ""
+
+
+class LexiconEntry(BaseModel):
+    word: str
+    tag: str
+    translation: str = ""
+
+
+class GrammarDetail(BaseModel):
+    language: str
+    grammar_rules: List[GrammarRule]
+    lexicon_entries: List[LexiconEntry]
+    pos_tags: List[str]
